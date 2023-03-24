@@ -1,6 +1,6 @@
 import React from 'react';
 import './button.css';
-
+import { useTheme } from '@mui/material/styles';
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
@@ -37,13 +37,16 @@ export const Button = ({
   const mode = primary
     ? 'storybook-button--primary'
     : 'storybook-button--secondary';
+
+  const theme = useTheme();
+
   return (
     <button
       type='button'
       className={['storybook-button', `storybook-button--${size}`, mode].join(
         ' '
       )}
-      style={{ backgroundColor }}
+      style={{ backgroundColor, color: theme.palette.warning.main }}
       {...props}
     >
       {label}

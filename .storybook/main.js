@@ -10,7 +10,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook-addon-outline"
+    "@storybook/addon-outline"
   ],
   "framework": "@storybook/react",
   "core": {
