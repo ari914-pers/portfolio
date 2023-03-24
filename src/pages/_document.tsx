@@ -8,8 +8,8 @@ import Document, {
   DocumentInitialProps,
 } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
-import createEmotionCache from '@/config/createEmotionCache';
-import theme from '@/config/theme';
+import createEmotionCache from '@/config/styles/createEmotionCache';
+import theme from '@/config/styles/theme';
 
 export default class MyDocument extends Document {
   render(): JSX.Element {

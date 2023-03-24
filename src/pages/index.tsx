@@ -3,10 +3,13 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
+import { useTheme } from '@mui/material/styles';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const theme = useTheme();
+
   return (
     <>
       <Head>
@@ -17,6 +20,14 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
+          <p
+            style={{
+              color: theme.palette.primary.main,
+              background: theme.palette.secondary.main,
+            }}
+          >
+            {theme.palette.primary.main}
+          </p>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.tsx</code>
