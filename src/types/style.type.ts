@@ -51,4 +51,6 @@ export type PaddingKey =
   | 'md-lg'
   | 'md-xl'
   | 'lg-lg'
+  | 'lg-xl'
+  | 'xl-xl'
   | 'md-0';
