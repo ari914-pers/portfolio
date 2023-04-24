@@ -1464,6 +1464,16 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.36.0.tgz#9837f768c03a1e4a30bd304a64fb8844f0e72efe"
   integrity sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==
 
+"@fontsource/kaisei-opti@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/kaisei-opti/-/kaisei-opti-4.5.12.tgz#c33bb9d5b26e7c922bf6a3663dc1ca287b508f72"
+  integrity sha512-vUKAY3UWlIVlSCwXA9SEUYSJVbpJUSJZW3aiZ8mzADAx9RX5TqNIaTCV/RKIjFSsFNOM484H3efYZMuGntdK2A==
+
+"@fontsource/sawarabi-gothic@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/sawarabi-gothic/-/sawarabi-gothic-4.5.9.tgz#27e9a977d85504a84aaecfc091f3c2385b2d3ba7"
+  integrity sha512-LsXeDwLnaZ1b8O/GmX2Vlb52n70k/qE0kI5aCc7d9lTCCuV1MrBOnJIsnB8DOHsdkdJIogIjcZvBrhLEc6KOFA==
+
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
