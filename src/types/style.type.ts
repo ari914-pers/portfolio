@@ -32,3 +32,23 @@ export type FontSizeKey =
 export type TextTransform = 'uppercase' | 'none';
 
 export type TextDecoration = 'underline' | 'none';
+
+export type Dimension = 4 | 8 | 16 | 32 | 64 | 0;
+
+export type DimensionKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
+
+export type PaddingKey =
+  | 'xs-xs'
+  | 'xs-sm'
+  | 'xs-md'
+  | 'xs-lg'
+  | 'xs-xl'
+  | 'sm-sm'
+  | 'sm-md'
+  | 'sm-lg'
+  | 'sm-xl'
+  | 'md-md'
+  | 'md-lg'
+  | 'md-xl'
+  | 'lg-lg'
+  | 'md-0';
