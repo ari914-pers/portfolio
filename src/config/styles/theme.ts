@@ -96,6 +96,13 @@ const theme = createTheme({
       lineHeight: LineHeights.heading,
       letterSpacing: letterSpacings.decreased,
     },
+    body1: {
+      fontFamily: fontFamilies['Sawarabi Gothic'],
+      fontSize: fontSizes.body,
+      fontWeight: fontWeights.medium,
+      lineHeight: LineHeights.body,
+      letterSpacing: letterSpacings.default,
+    },
     poster: {
       fontFamily: fontFamilies['Kaisei Opti'],
       fontSize: fontSizes.h1,

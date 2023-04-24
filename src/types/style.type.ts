@@ -16,7 +16,15 @@ export type LetterSpacing = '-5%' | '0' | '120%';
 
 export type LetterSpacingKey = 'default' | 'decreased' | 'increased';
 
-export type FontSize = 16 | 48.329 | 39.063 | 31.25 | 25 | 20 | 13.6 | 10.4;
+export type FontSize =
+  | '16px'
+  | '48.329px'
+  | '39.063px'
+  | '31.25px'
+  | '25px'
+  | '20px'
+  | '13.6px'
+  | '10.4px';
 
 export type FontSizeKey =
   | 'body'

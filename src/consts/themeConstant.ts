@@ -61,15 +61,15 @@ export const letterSpacings: Record<LetterSpacingKey, LetterSpacing> = {
 };
 
 export const fontSizes: Record<FontSizeKey, FontSize> = {
-  body: 16,
-  h1: 48.329,
-  h2: 39.063,
-  h3: 31.25,
-  h4: 25,
-  h5: 20,
-  h6: 16,
-  sm: 13.6,
-  xs: 10.4,
+  body: '16px',
+  h1: '48.329px',
+  h2: '39.063px',
+  h3: '31.25px',
+  h4: '25px',
+  h5: '20px',
+  h6: '20px',
+  sm: '13.6px',
+  xs: '10.4px',
 };
 
 export const textTransforms: Record<TextTransform, TextTransform> = {
