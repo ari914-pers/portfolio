@@ -4,10 +4,18 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { useTheme } from '@mui/material/styles';
+import { ILanguageAbilityFields } from '../../@types/generated/contentful';
+import { getEntry } from '@/utils/cmsUtils';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home({
+  timestamp,
+  result,
+}: {
+  timestamp: string;
+  result: ILanguageAbilityFields | void;
+}) {
   const theme = useTheme();
 
   return (
@@ -28,6 +36,9 @@ export default function Home() {
           >
             {theme.palette.primary.main}
           </p>
+          <p>built at {timestamp}</p>
+          <p>取得した {result?.name}</p>
+          <p>data type {typeof result}</p>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.tsx</code>
@@ -133,3 +144,20 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const result = await getEntry<ILanguageAbilityFields>(
+    '1kk318kFxoroEOpeHByTp9'
+  );
+
+  const timestamp = new Date().toLocaleString();
+  console.log('building... timestamp: ', timestamp);
+  console.log('env var !!!: ', process.env.CMS_SPACE_ID);
+  console.log('env: ', process.env.NODE_ENV);
+  console.log(result);
+  console.log('data-type!', typeof result);
+
+  return {
+    props: { timestamp, result },
+  };
+};
