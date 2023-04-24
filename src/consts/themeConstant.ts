@@ -10,6 +10,9 @@ import {
   LineHeightKey,
   TextDecoration,
   TextTransform,
+  Dimension,
+  DimensionKey,
+  PaddingKey,
 } from '@/types/style.type';
 
 export const themeValues = {
@@ -77,4 +80,32 @@ export const textTransforms: Record<TextTransform, TextTransform> = {
 export const textDecorations: Record<TextDecoration, TextDecoration> = {
   underline: 'underline',
   none: 'none',
+};
+
+export const Dimensions: Record<DimensionKey, Dimension> = {
+  xs: 4,
+  sm: 8,
+  md: 16,
+  lg: 32,
+  xl: 64,
+  zero: 0,
+};
+
+export const Paddings: Record<PaddingKey, [Dimension, Dimension]> = {
+  'xs-xs': [Dimensions.xs, Dimensions.xs],
+  'xs-sm': [Dimensions.xs, Dimensions.sm],
+  'xs-md': [Dimensions.xs, Dimensions.md],
+  'xs-lg': [Dimensions.xs, Dimensions.lg],
+  'xs-xl': [Dimensions.xs, Dimensions.xl],
+  'sm-sm': [Dimensions.sm, Dimensions.sm],
+  'sm-md': [Dimensions.sm, Dimensions.md],
+  'sm-lg': [Dimensions.sm, Dimensions.lg],
+  'sm-xl': [Dimensions.sm, Dimensions.xl],
+  'md-md': [Dimensions.md, Dimensions.md],
+  'md-lg': [Dimensions.md, Dimensions.lg],
+  'md-xl': [Dimensions.md, Dimensions.xl],
+  'lg-lg': [Dimensions.lg, Dimensions.lg],
+  'lg-xl': [Dimensions.lg, Dimensions.xl],
+  'xl-xl': [Dimensions.xl, Dimensions.xl],
+  'md-0': [Dimensions.md, Dimensions.zero],
 };
