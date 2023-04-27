@@ -12,7 +12,7 @@ import {
   TextTransform,
   Dimension,
   DimensionKey,
-  PaddingKey,
+  SpacingKey,
 } from '@/types/style.type';
 
 export const themeValues = {
@@ -91,7 +91,7 @@ export const Dimensions: Record<DimensionKey, Dimension> = {
   zero: 0,
 };
 
-export const Paddings: Record<PaddingKey, [Dimension, Dimension]> = {
+export const Spacings: Record<SpacingKey, [Dimension, Dimension]> = {
   'xs-xs': [Dimensions.xs, Dimensions.xs],
   'xs-sm': [Dimensions.xs, Dimensions.sm],
   'xs-md': [Dimensions.xs, Dimensions.md],
