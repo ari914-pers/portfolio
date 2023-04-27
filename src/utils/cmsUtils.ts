@@ -1,8 +1,8 @@
 import cmsClient from '@/config/cms/cmsClient';
-import { CONTENT_TYPE } from '../../@types/generated/contentful';
 import { Entry } from 'contentful';
 import { map } from 'lodash';
 import { ICmsError, processFunc, processFuncArgs } from '@/types/cms.type';
+import { CONTENT_TYPE } from '../../@types/generated/contentful';
 
 export const getEntry = async <T, U = unknown>(
   entryID: string,
@@ -11,13 +11,11 @@ export const getEntry = async <T, U = unknown>(
 ) => {
   const result = await cmsClient
     .getEntry<T>(entryID)
-    .then((entry) => {
-      return processFunc
+    .then((entry) => (processFunc
         ? processFuncArgs
           ? processFunc(entry?.fields, ...processFuncArgs)
           : processFunc(entry?.fields)
-        : entry?.fields;
-    })
+        : entry?.fields))
     .catch((e: ICmsError) => {
       // TODO 例外処理を書く・error boundary
       console.error(e);
