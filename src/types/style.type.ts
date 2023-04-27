@@ -45,7 +45,7 @@ export type Dimension = 4 | 8 | 16 | 32 | 64 | 0;
 
 export type DimensionKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
 
-export type PaddingKey =
+export type SpacingKey =
   | 'xs-xs'
   | 'xs-sm'
   | 'xs-md'
@@ -62,3 +62,44 @@ export type PaddingKey =
   | 'lg-xl'
   | 'xl-xl'
   | 'md-0';
+
+export type BorderType = 'solid' | 'none';
+
+export type Overflow = 'hidden' | 'visible';
+
+export type Display = 'block' | 'none';
+
+export type DimensionUnit = 'px' | '%' | 'rem';
+
+export type SizingCssPropertyKey =
+  | 'width'
+  | 'height'
+  | 'minWidth'
+  | 'minHeight'
+  | 'maxWidth'
+  | 'maxHeight';
+
+export type SpacingType = 'margin' | 'padding';
+
+export type SpacingMuiPropsKey = 'm' | 'mt' | 'ml' | 'mb' | 'mr' | 'p';
+
+export type TwoSidesSpacingMuiPropsKey = 'm' | 'p';
+
+export type OneSideSpacingMuiPropsKey = Exclude<
+  SpacingMuiPropsKey,
+  TwoSidesSpacingMuiPropsKey
+>;
+
+export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+export type JustifyContent =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-around'
+  | 'space-between';
+export type AlignItems =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'stretch'
+  | 'baseline';
