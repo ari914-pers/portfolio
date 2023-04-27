@@ -31,6 +31,13 @@ module.exports = {
         configFile: path.resolve(__dirname, '../tsconfig.json')
       })
     ]
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@/components": path.resolve(__dirname, "../src/components"),
+      "@/utils": path.resolve(__dirname, "../src/utils"),
+      "@/consts": path.resolve(__dirname, "../src/consts"),
+    };
+
     return config
   },
   features: {
