@@ -36,6 +36,7 @@ module.exports = {
       "@/components": path.resolve(__dirname, "../src/components"),
       "@/utils": path.resolve(__dirname, "../src/utils"),
       "@/consts": path.resolve(__dirname, "../src/consts"),
+      "@/config": path.resolve(__dirname, "../src/config"),
     };
 
     return config
