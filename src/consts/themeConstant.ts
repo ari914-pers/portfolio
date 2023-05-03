@@ -13,6 +13,8 @@ import {
   Dimension,
   DimensionKey,
   SpacingKey,
+  BorderRadiusKey,
+  BorderRadius,
 } from '@/types/style.type';
 
 export const themeValues = {
@@ -108,4 +110,8 @@ export const Spacings: Record<SpacingKey, [Dimension, Dimension]> = {
   'lg-xl': [Dimensions.lg, Dimensions.xl],
   'xl-xl': [Dimensions.xl, Dimensions.xl],
   'md-0': [Dimensions.md, Dimensions.zero],
+};
+
+export const BorderRadiuses: Record<BorderRadiusKey, BorderRadius> = {
+  xl: '16px',
 };

@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import {
+  BorderRadiuses,
   LineHeights,
   fontFamilies,
   fontSizes,
@@ -51,6 +52,9 @@ const theme = createTheme({
     },
   },
   spacing: themeValues.spacing,
+  shape: {
+    borderRadius: BorderRadiuses.xl,
+  },
   typography: {
     fontFamily: `${fontFamilies['Sawarabi Gothic']} ${fontFamilies['sans-serif']}`,
     h1: {
