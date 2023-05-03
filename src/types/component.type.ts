@@ -11,6 +11,7 @@ import {
   SpacingMuiPropsKey,
   TwoSidesSpacingMuiPropsKey,
 } from './style.type';
+import { SxProps } from '@mui/material';
 
 export type SizingCssProperty = Partial<
   Record<SizingCssPropertyKey, Parameters<typeof genSizingPropertyVal>>
@@ -36,3 +37,5 @@ export type WrapperCompProps = {
   oneSideSpacing?: SpacingCssProperty<OneSideSpacingMuiPropsKey>;
   twoSidesSpacing?: SpacingCssProperty<TwoSidesSpacingMuiPropsKey>;
 };
+
+export type objSxProps<T extends string> = Record<T, SxProps>;
