@@ -103,3 +103,6 @@ export type AlignItems =
   | 'flex-end'
   | 'stretch'
   | 'baseline';
+
+export type BorderRadiusKey = 'xl';
+export type BorderRadius = '16px';

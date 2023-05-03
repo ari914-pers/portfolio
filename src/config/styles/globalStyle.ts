@@ -12,8 +12,20 @@ export const globalStyle: GlobalStylesProps['styles'] = {
     backgroundColor: themeValues.palette.white,
     fontFamily: `'${fontFamilies['Sawarabi Gothic']}', '${fontFamilies['sans-serif']}'`,
     fontWeight: fontWeights.medium,
+    boxSizing: 'border-box',
   },
   p: {
     lineHeight: LineHeights.body,
+  },
+  a: {
+    textDecoration: 'none',
+    '&:active': {
+      textDecoration: 'none',
+      color: themeValues.palette.black,
+    },
+    '&:visited': {
+      textDecoration: 'none',
+      color: themeValues.palette.black,
+    },
   },
 };
