@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import { Stack as MUIStack } from '@mui/material';
 import { WrapperCompProps } from '@/types/component.type';
 import {
@@ -15,7 +15,6 @@ import {
 } from '@/types/style.type';
 
 type StackProps = {
-  children: ReactNode;
   designProps: WrapperCompProps;
   divider?: ReactNode;
   direction?: FlexDirection;
@@ -25,7 +24,7 @@ type StackProps = {
 };
 
 // TODO storybookのstoriesを整備する
-const Stack: FC<StackProps> = ({
+const Stack: FC<PropsWithChildren<StackProps>> = ({
   direction,
   justifyContent,
   alignItems,
@@ -50,8 +49,8 @@ const Stack: FC<StackProps> = ({
         divider={divider}
         spacing={spacing && genOneSideSpacingCssProperty(spacing)}
         sx={{
-          color,
-          bgcolor: backgroundColor,
+          color: color ?? '',
+          bgcolor: backgroundColor ?? '',
           overflow,
           width: sizing?.width && genSizingPropertyVal(...sizing.width),
           height: sizing?.height && genSizingPropertyVal(...sizing.height),
