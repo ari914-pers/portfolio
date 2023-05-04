@@ -6,6 +6,9 @@ import styles from '@/styles/Home.module.css';
 import { useTheme } from '@mui/material/styles';
 import { ILanguageAbilityFields } from '../../@types/generated/contentful';
 import { getEntry } from '@/utils/cmsUtils';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { Typography } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,6 +20,7 @@ export default function Home({
   result: ILanguageAbilityFields | void;
 }) {
   const theme = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <>
@@ -61,7 +65,9 @@ export default function Home({
             </a>
           </div>
         </div>
-
+        <div>
+          <Typography variant='h2'>{t('common.title')}</Typography>
+        </div>
         <div className={styles.center}>
           <Image
             className={styles.logo}
@@ -145,7 +151,7 @@ export default function Home({
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }: { locale: string }) => {
   const result = await getEntry<ILanguageAbilityFields>(
     '1kk318kFxoroEOpeHByTp9'
   );
@@ -158,6 +164,10 @@ export const getStaticProps = async () => {
   console.log('data-type!', typeof result);
 
   return {
-    props: { timestamp, result },
+    props: {
+      timestamp,
+      result,
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
   };
 };
