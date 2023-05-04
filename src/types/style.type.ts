@@ -106,3 +106,5 @@ export type AlignItems =
 
 export type BorderRadiusKey = 'xl';
 export type BorderRadius = '16px';
+
+export type BoxShadowKey = 'default';
