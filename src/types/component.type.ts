@@ -12,6 +12,7 @@ import {
   TwoSidesSpacingMuiPropsKey,
 } from './style.type';
 import { SxProps } from '@mui/material';
+import { CSSProperties } from 'react';
 
 export type SizingCssProperty = Partial<
   Record<SizingCssPropertyKey, Parameters<typeof genSizingPropertyVal>>
@@ -36,6 +37,9 @@ export type WrapperCompProps = {
   sizing?: SizingCssProperty;
   oneSideSpacing?: SpacingCssProperty<OneSideSpacingMuiPropsKey>;
   twoSidesSpacing?: SpacingCssProperty<TwoSidesSpacingMuiPropsKey>;
+  objectFit?: CSSProperties['objectFit'];
+  objectPosition?: CSSProperties['objectPosition'];
+  position?: CSSProperties['position'];
 };
 
 export type objSxProps<T extends string> = Record<T, SxProps>;

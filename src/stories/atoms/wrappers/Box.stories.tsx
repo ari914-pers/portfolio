@@ -68,6 +68,7 @@ Small.args = {
     sizing: {
       width: [200, 'px'],
     },
+    objectFit: 'fill',
   },
   children: <button type='button'>momomomo</button>,
 };

@@ -1,16 +1,19 @@
-import React, { ComponentProps, FC } from 'react';
+import React, { ComponentProps, FC, PropsWithChildren } from 'react';
 import Button from '.';
 import { Typography } from '@mui/material';
 
 type LabeledButtonProps = {
   buttonProps: ComponentProps<typeof Button>;
-  label: string | number;
+  // children?: string | number;
 };
 
-const LabeledButton: FC<LabeledButtonProps> = ({ buttonProps, label }) => {
+const LabeledButton: FC<PropsWithChildren<LabeledButtonProps>> = ({
+  buttonProps,
+  children,
+}) => {
   return (
     <Button {...buttonProps}>
-      <Typography variant='spanRegular'>{label}</Typography>
+      <Typography variant='spanRegular'>{children}</Typography>
     </Button>
   );
 };

@@ -53,7 +53,7 @@ const theme = createTheme({
   },
   spacing: themeValues.spacing,
   shape: {
-    borderRadius: BorderRadiuses.xl,
+    // borderRadius: BorderRadiuses.xl,
   },
   typography: {
     fontFamily: `${fontFamilies['Sawarabi Gothic']} ${fontFamilies['sans-serif']}`,
