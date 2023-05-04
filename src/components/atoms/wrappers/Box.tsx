@@ -23,6 +23,9 @@ const Box: FC<PropsWithChildren<BoxProps>> = ({
     sizing,
     oneSideSpacing,
     twoSidesSpacing,
+    objectFit,
+    objectPosition,
+    position,
   },
 }) => {
   return (
@@ -66,6 +69,9 @@ const Box: FC<PropsWithChildren<BoxProps>> = ({
           (checkTypePassedToOneSideSpacingProperty(oneSideSpacing.mr)
             ? genSizingPropertyVal(...oneSideSpacing.mr)
             : genOneSideSpacingCssProperty(...oneSideSpacing.mr)),
+        objectFit,
+        objectPosition,
+        position,
       }}
     >
       {children}
