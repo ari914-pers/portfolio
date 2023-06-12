@@ -10,7 +10,7 @@ import {
   SizingCssPropertyKey,
   SpacingMuiPropsKey,
   TwoSidesSpacingMuiPropsKey,
-} from './style.type';
+} from '../style.type';
 import { SxProps } from '@mui/material';
 import { CSSProperties } from 'react';
 
