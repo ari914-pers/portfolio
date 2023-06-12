@@ -11,8 +11,8 @@ import {
 //shadow
 
 type BaseCardProps = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: ReactNode;
   btnAction: ReactNode;
 };
 

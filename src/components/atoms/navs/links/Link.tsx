@@ -1,4 +1,4 @@
-import { objSxProps } from '@/types/component.type';
+import { objSxProps } from '@/types/components/common.type';
 import { getSxPropsByVariants } from '@/utils/component';
 import { genBorderPropertyVal, genSizingPropertyVal } from '@/utils/style.util';
 import {
