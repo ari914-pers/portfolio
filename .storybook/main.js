@@ -37,11 +37,14 @@ module.exports = {
       "@/utils": path.resolve(__dirname, "../src/utils"),
       "@/consts": path.resolve(__dirname, "../src/consts"),
       "@/config": path.resolve(__dirname, "../src/config"),
+      "@/features": path.resolve(__dirname, "../src/features"),
+      'next-i18next': 'react-i18next',
     };
 
     return config
   },
   features: {
     previewMdx2: true,
-  }
+  },
+  staticDirs: ['../public'],
 }

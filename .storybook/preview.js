@@ -3,6 +3,7 @@ import theme from '../src/config/styles/theme';
 import { addDecorator } from '@storybook/react';
 import GlobalStyleProvider from '../src/config/styles/GlobalStyleProvider';
 import 'modern-css-reset/dist/reset.min.css';
+import i18n from './i18next.js';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

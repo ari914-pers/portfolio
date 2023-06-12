@@ -1,0 +1,12 @@
+{
+    "home": {
+        "profile": {
+            "handle_name": "ハンドルネーム",
+            "full_name": "名前",
+            "mail_address": "メールアドレス",
+            "born_at": "生年月日",
+            "gender": "性別",
+            "residence": "住まい"
+        }
+    }
+}
