@@ -61,7 +61,8 @@ export type SpacingKey =
   | 'lg-lg'
   | 'lg-xl'
   | 'xl-xl'
-  | 'md-0';
+  | 'md-0'
+  | '0-auto';
 
 export type BorderType = 'solid' | 'none';
 
@@ -108,3 +109,6 @@ export type BorderRadiusKey = 'xl';
 export type BorderRadius = '16px';
 
 export type BoxShadowKey = 'default';
+
+export type OpacityKey = 'thin';
+export type Opacities = 0.7;
