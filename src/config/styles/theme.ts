@@ -51,6 +51,7 @@ const theme = createTheme({
       default: themeValues.palette.white,
       paper: themeValues.palette.semantics.paper,
     },
+    divider: themeValues.palette.primary.light,
   },
   spacing: themeValues.spacing,
   shape: {
