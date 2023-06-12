@@ -33,7 +33,7 @@ const CollectionEntryRenderer: ProfileChildEntriesComp = ({
 
   return (
     <Container designProps={{}}>
-      <Divider light sx={{ m: genTwoSidesSpacingCssProperty('md-0') }} />
+      <Divider sx={{ m: genTwoSidesSpacingCssProperty('md-0') }} />
       <Renderer
         entries={contentFields}
         iteratee={([key, val]) => (
