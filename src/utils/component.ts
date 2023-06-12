@@ -1,4 +1,4 @@
-import { objSxProps } from '@/types/component.type';
+import { objSxProps } from '@/types/components/common.type';
 import { get } from 'lodash';
 
 export const getSxPropsByVariants = <T extends string>(
