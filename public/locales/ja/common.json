@@ -1,6 +1,9 @@
 {
     "common": {
-        "title": "タイトルi18nテスト"
+        "title": "タイトルi18nテスト",
+        "label": {
+            "btnDetail": "詳しく"
+        }
     },
     "ddd": "あおあおあ"
 }

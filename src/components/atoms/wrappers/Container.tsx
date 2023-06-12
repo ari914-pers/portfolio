@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { Container as MUIContainer } from '@mui/material';
-import { WrapperCompProps } from '@/types/component.type';
+import { WrapperCompProps } from '@/types/components/common.type';
 import {
   checkTypePassedToOneSideSpacingProperty,
   genOneSideSpacingCssProperty,

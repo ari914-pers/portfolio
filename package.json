@@ -8,11 +8,12 @@
     "start": "next start",
     "lint": "next lint --dir src",
     "format": "next lint --fix --dir src",
-    "storybook": "start-storybook -p 6006",
+    "sb": "start-storybook -p 6006",
     "build-storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.16.4",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
@@ -29,6 +30,8 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "i18next": "^22.4.15",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.2.0",
     "lodash": "^4.17.21",
     "modern-css-reset": "^1.4.0",
     "next": "13.2.4",
@@ -68,6 +71,7 @@
     "eslint-plugin-storybook": "^0.6.11",
     "prettier": "^2.8.7",
     "storybook-addon-outline": "^1.4.2",
+    "storybook-react-i18next": "^2.0.1",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript-eslint": "^0.0.1-alpha.0"
   },

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Box from './Box';
-import { WrapperCompProps } from '@/types/component.type';
+import { WrapperCompProps } from '@/types/components/common.type';
 import { DimensionKey } from '@/types/style.type';
 import { Dimensions } from '@/consts/themeConstant';
 import Image from 'next/image';

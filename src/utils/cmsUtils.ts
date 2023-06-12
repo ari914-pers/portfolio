@@ -1,21 +1,29 @@
 import cmsClient from '@/config/cms/cmsClient';
-import { Entry } from 'contentful';
-import { map } from 'lodash';
-import { ICmsError, processFunc, processFuncArgs } from '@/types/cms.type';
+import { Asset, Entry } from 'contentful';
+import { isUndefined, map } from 'lodash';
+import {
+  EntryField,
+  ICmsError,
+  processFunc,
+  processFuncArgs,
+} from '@/types/cms.type';
 import { CONTENT_TYPE } from '../../@types/generated/contentful';
+import { AssetKeys } from '@/consts/cms';
 
-export const getEntry = async <T, U = unknown>(
+export const getEntry = async <T extends EntryField, U = unknown>(
   entryID: string,
   processFunc?: processFunc<T, U>,
   processFuncArgs?: processFuncArgs<U>
 ) => {
   const result = await cmsClient
     .getEntry<T>(entryID)
-    .then((entry) => (processFunc
+    .then((entry) =>
+      processFunc
         ? processFuncArgs
           ? processFunc(entry?.fields, ...processFuncArgs)
           : processFunc(entry?.fields)
-        : entry?.fields))
+        : entry?.fields
+    )
     .catch((e: ICmsError) => {
       // TODO 例外処理を書く・error boundary
       console.error(e);
@@ -25,7 +33,7 @@ export const getEntry = async <T, U = unknown>(
 };
 
 export const getEntries = async <
-  T,
+  T extends EntryField,
   U extends Record<string | symbol, string | number>,
   V = unknown
 >(
@@ -54,4 +62,11 @@ export const getEntries = async <
     });
 
   return results;
+};
+
+export const isAsset = (someField: object | undefined): someField is Asset => {
+  if (isUndefined(someField)) {
+    return false;
+  }
+  return 'fields' in someField && 'file' in (someField.fields as object);
 };

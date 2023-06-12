@@ -16,6 +16,8 @@ import {
   BorderRadiusKey,
   BorderRadius,
   BoxShadowKey,
+  Opacities as OpacityVal,
+  OpacityKey,
 } from '@/types/style.type';
 
 export const themeValues = {
@@ -119,4 +121,8 @@ export const BorderRadiuses: Record<BorderRadiusKey, BorderRadius> = {
 
 export const BoxShadows: Record<BoxShadowKey, string> = {
   default: `5px 5px 5px 3px ${themeValues.palette.primary.light}, 4px 4px 5px 6px ${themeValues.palette.primary.light}`,
+};
+
+export const Opacities: Record<OpacityKey, OpacityVal> = {
+  thin: 0.7,
 };

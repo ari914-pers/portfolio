@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { Box as MUIBox } from '@mui/material';
-import { WrapperCompProps } from '@/types/component.type';
+import { WrapperCompProps } from '@/types/components/common.type';
 import {
   checkTypePassedToOneSideSpacingProperty,
   genOneSideSpacingCssProperty,

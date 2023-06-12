@@ -1,5 +1,5 @@
 import { Dimensions, Spacings } from '@/consts/themeConstant';
-import { SpacingCssProperty, WrapperCompProps } from '@/types/component.type';
+import { SpacingCssProperty, WrapperCompProps } from '@/types/components/common.type';
 import {
   BorderType,
   DimensionKey,
@@ -24,6 +24,7 @@ export const genBorderPropertyVal = (
 ) => `${color} ${type} ${genSizingPropertyVal(...thickness)}`;
 
 export const genTwoSidesSpacingCssProperty = (spacing: SpacingKey) => {
+  if (spacing === '0-auto') return '0 auto';
   return `${Spacings[spacing][0]}px ${Spacings[spacing][1]}px`;
 };
 

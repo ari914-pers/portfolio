@@ -1,0 +1,29 @@
+{
+    "home": {
+        "profile": {
+            "common": {
+                "name": "名前"
+            },
+            "handle_name": "ハンドルネーム",
+            "full_name": "氏名",
+            "mail_address": "メールアドレス",
+            "born_at": "生年月日",
+            "gender": "性別",
+            "residence": "住まい",
+            "birthplace": "出身地",
+            "qualifications": {
+                "title": "資格",
+                "name": "資格名",
+                "score": "級・点数",
+                "obtained_at": "取得年・月",
+                "description": "メモ" 
+            },
+            "language_abilities": {
+                "title": "言語",
+                "name": "言語名",
+                "level": "レベル",
+                "comment": "コメント"
+            }
+        }
+    }
+}
