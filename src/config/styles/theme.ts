@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material/styles';
 import {
   BorderRadiuses,
   LineHeights,
+  Opacities,
   fontFamilies,
   fontSizes,
   fontWeights,
@@ -106,6 +107,14 @@ const theme = createTheme({
       fontWeight: fontWeights.medium,
       lineHeight: LineHeights.body,
       letterSpacing: letterSpacings.default,
+    },
+    body2: {
+      fontFamily: fontFamilies['Sawarabi Gothic'],
+      fontSize: fontSizes.xs,
+      fontWeight: fontWeights.regular,
+      lineHeight: LineHeights.body,
+      letterSpacing: letterSpacings.decreased,
+      opacity: Opacities.thin,
     },
     poster: {
       fontFamily: fontFamilies['Kaisei Opti'],
