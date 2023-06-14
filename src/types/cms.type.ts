@@ -7,6 +7,7 @@ import {
   ICharacteristicFields,
   ICompanyFields,
   IDevelopEnvFields,
+  IEntry,
   IExternalServiceLinkFields,
   IFaqFields,
   IFavoriteFields,
@@ -83,3 +84,5 @@ export type EntryField =
 export type EntryFieldSignature = {
   [field: string | symbol]: unknown;
 };
+
+export type EntityORFieldOrUndefined = EntryField | IEntry | undefined;

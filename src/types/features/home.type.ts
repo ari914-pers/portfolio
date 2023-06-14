@@ -3,6 +3,7 @@ import {
   ILanguageAbility,
   IQualification,
 } from '../../../@types/generated/contentful';
+import { EntityORFieldOrUndefined } from '../cms.type';
 
 export type ProfileChildEntry = IQualification | ILanguageAbility | undefined;
 
@@ -36,3 +37,11 @@ export type AnnotationContentKey = 'メモ' | 'コメント' | '説明';
 export type PROFILE_CONTENT_WITH_CHILDREN =
   | 'language_abilities'
   | 'qualifications';
+
+export type EntryRendererCompProps<T extends EntityORFieldOrUndefined> = {
+  entry: T;
+};
+
+export type EntryRendererComp<U extends EntityORFieldOrUndefined> = FC<
+  PropsWithChildren<EntryRendererCompProps<U>>
+>;

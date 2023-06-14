@@ -39,3 +39,7 @@ export const profileContentsWithChildren: PROFILE_CONTENT_WITH_CHILDREN[] = [
   'qualifications',
   'language_abilities',
 ];
+
+export const NO_SIZE_CONTENT_COLLECTION = 0;
+
+export const MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME = 3;

@@ -1,20 +1,15 @@
 import { BoxShadows } from '@/consts/themeConstant';
 import { Card, CardActions, CardContent, CardHeader } from '@mui/material';
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import {
   genOneSideSpacingCssProperty,
   genTwoSidesSpacingCssProperty,
 } from '@/utils/style.util';
+import { BaseCardProps } from '@/types/components/common.type';
 
 // item spacing: LG
 // padding
 //shadow
-
-type BaseCardProps = {
-  title?: string;
-  description?: ReactNode;
-  btnAction: ReactNode;
-};
 
 const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
   title,
@@ -40,8 +35,8 @@ const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
           }}
           subheader={description}
           subheaderTypographyProps={{
-            variant: 'body1',
-            sx: { color: (theme) => theme.palette.primary.main, opacity: 0.6 },
+            variant: 'body2',
+            // sx: { color: (theme) => theme.palette.primary.main, opacity: 0.6 },
           }}
         />
         <CardContent>{children}</CardContent>
