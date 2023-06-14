@@ -12,7 +12,8 @@ import {
   TwoSidesSpacingMuiPropsKey,
 } from '../style.type';
 import { SxProps } from '@mui/material';
-import { CSSProperties } from 'react';
+import { CSSProperties, ReactNode } from 'react';
+import { DefaultTFuncReturn } from 'i18next';
 
 export type SizingCssProperty = Partial<
   Record<SizingCssPropertyKey, Parameters<typeof genSizingPropertyVal>>
@@ -43,3 +44,9 @@ export type WrapperCompProps = {
 };
 
 export type objSxProps<T extends string> = Record<T, SxProps>;
+
+export type BaseCardProps = {
+  title?: DefaultTFuncReturn;
+  description?: ReactNode;
+  btnAction: ReactNode;
+};
