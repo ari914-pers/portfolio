@@ -3,6 +3,12 @@
         "title": "タイトルi18nテスト",
         "label": {
             "btnDetail": "詳しく"
+        },
+        "modal": {
+            "title": "/\n詳細" ,
+            "label": {
+                "closeBtn": "閉じる"
+            }
         }
     },
     "ddd": "あおあおあ"

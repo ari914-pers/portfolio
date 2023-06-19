@@ -18,31 +18,29 @@ const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
   btnAction,
 }) => {
   return (
-    <>
-      <Card
-        sx={{
-          bgcolor: (theme) => theme.palette.background.paper,
-          boxShadow: BoxShadows.default,
-          maxWidth: '550px',
-          p: genTwoSidesSpacingCssProperty('md-lg'),
+    <Card
+      sx={{
+        bgcolor: (theme) => theme.palette.background.paper,
+        boxShadow: BoxShadows.default,
+        maxWidth: '550px',
+        p: genTwoSidesSpacingCssProperty('md-lg'),
+      }}
+    >
+      <CardHeader
+        title={title}
+        titleTypographyProps={{
+          variant: 'h2',
+          sx: { mb: genOneSideSpacingCssProperty('sm') },
         }}
-      >
-        <CardHeader
-          title={title}
-          titleTypographyProps={{
-            variant: 'h2',
-            sx: { mb: genOneSideSpacingCssProperty('sm') },
-          }}
-          subheader={description}
-          subheaderTypographyProps={{
-            variant: 'body2',
-            // sx: { color: (theme) => theme.palette.primary.main, opacity: 0.6 },
-          }}
-        />
-        <CardContent>{children}</CardContent>
-        <CardActions sx={{ justifyContent: 'center' }}>{btnAction}</CardActions>
-      </Card>
-    </>
+        subheader={description}
+        subheaderTypographyProps={{
+          variant: 'body2',
+          // sx: { color: (theme) => theme.palette.primary.main, opacity: 0.6 },
+        }}
+      />
+      <CardContent>{children}</CardContent>
+      <CardActions sx={{ justifyContent: 'center' }}>{btnAction}</CardActions>
+    </Card>
   );
 };
 
