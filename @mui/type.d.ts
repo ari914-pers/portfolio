@@ -5,6 +5,7 @@ declare module '@mui/material/styles' {
     linkHeading: React.CSSProperties;
     spanRegular: React.CSSProperties;
     spanHeading: React.CSSProperties;
+    linkHeadingBroken: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
@@ -14,6 +15,7 @@ declare module '@mui/material/styles' {
     linkHeading?: React.CSSProperties;
     spanRegular?: React.CSSProperties;
     spanHeading?: React.CSSProperties;
+    linkHeadingBroken?: React.CSSProperties;
   }
 }
 
@@ -25,5 +27,6 @@ declare module '@mui/material/Typography' {
     linkHeading: true;
     spanRegular: true;
     spanHeading: true;
+    linkHeadingBroken: true;
   }
 }

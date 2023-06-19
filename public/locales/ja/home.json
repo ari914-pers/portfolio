@@ -28,6 +28,10 @@
         "faq": {
             "title": "よく聞かれる質問\n(FAQ)",
             "description": "テキストテキストテキストテキスト"
+        },
+        "personal_development": {
+            "title": "個人開発",
+            "description": "テキストテキストテキストテキスト"
         }
     }
 }

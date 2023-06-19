@@ -45,3 +45,5 @@ export type EntryRendererCompProps<T extends EntityORFieldOrUndefined> = {
 export type EntryRendererComp<U extends EntityORFieldOrUndefined> = FC<
   PropsWithChildren<EntryRendererCompProps<U>>
 >;
+
+export type PersonalDevelopmentEntryFields = 'thumbnail' | 'title' | 'summary';
