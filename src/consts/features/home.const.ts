@@ -2,6 +2,7 @@ import {
   AnnotationContentKey,
   LanguageAbilityContentKey,
   PROFILE_CONTENT_WITH_CHILDREN,
+  PersonalDevelopmentEntryFields,
   ProfileTextContentKey,
   QualificationContentKey,
 } from '@/types/features/home.type';
@@ -43,3 +44,9 @@ export const profileContentsWithChildren: PROFILE_CONTENT_WITH_CHILDREN[] = [
 export const NO_SIZE_CONTENT_COLLECTION = 0;
 
 export const MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME = 3;
+
+export const personalDevelopment: PersonalDevelopmentEntryFields[] = [
+  'thumbnail',
+  'title',
+  'summary',
+];

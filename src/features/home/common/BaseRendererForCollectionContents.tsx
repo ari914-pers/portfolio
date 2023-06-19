@@ -13,6 +13,8 @@ import LabeledButton from '@/components/atoms/inputs/buttons/LabeledButton';
 import Container from '@/components/atoms/wrappers/Container';
 import MarkAndMore from '@/components/atoms/display/MarkAndMore';
 import { EntryRendererComp } from '@/types/features/home.type';
+import Stack from '@/components/atoms/wrappers/Stack';
+import { DimensionKey } from '@/types/style.type';
 
 type BaseCardForCollectionContentsProps<
   T extends EntityORFieldOrUndefined,
@@ -28,6 +30,7 @@ type BaseCardForCollectionContentsProps<
     ? MouseEventHandler<HTMLButtonElement>
     : null;
   EntryRenderer: EntryRendererComp<T>;
+  itemSpacing?: DimensionKey;
 };
 
 const BaseRendererForCollectionContents = <
@@ -40,6 +43,7 @@ const BaseRendererForCollectionContents = <
   cardDescription,
   cardBtnActionClickHandler,
   EntryRenderer,
+  itemSpacing,
 }: BaseCardForCollectionContentsProps<U, isRenderedWithCard>) => {
   const { t } = useTranslation(['common']);
   const collectionSize = size(collection);
@@ -61,7 +65,7 @@ const BaseRendererForCollectionContents = <
         ) : null
       }
     >
-      <Container designProps={{}}>
+      <Stack designProps={{}} direction='column' spacing={itemSpacing}>
         <Renderer
           entries={slice(
             collection,
@@ -75,7 +79,7 @@ const BaseRendererForCollectionContents = <
             <MarkAndMore />
           </Container>
         )}
-      </Container>
+      </Stack>
     </BaseCard>
   ) : (
     <>
