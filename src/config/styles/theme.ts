@@ -154,6 +154,14 @@ const theme = createTheme({
       lineHeight: LineHeights.body,
       letterSpacing: letterSpacings.default,
     },
+    linkHeadingBroken: {
+      fontFamily: fontFamilies['Kaisei Opti'],
+      fontSize: fontSizes.body,
+      fontWeight: fontWeights.bold,
+      lineHeight: LineHeights.heading,
+      letterSpacing: letterSpacings.default,
+      color: themeValues.palette.semantics.link,
+    },
   },
   components: {
     MuiTypography: {
@@ -164,6 +172,7 @@ const theme = createTheme({
           linkHeading: 'span',
           spanRegular: 'span',
           spanHeading: 'span',
+          linkHeadingBroken: 'span',
         },
       },
     },
