@@ -4,7 +4,12 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.CMS_ASSET_CDN_DOMAIN],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.CMS_ASSET_CDN_DOMAIN,
+      },
+    ],
     disableStaticImages: true, // importした画像の型定義設定を無効にする https://zenn.dev/toono_f/articles/bd50ddd0a7bc76
   },
   i18n,
