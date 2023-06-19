@@ -1,5 +1,5 @@
 import { Dimensions, Spacings } from '@/consts/themeConstant';
-import { SpacingCssProperty, WrapperCompProps } from '@/types/components/common.type';
+import { SpacingCssProperty } from '@/types/components/common.type';
 import {
   BorderType,
   DimensionKey,
