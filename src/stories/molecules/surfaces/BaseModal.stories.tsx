@@ -3,6 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Paper } from '@mui/material';
 import BaseModal from '@/components/molecules/surfaces/BaseModal';
+import useModalControl from '@/hooks/useModalControl';
+import Container from '@/components/atoms/wrappers/Container';
+import Button from '@/components/atoms/inputs/buttons';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -15,9 +18,16 @@ export default {
 } as ComponentMeta<typeof BaseModal>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof BaseModal> = (args) => (
-  <BaseModal {...args} />
-);
+const Template: ComponentStory<typeof BaseModal> = (args) => {
+  const { isOpen, handleOpen, handleClose } = useModalControl();
+
+  return (
+    <Container designProps={{}}>
+      <Button onClick={handleOpen}>click here</Button>
+      <BaseModal {...args} isOpen={isOpen} handleClose={handleClose} />
+    </Container>
+  );
+};
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -31,7 +41,6 @@ Primary.args = {
       <p>ああああ</p>
     </Paper>
   ),
-  isOpen: true,
 };
 
 export const withClosed = Template.bind({});
@@ -46,9 +55,7 @@ withClosed.args = {
       <p>ああああ</p>
     </Paper>
   ),
-  isOpen: false,
 };
-
 
 // export const Secondary = Template.bind({});
 // Secondary.args = {
