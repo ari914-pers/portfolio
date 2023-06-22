@@ -13,6 +13,7 @@ import {
   FlexDirection,
   JustifyContent,
 } from '@/types/style.type';
+import { CSSProperties } from '@mui/material/styles/createMixins';
 
 type StackProps = {
   designProps: WrapperCompProps;
@@ -21,6 +22,7 @@ type StackProps = {
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;
   spacing?: DimensionKey;
+  flexWrap?: CSSProperties['flexWrap'];
 };
 
 // TODO storybookのstoriesを整備する
@@ -39,6 +41,7 @@ const Stack: FC<PropsWithChildren<StackProps>> = ({
     oneSideSpacing,
     twoSidesSpacing,
   },
+  flexWrap,
 }) => {
   return (
     <>
@@ -48,6 +51,7 @@ const Stack: FC<PropsWithChildren<StackProps>> = ({
         alignItems={alignItems}
         divider={divider}
         spacing={spacing && genOneSideSpacingCssProperty(spacing)}
+        flexWrap={flexWrap}
         sx={{
           color: color ?? '',
           bgcolor: backgroundColor ?? '',

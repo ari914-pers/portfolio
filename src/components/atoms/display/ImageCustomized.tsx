@@ -27,6 +27,9 @@ const ImageCustomized: FC<PropsWithChildren<ImageCustomizedProps>> = ({
           height,
         },
         position: 'relative',
+        twoSidesSpacing: {
+          m: ['0-auto'],
+        },
       }}
     >
       {imgAsset?.fields.file.url ? (
