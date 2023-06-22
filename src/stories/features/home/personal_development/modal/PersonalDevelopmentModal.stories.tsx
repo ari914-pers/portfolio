@@ -1,28 +1,24 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import PersonalDevelopmentView from '@/features/home/personal_development/PersonalDevelopmentView';
 import {
   IDevelopEnv,
   IPersonalDevelopmentFields,
-} from '../../../../../@types/generated/contentful';
+} from '../../../../../../@types/generated/contentful';
 import { Asset } from 'contentful';
+import PersonalDevelopmentModal from '@/features/home/personal_development/modal/PersonalDevelopmentModal';
+import { PersonalDevelopmentEntryContext } from '@/features/home/personal_development/entry/PersonalDevelopmentEntry';
+import useModalControl from '@/hooks/useModalControl';
+import { Button } from '@mui/material';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/PersonalDevelopment/PersonalDevelopmentView',
-  component: PersonalDevelopmentView,
+  title: 'Features/Home/PersonalDevelopment/Modal/PersonalDevelopmentModal',
+  component: PersonalDevelopmentModal,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   // variant: { control: 'select', options: ['text', 'outlined', 'contained'] },
   // },
-} as ComponentMeta<typeof PersonalDevelopmentView>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof PersonalDevelopmentView> = (args) => (
-  <PersonalDevelopmentView {...args} />
-);
-
-export const Normal = Template.bind({});
+} as ComponentMeta<typeof PersonalDevelopmentModal>;
 
 const dummyFields = {
   fields: {
@@ -111,23 +107,20 @@ const dummyEntry = {
   thought: dummyDoc,
 } as IPersonalDevelopmentFields;
 
-const dummyEntry1: IPersonalDevelopmentFields = {
-  ...dummyEntry,
-  title: '1番目',
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+const Template: ComponentStory<typeof PersonalDevelopmentModal> = (args) => {
+  const { isOpen, handleClose, handleOpen } = useModalControl();
+
+  return (
+    <PersonalDevelopmentEntryContext.Provider
+      value={{ isOpen, handleClose, entry: dummyEntry }}
+    >
+      <Button onClick={handleOpen}>Click</Button>
+      <PersonalDevelopmentModal />
+    </PersonalDevelopmentEntryContext.Provider>
+  );
 };
 
-const dummyEntry2: IPersonalDevelopmentFields = {
-  ...dummyEntry,
-  title: '2番目',
-};
+export const Normal = Template.bind({});
 
-const dummyEntry3: IPersonalDevelopmentFields = {
-  ...dummyEntry,
-  title: '3番目',
-};
-
-const contents = [dummyEntry1, dummyEntry2, dummyEntry3];
-
-Normal.args = {
-  personalDevelopment: contents as IPersonalDevelopmentFields[],
-};
+Normal.args = {};

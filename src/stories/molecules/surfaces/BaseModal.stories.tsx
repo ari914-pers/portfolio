@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Paper } from '@mui/material';
-import BaseModal from '@/components/molecules/surfaces/BaseModal';
+import BaseModal from '@/components/molecules/surfaces/modal/BaseModal';
 import useModalControl from '@/hooks/useModalControl';
 import Container from '@/components/atoms/wrappers/Container';
 import Button from '@/components/atoms/inputs/buttons';

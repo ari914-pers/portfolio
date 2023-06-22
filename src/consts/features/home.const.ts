@@ -3,6 +3,7 @@ import {
   LanguageAbilityContentKey,
   PROFILE_CONTENT_WITH_CHILDREN,
   PersonalDevelopmentEntryFields,
+  PersonalDevelopmentModalDevEnvEntry,
   ProfileTextContentKey,
   QualificationContentKey,
 } from '@/types/features/home.type';
@@ -50,3 +51,6 @@ export const personalDevelopment: PersonalDevelopmentEntryFields[] = [
   'title',
   'summary',
 ];
+
+export const personalDevelopmentModalDevEnvEntries: PersonalDevelopmentModalDevEnvEntry[] =
+  ['languages', 'frameworks', 'tools'];

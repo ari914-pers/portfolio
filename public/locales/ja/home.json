@@ -16,7 +16,7 @@
                 "name": "資格名",
                 "score": "級・点数",
                 "obtained_at": "取得年・月",
-                "description": "メモ" 
+                "description": "メモ"
             },
             "language_abilities": {
                 "title": "言語",
@@ -31,7 +31,25 @@
         },
         "personal_development": {
             "title": "個人開発",
-            "description": "テキストテキストテキストテキスト"
+            "description": "概要",
+            "modal": {
+                "title": "作成物",
+                "description": "概要",
+                "dev_duration": "開発期間",
+                "thought": "感想",
+                "tooltip_title": {
+                    "github": "Githubリポジトリへ移動",
+                    "zenn": "Zennの記事\n(開発の行程)\nへ移動",
+                    "cite": "サイトへ移動"
+                }
+            }
+        },
+        "development_environment": {
+            "title": "開発環境",
+            "languages": "言語",
+            "frameworks": "フレームワーク・ライブラリ",
+            "tools": "ツール",
+            "os": "アーキテクチャ"
         }
     }
 }

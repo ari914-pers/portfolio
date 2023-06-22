@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 
 type RendererProps<T> = {
   entries: T[];
-  iteratee: (entry: T) => ReactElement;
+  iteratee: (entry: T) => ReactElement | null;
 };
 
 const Renderer = <U,>({ iteratee, entries }: RendererProps<U>) => {
