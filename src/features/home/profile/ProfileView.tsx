@@ -17,7 +17,7 @@ import {
 } from '@/consts/features/home.const';
 import { toOrderGuaranteed } from '@/utils/cmsEntry.util';
 import Renderer from '@/components/atoms/display/Renderer';
-import StringEntry from './entry/StringEntry';
+import StringEntry from '../common/entry/StringEntry';
 import ServiceLinkEntry from './entry/ServiceLinkEntry';
 import CollectionEntry from './entry/collections/CollectionEntry';
 import CollectionEntryRenderer from './entry/collections/CollectionEntryRenderer';
