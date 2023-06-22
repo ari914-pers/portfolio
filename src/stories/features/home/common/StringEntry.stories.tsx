@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import StringEntry from '@/features/home/profile/entry/StringEntry';
+import StringEntry from '@/features/home/common/entry/StringEntry';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
