@@ -28,6 +28,16 @@ Primary.args = {
   ),
 };
 
+export const withToolTip = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withToolTip.args = {
+  size: 'md',
+  srcURL: new URL(
+    'https://images.ctfassets.net/3uttjuewzfml/3J8strFHPG3gZpadhR2MDT/5efbb38037acd4116b10fd1a81258c19/logo-only.svg'
+  ),
+  tooltipTitle: 'ツールチップタイトル',
+};
+
 // export const Secondary = Template.bind({});
 // Secondary.args = {
 // label: 'Button',

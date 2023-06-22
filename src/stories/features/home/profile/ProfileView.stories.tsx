@@ -8,6 +8,7 @@ import {
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
+  // title: 'Features/Home/Profile/ProfileView',
   title: 'Features/Home/Profile/ProfileView',
   component: ProfileView,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
