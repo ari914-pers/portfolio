@@ -43,6 +43,7 @@ module.exports = {
       "@/consts": path.resolve(__dirname, "../src/consts"),
       "@/config": path.resolve(__dirname, "../src/config"),
       "@/features": path.resolve(__dirname, "../src/features"),
+      "@/hooks": path.resolve(__dirname, "../src/hooks"),
       'next-i18next': 'react-i18next',
     };
 
