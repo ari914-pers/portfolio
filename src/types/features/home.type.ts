@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 import {
+  IDevelopEnvFields,
   ILanguageAbility,
   IQualification,
 } from '../../../@types/generated/contentful';
@@ -47,3 +48,8 @@ export type EntryRendererComp<U extends EntityORFieldOrUndefined> = FC<
 >;
 
 export type PersonalDevelopmentEntryFields = 'thumbnail' | 'title' | 'summary';
+
+export type PersonalDevelopmentModalDevEnvEntry = Extract<
+  keyof IDevelopEnvFields,
+  'languages' | 'tools' | 'os' | 'frameworks'
+>;
