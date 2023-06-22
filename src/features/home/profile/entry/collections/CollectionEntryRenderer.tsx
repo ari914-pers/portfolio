@@ -1,7 +1,7 @@
 import React from 'react';
 import { isUndefined, toString } from 'lodash';
 import Container from '@/components/atoms/wrappers/Container';
-import StringEntry from '../StringEntry';
+import StringEntry from '../../../common/entry/StringEntry';
 import { toOrderGuaranteed } from '@/utils/cmsEntry.util';
 import {
   LanguageAbilityContents,
