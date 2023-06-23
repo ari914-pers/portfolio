@@ -4,9 +4,10 @@ import { WrapperCompProps } from '@/types/components/common.type';
 import { DimensionKey } from '@/types/style.type';
 import { Dimensions } from '@/consts/themeConstant';
 import Image from 'next/image';
-import { isNull, isString, isUndefined } from 'lodash';
-import { Fade, Tooltip } from '@mui/material';
+import { isString } from 'lodash';
+import { Fade, Tooltip, Typography } from '@mui/material';
 import { INTERNAL_LINK_PATH_ASSET_IMAGE } from '@/types/app.type';
+import Stack from './Stack';
 
 type IconBoxProps = {
   objectFit?: WrapperCompProps['objectFit'];
@@ -15,6 +16,7 @@ type IconBoxProps = {
   size: DimensionKey;
   srcURL: URL | INTERNAL_LINK_PATH_ASSET_IMAGE;
   tooltipTitle?: null | ReactNode;
+  label?: string;
 };
 
 const IconBox: FC<IconBoxProps> = ({
@@ -24,8 +26,68 @@ const IconBox: FC<IconBoxProps> = ({
   overflow,
   srcURL,
   tooltipTitle,
+  label,
 }) => {
-  return isUndefined(tooltipTitle) || isNull(tooltipTitle) ? (
+  if (tooltipTitle) {
+    return label ? (
+      <Stack
+        designProps={{ display: 'inline-flex' }}
+        direction='column'
+        spacing='sm'
+        alignItems='center'
+      >
+        <Box
+          designProps={{
+            objectFit,
+            objectPosition,
+            overflow,
+            position: 'relative',
+            sizing: { width: [Dimensions[size]], height: [Dimensions[size]] },
+          }}
+        >
+          <Tooltip
+            title={tooltipTitle}
+            TransitionComponent={Fade}
+            TransitionProps={{ timeout: 500 }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={isString(srcURL) ? srcURL : srcURL.toString()}
+              alt='icon'
+            />
+          </Tooltip>
+        </Box>
+        <Tooltip
+          title={tooltipTitle}
+          TransitionComponent={Fade}
+          TransitionProps={{ timeout: 500 }}
+        >
+          <Typography variant='spanRegular'>{label}</Typography>
+        </Tooltip>
+      </Stack>
+    ) : (
+      <Box
+        designProps={{
+          objectFit,
+          objectPosition,
+          overflow,
+          position: 'relative',
+          sizing: { width: [Dimensions[size]], height: [Dimensions[size]] },
+        }}
+      >
+        <Tooltip
+          title={tooltipTitle}
+          TransitionComponent={Fade}
+          TransitionProps={{ timeout: 500 }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={isString(srcURL) ? srcURL : srcURL.toString()} alt='icon' />
+        </Tooltip>
+      </Box>
+    );
+  }
+
+  return !label ? (
     <Box
       designProps={{
         objectFit,
@@ -42,24 +104,31 @@ const IconBox: FC<IconBoxProps> = ({
       />
     </Box>
   ) : (
-    <Box
+    <Stack
       designProps={{
-        objectFit,
-        objectPosition,
-        overflow,
-        position: 'relative',
-        sizing: { width: [Dimensions[size]], height: [Dimensions[size]] },
+        display: 'inline-flex',
       }}
+      direction='column'
+      spacing='sm'
+      alignItems='center'
     >
-      <Tooltip
-        title={tooltipTitle}
-        TransitionComponent={Fade}
-        TransitionProps={{ timeout: 500 }}
+      <Box
+        designProps={{
+          objectFit,
+          objectPosition,
+          overflow,
+          position: 'relative',
+          sizing: { width: [Dimensions[size]], height: [Dimensions[size]] },
+        }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={isString(srcURL) ? srcURL : srcURL.toString()} alt='icon' />
-      </Tooltip>
-    </Box>
+        <Image
+          src={isString(srcURL) ? srcURL : srcURL.toString()}
+          alt='icons'
+          fill
+        />
+      </Box>
+      <Typography variant='spanRegular'>{label}</Typography>
+    </Stack>
   );
 };
 

@@ -40,6 +40,7 @@ const Stack: FC<PropsWithChildren<StackProps>> = ({
     sizing,
     oneSideSpacing,
     twoSidesSpacing,
+    display,
   },
   flexWrap,
 }) => {
@@ -56,6 +57,7 @@ const Stack: FC<PropsWithChildren<StackProps>> = ({
           color: color ?? '',
           bgcolor: backgroundColor ?? '',
           overflow,
+          display,
           width: sizing?.width && genSizingPropertyVal(...sizing.width),
           height: sizing?.height && genSizingPropertyVal(...sizing.height),
           maxWidth:
