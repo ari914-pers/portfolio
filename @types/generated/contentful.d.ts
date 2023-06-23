@@ -127,7 +127,7 @@ export interface ICategoryOccupation extends Entry<ICategoryOccupationFields> {
 
 export interface ICategorySkillFields {
   /** タイトル */
-  title?: '言語' | 'フレームワーク' | 'ライブラリ' | 'その他ツール' | undefined;
+  title?: '言語' | 'その他ツール' | 'ライブラリ・フレームワーク' | undefined;
 }
 
 export interface ICategorySkill extends Entry<ICategorySkillFields> {
@@ -722,6 +722,9 @@ export interface ISkillsetFields {
 
   /** スキルカテゴリ */
   category?: ICategorySkill | undefined;
+
+  /** 習熟度 */
+  proficiency_percentage?: number | undefined;
 }
 
 export interface ISkillset extends Entry<ISkillsetFields> {
