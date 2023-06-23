@@ -4,7 +4,7 @@ import StringEntry from '@/features/home/common/entry/StringEntry';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/Profile/entry/StringEntry',
+  title: 'Features/Home/common/StringEntry',
   component: StringEntry,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
@@ -30,4 +30,32 @@ WithCaptionText.args = {
   fieldName: 'メモ',
   fieldVal:
     'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+};
+
+export const withNotStringVal = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withNotStringVal.args = {
+  fieldName: '氏名',
+  fieldVal: 666,
+};
+
+export const withEmptyString = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withEmptyString.args = {
+  fieldName: '氏名',
+  fieldVal: '',
+};
+
+export const withUndefined = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withUndefined.args = {
+  fieldName: '氏名',
+  fieldVal: undefined,
+};
+
+export const withNull = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withNull.args = {
+  fieldName: '氏名',
+  fieldVal: null,
 };
