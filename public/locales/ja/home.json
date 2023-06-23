@@ -1,5 +1,8 @@
 {
     "home": {
+        "common": {
+            "name": "名前"
+        },
         "profile": {
             "common": {
                 "name": "名前"
@@ -50,6 +53,22 @@
             "frameworks": "フレームワーク・ライブラリ",
             "tools": "ツール",
             "os": "アーキテクチャ"
+        },
+        "skill_set": {
+            "title": "スキルセット",
+            "description": "テキストテキストテキストテキスト",
+            "name": "スキル名",
+            "memo": "メモ",
+            "period_work_experience": "実務経験",
+            "period_develop_experience": "開発経験",
+            "degree_interest": "興味の度合い",
+            "proficiency_percentage": "習熟度",
+            "category": {
+                "language": "言語",
+                "framework": "フレームワーク",
+                "library": "ライブラリ",
+                "tool": "その他ツール"
+            }
         }
     }
 }
