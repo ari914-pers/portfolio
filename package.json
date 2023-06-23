@@ -21,6 +21,7 @@
     "@fontsource/kaisei-opti": "^4.5.12",
     "@fontsource/sawarabi-gothic": "^4.5.9",
     "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.134",
     "@mui/material": "^5.11.14",
     "@types/node": "18.15.7",
     "@types/react": "18.0.28",
