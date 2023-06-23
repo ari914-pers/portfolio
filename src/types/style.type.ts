@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 export type FontFamily =
   | 'Sawarabi Gothic'
   | 'Kaisei Opti'
@@ -68,7 +70,7 @@ export type BorderType = 'solid' | 'none';
 
 export type Overflow = 'hidden' | 'visible';
 
-export type Display = 'block' | 'none';
+export type Display = CSSProperties['display'];
 
 export type DimensionUnit = 'px' | '%' | 'rem';
 
