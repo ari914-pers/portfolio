@@ -15,6 +15,9 @@ import MarkAndMore from '@/components/atoms/display/MarkAndMore';
 import { EntryRendererComp } from '@/types/features/home.type';
 import Stack from '@/components/atoms/wrappers/Stack';
 import { DimensionKey } from '@/types/style.type';
+import { genSizingPropertyVal } from '@/utils/style.util';
+import Image from 'next/image';
+import { DIR_PATH_TO_ASSET_IMAGE } from '@/consts/app.const';
 
 type BaseCardForCollectionContentsProps<
   T extends EntityORFieldOrUndefined,
@@ -26,9 +29,7 @@ type BaseCardForCollectionContentsProps<
   cardDescription?: isRenderedWithCard extends true
     ? BaseCardProps['description']
     : null;
-  cardBtnActionClickHandler?: isRenderedWithCard extends true
-    ? MouseEventHandler<HTMLButtonElement>
-    : null;
+  cardBtnActionClickHandler?: MouseEventHandler<HTMLButtonElement>;
   EntryRenderer: EntryRendererComp<T>;
   itemSpacing?: DimensionKey;
 };
@@ -49,7 +50,16 @@ const BaseRendererForCollectionContents = <
   const collectionSize = size(collection);
 
   if (collectionSize === NO_SIZE_CONTENT_COLLECTION || isUndefined(collection))
-    return null;
+    return (
+      <Stack designProps={{}} alignItems='center'>
+        <Image
+          src={`${DIR_PATH_TO_ASSET_IMAGE}/empty_data.jpg`}
+          width={200}
+          height={200}
+          alt='NO DATA'
+        />
+      </Stack>
+    );
 
   return isRenderedWithCard ? (
     <BaseCard
@@ -67,11 +77,14 @@ const BaseRendererForCollectionContents = <
     >
       <Stack designProps={{}} direction='column' spacing={itemSpacing}>
         <Renderer
-          entries={slice(
-            collection,
-            NO_SIZE_CONTENT_COLLECTION,
-            MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME
-          )}
+          entries={collection}
+          processEntries={(entries) =>
+            slice(
+              entries,
+              NO_SIZE_CONTENT_COLLECTION,
+              MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME
+            )
+          }
           iteratee={(entry) => <EntryRenderer entry={entry} />}
         />
         {collectionSize > MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME && (
@@ -84,17 +97,32 @@ const BaseRendererForCollectionContents = <
   ) : (
     <>
       <Renderer
-        entries={slice(
-          collection,
-          NO_SIZE_CONTENT_COLLECTION,
-          MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME
-        )}
+        entries={collection}
+        processEntries={(entries) =>
+          slice(
+            entries,
+            NO_SIZE_CONTENT_COLLECTION,
+            MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME
+          )
+        }
         iteratee={(entry) => <EntryRenderer entry={entry} />}
       />
       {collectionSize > MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME && (
-        <Container designProps={{}}>
+        <Stack designProps={{}} alignItems='center'>
           <MarkAndMore />
-        </Container>
+          {cardBtnActionClickHandler && (
+            <LabeledButton
+              buttonProps={{
+                onClick: cardBtnActionClickHandler,
+                MUIButtonProps: {
+                  sx: { width: genSizingPropertyVal(25, '%') },
+                },
+              }}
+            >
+              {t('common.label.btnDetail', { ns: 'common' })}
+            </LabeledButton>
+          )}
+        </Stack>
       )}
     </>
   );

@@ -48,5 +48,5 @@ export type objSxProps<T extends string> = Record<T, SxProps>;
 export type BaseCardProps = {
   title?: DefaultTFuncReturn;
   description?: ReactNode;
-  btnAction: ReactNode;
+  btnAction?: ReactNode;
 };

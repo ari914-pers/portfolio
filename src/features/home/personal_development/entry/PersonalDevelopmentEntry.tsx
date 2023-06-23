@@ -1,5 +1,5 @@
 import { EntryRendererCompProps } from '@/types/features/home.type';
-import React, { FC, PropsWithChildren, createContext } from 'react';
+import React, { Context, FC, PropsWithChildren, createContext } from 'react';
 import { IPersonalDevelopmentFields } from '../../../../../@types/generated/contentful';
 import Stack from '@/components/atoms/wrappers/Stack';
 import Link from '@/components/atoms/navs/links/Link';
@@ -11,15 +11,16 @@ import ImageCustomized from '@/components/atoms/display/ImageCustomized';
 import useModalControl from '@/hooks/useModalControl';
 import PersonalDevelopmentModal from '../modal/PersonalDevelopmentModal';
 
-export const PersonalDevelopmentEntryContext = createContext<
-  EntryRendererCompProps<IPersonalDevelopmentFields> &
-    Pick<ReturnType<typeof useModalControl>, 'isOpen' | 'handleClose'>
->({
-  entry: {},
-  isOpen: false,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  handleClose: () => {},
-});
+type ContextType = EntryRendererCompProps<IPersonalDevelopmentFields> &
+  Pick<ReturnType<typeof useModalControl>, 'isOpen' | 'handleClose'>;
+
+export const PersonalDevelopmentEntryContext: Context<ContextType> =
+  createContext<ContextType>({
+    entry: {},
+    isOpen: false,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    handleClose: () => {},
+  });
 
 const PersonalDevelopmentEntry: FC<
   PropsWithChildren<EntryRendererCompProps<IPersonalDevelopmentFields>>

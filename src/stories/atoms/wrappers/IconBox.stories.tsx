@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import IconBox from '@/components/atoms/wrappers/IconBox';
 import { Dimensions } from '@/consts/themeConstant';
 import { keys } from 'lodash';
+import { DIR_PATH_TO_ASSET_IMAGE } from '@/consts/app.const';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -28,9 +29,9 @@ Primary.args = {
   ),
 };
 
-export const withToolTip = Template.bind({});
+export const withToolTipWithoutLabel = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-withToolTip.args = {
+withToolTipWithoutLabel.args = {
   size: 'md',
   srcURL: new URL(
     'https://images.ctfassets.net/3uttjuewzfml/3J8strFHPG3gZpadhR2MDT/5efbb38037acd4116b10fd1a81258c19/logo-only.svg'
@@ -38,19 +39,30 @@ withToolTip.args = {
   tooltipTitle: 'ツールチップタイトル',
 };
 
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-// label: 'Button',
-// };
-//
-// export const Large = Template.bind({});
-// Large.args = {
-// size: 'large',
-// label: 'Button',
-// };
-//
-// export const Small = Template.bind({});
-// Small.args = {
-// size: 'small',
-// label: 'Button',
-// };
+export const withoutToolTipWitLabel = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withoutToolTipWitLabel.args = {
+  size: 'md',
+  srcURL: new URL(
+    'https://images.ctfassets.net/3uttjuewzfml/3J8strFHPG3gZpadhR2MDT/5efbb38037acd4116b10fd1a81258c19/logo-only.svg'
+  ),
+  label: 'JavaScript',
+};
+
+export const withToolTipWithLabel = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withToolTipWithLabel.args = {
+  size: 'md',
+  srcURL: new URL(
+    'https://images.ctfassets.net/3uttjuewzfml/3J8strFHPG3gZpadhR2MDT/5efbb38037acd4116b10fd1a81258c19/logo-only.svg'
+  ),
+  label: 'JavaScript',
+  tooltipTitle: 'ツールチップタイトル',
+};
+
+export const withFailSafeImg = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withFailSafeImg.args = {
+  size: 'md',
+  srcURL: `${DIR_PATH_TO_ASSET_IMAGE}/no_image.png`,
+};

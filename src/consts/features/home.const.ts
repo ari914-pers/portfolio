@@ -7,6 +7,10 @@ import {
   ProfileTextContentKey,
   QualificationContentKey,
 } from '@/types/features/home.type';
+import {
+  ICategorySkillFields,
+  ISkillsetFields,
+} from '../../../@types/generated/contentful';
 
 export const ProfileTextContents: ProfileTextContentKey[] = [
   'handle_name',
@@ -54,3 +58,19 @@ export const personalDevelopment: PersonalDevelopmentEntryFields[] = [
 
 export const personalDevelopmentModalDevEnvEntries: PersonalDevelopmentModalDevEnvEntry[] =
   ['languages', 'frameworks', 'tools'];
+
+export const categoriesSkillSet: Exclude<
+  ICategorySkillFields['title'],
+  undefined
+>[] = ['言語', 'ライブラリ・フレームワーク', 'その他ツール'];
+
+export const skillSetModalFields: Exclude<
+  keyof ISkillsetFields,
+  'img_icon' | 'memo' | 'category'
+>[] = [
+  'name',
+  'period_work_experience',
+  'period_develop_experience',
+  'degree_interest',
+  'proficiency_percentage',
+];
