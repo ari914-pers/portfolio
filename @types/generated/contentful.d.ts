@@ -579,7 +579,7 @@ export interface IResponsiblePhaseFields {
   title?: string | undefined;
 
   /** 説明 */
-  description?: string | undefined;
+  note?: string | undefined;
 }
 
 export interface IResponsiblePhase extends Entry<IResponsiblePhaseFields> {
