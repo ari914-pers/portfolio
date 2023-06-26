@@ -28,6 +28,9 @@ const theme = createTheme({
       main: themeValues.palette.secondary,
       contrastText: themeValues.palette.white,
     },
+    grey: {
+      A700: themeValues.palette.gray,
+    },
     error: {
       main: themeValues.palette.semantics.error,
       contrastText: themeValues.palette.white,
