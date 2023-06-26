@@ -9,6 +9,9 @@
             "label": {
                 "closeBtn": "閉じる"
             }
+        },
+        "date_time": {
+            "current": "現在"
         }
     },
     "ddd": "あおあおあ"
