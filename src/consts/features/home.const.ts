@@ -8,7 +8,9 @@ import {
   QualificationContentKey,
 } from '@/types/features/home.type';
 import {
+  IBusiessContentFields,
   ICategorySkillFields,
+  IResponsiblePhaseFields,
   ISkillsetFields,
 } from '../../../@types/generated/contentful';
 
@@ -74,3 +76,9 @@ export const skillSetModalFields: Exclude<
   'degree_interest',
   'proficiency_percentage',
 ];
+
+export const projectModalResponsiblePhaseFields: (keyof IResponsiblePhaseFields)[] =
+  ['title', 'description'];
+
+export const projectModalBusinessContentFields: (keyof IBusiessContentFields)[] =
+  ['title', 'note'];

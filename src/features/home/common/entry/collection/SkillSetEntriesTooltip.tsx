@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ISkillsetFields } from '../../../../../../../@types/generated/contentful';
+import { ISkillsetFields } from '../../../../../../@types/generated/contentful';
 import { Typography } from '@mui/material';
 import Stack from '@/components/atoms/wrappers/Stack';
 

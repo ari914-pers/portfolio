@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import DevEnvEntry from '@/features/home/personal_development/modal/entry/DevEnvEntry';
+import DevEnvEntry from '@/features/home/common/entry/DevEnvEntry';
 import { IDevelopEnvFields } from '../../../../../../../@types/generated/contentful';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

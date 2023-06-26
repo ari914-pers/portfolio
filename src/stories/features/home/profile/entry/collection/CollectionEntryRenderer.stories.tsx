@@ -5,10 +5,11 @@ import {
   ILanguageAbility,
   IQualification,
 } from '../../../../../../../@types/generated/contentful';
+import { LanguageAbilityContents, QualificationContents } from '@/consts/features/home.const';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/Profile/entry/CollectionEntryRenderer',
+  title: 'Features/Home/Profile/entry/Collection/CollectionEntryRenderer',
   component: CollectionEntryRenderer,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
@@ -24,7 +25,7 @@ const Template: ComponentStory<typeof CollectionEntryRenderer> = (args) => (
 export const WithLanguageAbilities = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 WithLanguageAbilities.args = {
-  entry: {
+  collection: {
     fields: {
       name: '日本語',
       level: '日常生活くらい',
@@ -32,13 +33,14 @@ WithLanguageAbilities.args = {
         'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
     },
   } as ILanguageAbility,
-  content_name: 'language_abilities',
+  content_name_rendered: 'home.profile.language_abilities',
+  content_order_keys: LanguageAbilityContents,
 };
 
 export const WithQualifications = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 WithQualifications.args = {
-  entry: {
+  collection: {
     fields: {
       name: 'TOEIC',
       score: 855,
@@ -47,12 +49,13 @@ WithQualifications.args = {
         'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
     },
   } as IQualification,
-  content_name: 'qualifications',
+  content_name_rendered: 'home.profile.qualifications',
+  content_order_keys: QualificationContents,
 };
 
 export const WithUndefinedFieldVal = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 WithUndefinedFieldVal.args = {
-  entry: undefined,
-  content_name: 'language_abilities',
+  collection: undefined,
+  content_name_rendered: 'home.profile.language_abilities',
 };
