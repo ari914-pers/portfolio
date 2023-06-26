@@ -1,26 +1,34 @@
 import StringEntry from '@/features/home/common/entry/StringEntry';
 import { calcDateTimeDiff, convertMonthsToYearMonth } from '@/utils/datetime';
 import dayjs from 'dayjs';
+import { DefaultTFuncReturn } from 'i18next';
 import { isUndefined } from 'lodash';
-import { useTranslation } from 'next-i18next';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type DevDurationEntryProps = {
   from?: Date;
   to?: Date;
+  fieldName: DefaultTFuncReturn;
 };
 
-const DevDurationEntry: FC<DevDurationEntryProps> = ({ from, to }) => {
-  const { t } = useTranslation(['home']);
+const DurationEntry: FC<DevDurationEntryProps> = ({ from, to, fieldName }) => {
+  const { t } = useTranslation('common');
 
   const duration =
     from && to && convertMonthsToYearMonth(calcDateTimeDiff(from, to, 'M'));
   const startFormatted = dayjs(from).format('YYYY/MM');
-  const toFormatted = dayjs(to).format('YYYY/MM');
+  let toFormatted = dayjs(to).format('YYYY/MM');
+
+  const currentYearAndMonth = dayjs().format('YYYY/MM');
+  toFormatted =
+    toFormatted === currentYearAndMonth
+      ? t('common.date_time.current')
+      : toFormatted;
 
   return !isUndefined(duration) ? (
     <StringEntry
-      fieldName={t('home.personal_development.modal.dev_duration')}
+      fieldName={fieldName}
       fieldVal={
         duration.years > 0
           ? `${duration.years}年${duration.months}か月 (${startFormatted} ～ ${toFormatted})`
@@ -30,4 +38,4 @@ const DevDurationEntry: FC<DevDurationEntryProps> = ({ from, to }) => {
   ) : null;
 };
 
-export default DevDurationEntry;
+export default DurationEntry;
