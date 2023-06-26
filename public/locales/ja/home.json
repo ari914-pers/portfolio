@@ -69,6 +69,46 @@
                 "library": "ライブラリ",
                 "tool": "その他ツール"
             }
+        },
+        "company": {
+            "title": "履歴・職務経歴",
+            "card_description": "テキストテキストテキストテキストテキストテキスト",
+            "description": "会社の概要",
+            "tenure": "在職期間",
+            "business_content": "事業内容",
+            "number_employees": "従業員数",
+            "listing": {
+                "title": "上場",
+                "true": "上場企業",
+                "false": "未上場企業"
+            },
+            "occupation": "職種",
+            "modal": {
+                "title": "会社"
+            }
+        },
+        "work_projects": {
+            "title": "参加した案件",
+            "label_btn": "案件の概要",
+            "modal": {
+                "title": " 案件",
+                "summary": "概要",
+                "appointment_period": "着任期間",
+                "responsible_phases": {
+                    "title": "担当フェーズ",
+                    "description": "説明"
+
+                },
+                "business_contents": {
+                    "title": "業務内容",
+                    "note": "メモ"
+                },
+                "feedback": "実績・取り組み・改善点",
+                "develop_env": "開発環境"
+            }
+        },
+        "future_goal": {
+            "title": "将来の目標"
         }
     }
 }
