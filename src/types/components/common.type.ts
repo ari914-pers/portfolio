@@ -41,6 +41,7 @@ export type WrapperCompProps = {
   objectFit?: CSSProperties['objectFit'];
   objectPosition?: CSSProperties['objectPosition'];
   position?: CSSProperties['position'];
+  borderRadius?: CSSProperties['borderRadius'];
 };
 
 export type objSxProps<T extends string> = Record<T, SxProps>;
