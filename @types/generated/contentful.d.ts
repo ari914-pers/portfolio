@@ -199,6 +199,9 @@ export interface ICompanyFields {
 
   /** 職種 */
   occupation?: ICategoryOccupation | undefined;
+
+  /** 参加した案件 */
+  work_projects?: IWorkProjects[] | undefined;
 }
 
 export interface ICompany extends Entry<ICompanyFields> {
@@ -575,8 +578,8 @@ export interface IResponsiblePhaseFields {
   /** タイトル */
   title?: string | undefined;
 
-  /** 備考・メモ */
-  note?: Document | undefined;
+  /** 説明 */
+  description?: string | undefined;
 }
 
 export interface IResponsiblePhase extends Entry<IResponsiblePhaseFields> {
