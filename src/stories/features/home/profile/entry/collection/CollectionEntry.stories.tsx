@@ -1,12 +1,19 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ILanguageAbility } from '../../../../../../../@types/generated/contentful';
+import {
+  ILanguageAbility,
+  IQualificationFields,
+} from '../../../../../../../@types/generated/contentful';
 import CollectionEntry from '@/features/home/profile/entry/collections/CollectionEntry';
 import CollectionEntryRenderer from '@/features/home/profile/entry/collections/CollectionEntryRenderer';
+import {
+  LanguageAbilityContents,
+  QualificationContents,
+} from '@/consts/features/home.const';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/Profile/entry/CollectionEntry',
+  title: 'Features/Home/Profile/entry/Collection/CollectionEntry',
   component: CollectionEntry,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
@@ -50,7 +57,8 @@ WithLanguageAbilities.args = {
     } as ILanguageAbility,
   ],
   FieldRenderer: CollectionEntryRenderer,
-  content_name: 'language_abilities',
+  content_name: 'home.profile.language_abilities',
+  content_order_key: LanguageAbilityContents,
 };
 
 export const WithQualifications = Template.bind({});
@@ -66,7 +74,7 @@ WithQualifications.args = {
         description:
           'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
       },
-    },
+    } as IQualificationFields,
     {
       fields: {
         name: 'TOEIC',
@@ -94,9 +102,10 @@ WithQualifications.args = {
           'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
       },
     },
-  ],
+  ] as IQualificationFields[],
   FieldRenderer: CollectionEntryRenderer,
-  content_name: 'qualifications',
+  content_name: 'home.profile.qualifications',
+  content_order_key: QualificationContents,
 };
 
 export const WithUndefinedFieldVal = Template.bind({});
@@ -105,5 +114,14 @@ WithUndefinedFieldVal.args = {
   fieldName: '言語',
   fieldVal: undefined,
   FieldRenderer: CollectionEntryRenderer,
-  content_name: 'language_abilities',
+  content_name: 'home.profile.language_abilities',
+};
+
+export const WithEmptyFieldVal = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+WithEmptyFieldVal.args = {
+  fieldName: '言語',
+  fieldVal: [],
+  FieldRenderer: CollectionEntryRenderer,
+  content_name: 'home.profile.language_abilities',
 };

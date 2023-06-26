@@ -1,12 +1,8 @@
 import React from 'react';
-import { isUndefined, toString } from 'lodash';
+import { isEmpty, isUndefined, some } from 'lodash';
 import Container from '@/components/atoms/wrappers/Container';
 import StringEntry from '../../../common/entry/StringEntry';
 import { toOrderGuaranteed } from '@/utils/cmsEntry.util';
-import {
-  LanguageAbilityContents,
-  QualificationContents,
-} from '@/consts/features/home.const';
 import Renderer from '@/components/atoms/display/Renderer';
 import { useTranslation } from 'next-i18next';
 import {
@@ -15,36 +11,38 @@ import {
 } from '@/types/features/home.type';
 import { Divider } from '@mui/material';
 import { genTwoSidesSpacingCssProperty } from '@/utils/style.util';
+import { Primitive } from '@/types/common.type';
 
 const CollectionEntryRenderer: ProfileChildEntriesComp = ({
-  entry,
-  content_name,
+  collection,
+  content_name_rendered,
+  content_order_keys,
 }: ProfileChildEntriesCompProps) => {
   const { t } = useTranslation(['home']);
 
-  if (isUndefined(entry)) return null;
+  if (isUndefined(collection)) return null;
 
-  const contentFields = toOrderGuaranteed(
-    content_name === 'language_abilities'
-      ? LanguageAbilityContents
-      : QualificationContents,
-    entry?.fields
+  const contentFields = toOrderGuaranteed<Primitive>(
+    content_order_keys,
+    collection.fields
   );
 
-  return (
+  const someFieldHasTruthyVal = some(contentFields, (field) => field[1]);
+
+  return !isEmpty(contentFields) && someFieldHasTruthyVal ? (
     <Container designProps={{}}>
       <Divider sx={{ m: genTwoSidesSpacingCssProperty('md-0') }} />
       <Renderer
         entries={contentFields}
         iteratee={([key, val]) => (
           <StringEntry
-            fieldName={t(`home.profile.${content_name}.${key}`)}
-            fieldVal={toString(val)}
+            fieldName={t(`${content_name_rendered}.${key}`)}
+            fieldVal={val}
           />
         )}
       />
     </Container>
-  );
+  ) : null;
 };
 
 export default CollectionEntryRenderer;
