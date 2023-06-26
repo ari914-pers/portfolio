@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import SkillSetEntries from '@/features/home/personal_development/modal/entry/collection/SkillSetEntries';
-import { ISkillset } from '../../../../../../../../@types/generated/contentful';
+import SkillSetEntries from '@/features/home/common/entry/collection/SkillSetEntries';
+import { ISkillset } from '../../../../../../../@types/generated/contentful';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

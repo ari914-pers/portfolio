@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import SkillSetEntriesTooltip from '@/features/home/personal_development/modal/entry/collection/SkillSetEntriesTooltip';
+import SkillSetEntriesTooltip from '@/features/home/common/entry/collection/SkillSetEntriesTooltip';
 import { Box, Tooltip } from '@mui/material';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

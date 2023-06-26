@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ISkillset } from '../../../../../../../@types/generated/contentful';
+import { ISkillset } from '../../../../../../@types/generated/contentful';
 import { isUndefined, size } from 'lodash';
 import {
   genSizingPropertyVal,
