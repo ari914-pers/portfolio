@@ -1,5 +1,4 @@
 import { FC, PropsWithChildren, ReactNode } from 'react';
-import { DefaultTFuncReturn } from 'i18next';
 import {
   Accordion,
   AccordionDetails,
@@ -15,9 +14,9 @@ import {
 import { isNull } from 'lodash';
 
 type AccordionWrapperProps = {
-  panelName: string;
-  currentlyExpanded: boolean | string;
-  handleExpansionChange: (panelName: string) => void;
+  panelName?: string;
+  currentlyExpanded?: boolean | string;
+  handleExpansionChange?: (panelName: string) => void;
   fieldName: ReactNode;
   accordionStyle?: {
     accordion?: SxProps<Theme>;
@@ -37,9 +36,15 @@ const AccordionWrapper: FC<PropsWithChildren<AccordionWrapperProps>> = ({
   return !isNull(fieldName) ? (
     <Accordion
       disableGutters
-      expanded={panelName === currentlyExpanded}
-      onChange={() => {
-        handleExpansionChange(panelName);
+      expanded={
+        panelName && currentlyExpanded
+          ? panelName === currentlyExpanded
+          : undefined
+      }
+      onChange={(_e, expanded) => {
+        handleExpansionChange
+          ? handleExpansionChange(panelName ?? '')
+          : (expanded = !expanded);
       }}
       sx={
         accordionStyle

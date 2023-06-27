@@ -31,7 +31,7 @@ const FutureGoalField: FC<FutureGoalFieldProps> = ({
 
   return !isUndefined(description) || !isEmpty(description) ? (
     <Stack designProps={{ twoSidesSpacing: { p: ['md-0'] } }} spacing='md'>
-      <Typography variant='h5'>{t('home.future_goal.title')}</Typography>
+      <Typography variant='h5'>{t('home.future_goal.heading')}</Typography>
       <Divider />
       <Stack
         designProps={{

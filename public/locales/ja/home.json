@@ -108,7 +108,10 @@
             }
         },
         "future_goal": {
-            "title": "将来の目標"
+            "heading": "将来の目標",
+            "title": "目標",
+            "occupation": "職種・分野",
+            "span_goal": "いつまで？"
         }
     }
 }
