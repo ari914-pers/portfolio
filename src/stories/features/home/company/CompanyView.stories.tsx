@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import {
   IWorkProjects,
   ICompanyFields,
-  IFutureGoalFields,
+  IFutureGoal,
 } from '../../../../../@types/generated/contentful';
 import CompanyView from '@/features/home/company/CompanyView';
 
@@ -85,14 +85,25 @@ const dummyDoc = {
 };
 
 const dummyFutureGoal = {
-  description: dummyDoc,
-} as IFutureGoalFields;
+  fields: {
+    description: dummyDoc,
+  },
+} as IFutureGoal;
 
 export const Normal = Template.bind({});
 
 Normal.args = {
   entries: [dummyCompany, dummyCompany, dummyCompany],
-  futureGoal: dummyFutureGoal,
+  futureGoals: [dummyFutureGoal, dummyFutureGoal],
+};
+
+export const withOrdering = Template.bind({});
+
+const dummy2 = { ...dummyCompany, joined_at: '1997-06-14T08:28:19.934Z' };
+
+withOrdering.args = {
+  entries: [dummyCompany, dummyCompany, dummy2],
+  futureGoals: [dummyFutureGoal, dummyFutureGoal],
 };
 
 export const withMore3Projects = Template.bind({});
@@ -105,5 +116,5 @@ withMore3Projects.args = {
     dummyCompany,
     dummyCompany,
   ],
-  futureGoal: dummyFutureGoal,
+  futureGoals: [dummyFutureGoal, dummyFutureGoal],
 };
