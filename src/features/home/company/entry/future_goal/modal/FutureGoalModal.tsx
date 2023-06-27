@@ -6,15 +6,15 @@ import Stack from '@/components/atoms/wrappers/Stack';
 import { IFutureGoal } from '../../../../../../../@types/generated/contentful';
 import Renderer from '@/components/atoms/display/Renderer';
 import FutureGoalEntry from './FutureGoalEntry';
-import { isNumber, sortBy } from 'lodash';
+import { isNumber, sortBy, toString } from 'lodash';
 import { Divider } from '@mui/material';
 
-type CompanyModalProps = Pick<
+type FutureGoalModalProps = Pick<
   ReturnType<typeof useModalControl>,
   'isOpen' | 'handleClose'
 > & { entries: IFutureGoal[] };
 
-const CompanyModal: FC<CompanyModalProps> = ({
+const FutureGoalModal: FC<FutureGoalModalProps> = ({
   isOpen,
   handleClose,
   entries,
@@ -35,6 +35,7 @@ const CompanyModal: FC<CompanyModalProps> = ({
               <FutureGoalEntry
                 entry={entry}
                 rank={isNumber(index) ? index + 1 : undefined}
+                key={toString(entry.fields.title)}
               />
               <Divider />
             </>
@@ -42,10 +43,11 @@ const CompanyModal: FC<CompanyModalProps> = ({
           processEntries={(entries) =>
             sortBy(entries, (entry1) => entry1.fields.priority)
           }
+          key={toString(Math.floor(Math.random() * 100))}
         />
       </Stack>
     </BaseModal>
   );
 };
 
-export default CompanyModal;
+export default FutureGoalModal;
