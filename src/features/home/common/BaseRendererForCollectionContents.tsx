@@ -1,6 +1,6 @@
 import { EntityORFieldOrUndefined } from '@/types/cms.type';
 import React, { MouseEventHandler } from 'react';
-import { identity, isUndefined, size, slice } from 'lodash';
+import { flow, identity, isUndefined, size, slice, toString } from 'lodash';
 import {
   MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME,
   NO_SIZE_CONTENT_COLLECTION,
@@ -27,11 +27,12 @@ type BaseCardForCollectionContentsProps<
   isRenderedWithCard: isRenderedWithCard;
   cardTitle?: isRenderedWithCard extends true ? BaseCardProps['title'] : null;
   cardDescription?: isRenderedWithCard extends true
-    ? BaseCardProps['description']
-    : null;
+  ? BaseCardProps['description']
+  : null;
   cardBtnActionClickHandler?: MouseEventHandler<HTMLButtonElement>;
   EntryRenderer: EntryRendererComp<T>;
   itemSpacing?: DimensionKey;
+  processFunc?: (entries: T[]) => T[];
 };
 
 const BaseRendererForCollectionContents = <
@@ -45,6 +46,7 @@ const BaseRendererForCollectionContents = <
   cardBtnActionClickHandler,
   EntryRenderer,
   itemSpacing,
+  processFunc,
 }: BaseCardForCollectionContentsProps<U, isRenderedWithCard>) => {
   const { t } = useTranslation(['common']);
   const collectionSize = size(collection);
@@ -78,14 +80,16 @@ const BaseRendererForCollectionContents = <
       <Stack designProps={{}} direction='column' spacing={itemSpacing}>
         <Renderer
           entries={collection}
-          processEntries={(entries) =>
+          processEntries={flow(processFunc ?? identity, (entries) =>
             slice(
               entries,
               NO_SIZE_CONTENT_COLLECTION,
               MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME
             )
-          }
-          iteratee={(entry) => <EntryRenderer entry={entry} />}
+          )}
+          iteratee={(entry, index) => (
+            <EntryRenderer entry={entry} key={toString(index)} />
+          )}
         />
         {collectionSize > MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME && (
           <Container designProps={{}}>
@@ -98,14 +102,16 @@ const BaseRendererForCollectionContents = <
     <>
       <Renderer
         entries={collection}
-        processEntries={(entries) =>
+        processEntries={flow(processFunc ?? identity, (entries) =>
           slice(
             entries,
             NO_SIZE_CONTENT_COLLECTION,
             MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME
           )
-        }
-        iteratee={(entry) => <EntryRenderer entry={entry} />}
+        )}
+        iteratee={(entry, index) => (
+          <EntryRenderer entry={entry} key={toString(index)} />
+        )}
       />
       {collectionSize > MAXIMUM_SIZE_CONTENT_SHOWN_ON_HOME && (
         <Stack designProps={{}} alignItems='center'>
