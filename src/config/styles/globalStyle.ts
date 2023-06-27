@@ -14,6 +14,9 @@ export const globalStyle: GlobalStylesProps['styles'] = {
     fontWeight: fontWeights.medium,
     boxSizing: 'border-box',
   },
+  main: {
+    padding: '3rem 0',
+  },
   p: {
     lineHeight: LineHeights.body,
   },
