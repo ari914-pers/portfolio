@@ -2,7 +2,7 @@ import React, { FC, PropsWithChildren } from 'react';
 import { IPersonalDevelopmentFields } from '../../../../@types/generated/contentful';
 import BaseRendererForCollectionContents from '../common/BaseRendererForCollectionContents';
 import PersonalDevelopmentEntry from './entry/PersonalDevelopmentEntry';
-import { identity } from 'lodash';
+import { identity, sortBy } from 'lodash';
 import { useTranslation } from 'next-i18next';
 
 type PersonalDevelopmentViewProps = {
@@ -23,6 +23,7 @@ const PersonalDevelopmentView: FC<
       cardBtnActionClickHandler={identity}
       EntryRenderer={PersonalDevelopmentEntry}
       itemSpacing='md'
+      processFunc={(entries) => sortBy(entries, (entry) => entry.started_at)}
     />
   );
 };

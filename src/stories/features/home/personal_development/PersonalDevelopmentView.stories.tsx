@@ -131,3 +131,15 @@ const contents = [dummyEntry1, dummyEntry2, dummyEntry3];
 Normal.args = {
   personalDevelopment: contents as IPersonalDevelopmentFields[],
 };
+
+export const withSorting = Template.bind({});
+
+const dummyOld = {
+  ...dummyEntry,
+  title: '古い',
+  started_at: '2003-02-14T08:28:19.934Z',
+};
+
+withSorting.args = {
+  personalDevelopment: [dummyEntry1, dummyEntry2, dummyEntry3, dummyOld],
+};
