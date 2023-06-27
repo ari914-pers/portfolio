@@ -1,8 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Box } from '@mui/material';
-import { IFutureGoalFields } from '../../../../../../../@types/generated/contentful';
+import { IFutureGoal } from '../../../../../../../@types/generated/contentful';
 import FutureGoalField from '@/features/home/company/entry/future_goal/FutureGoalField';
+import { Document } from '@contentful/rich-text-types';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -70,13 +71,42 @@ const dummyDoc = {
 export const Normal = Template.bind({});
 
 Normal.args = {
-  entry: {
-    description: dummyDoc,
-  } as IFutureGoalFields,
+  entries: [
+    {
+      fields: {
+        description: dummyDoc as Document,
+        occupation: {
+          fields: 'フロントエンド',
+        },
+        priority: 1,
+        title: '頑張ります',
+        span_goal: {
+          fields: {
+            title: '夏まで',
+          },
+        },
+      },
+    } as IFutureGoal,
+    {
+      fields: {
+        description: dummyDoc as Document,
+        occupation: {
+          fields: 'フロントエンド',
+        },
+        priority: 5,
+        title: '頑張ります2',
+        span_goal: {
+          fields: {
+            title: '夏まで',
+          },
+        },
+      },
+    } as IFutureGoal,
+  ] as IFutureGoal[],
 };
 
 export const withoutDescription = Template.bind({});
 
 withoutDescription.args = {
-  entry: {} as IFutureGoalFields,
+  entries: [] as IFutureGoal[],
 };
