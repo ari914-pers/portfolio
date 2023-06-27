@@ -1,15 +1,26 @@
 import Stack from '@/components/atoms/wrappers/Stack';
-import { Typography } from '@mui/material';
+import { Theme, Typography, useMediaQuery, useTheme } from '@mui/material';
 import dayjs from 'dayjs';
+import { useTranslation } from 'next-i18next';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 const Footer: FC = () => {
   const { t } = useTranslation('common');
+  const theme = useTheme();
+  const matchesSmartphoneWidth = useMediaQuery<Theme>((theme) =>
+    theme.breakpoints.up('sm')
+  );
+
   return (
     <footer>
       <Stack
-        designProps={{ sizing: { width: [100, '%'] } }}
+        designProps={{
+          sizing: { width: [100, '%'] },
+          twoSidesSpacing: {
+            p: matchesSmartphoneWidth ? ['lg-lg'] : ['md-md'],
+          },
+          backgroundColor: theme.palette.grey.A700,
+        }}
         alignItems='center'
       >
         <Typography>

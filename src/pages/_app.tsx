@@ -5,6 +5,7 @@ import createEmotionCache from '@/config/styles/createEmotionCache';
 import CustomThemeProvider from '@/config/styles/CustomThemeProvider';
 import GlobalStyleProvider from '@/config/styles/GlobalStyleProvider';
 import { appWithTranslation } from 'next-i18next';
+import LayoutRegular from '@/components/layout/LayoutRegular';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -20,7 +21,9 @@ function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <CustomThemeProvider>
         {GlobalStyleProvider}
-        <Component {...pageProps} />
+        <LayoutRegular>
+          <Component {...pageProps} />
+        </LayoutRegular>
       </CustomThemeProvider>
     </CacheProvider>
   );
