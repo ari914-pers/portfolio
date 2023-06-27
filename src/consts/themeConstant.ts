@@ -24,6 +24,7 @@ export const themeValues = {
   palette: {
     black: '#000B00',
     white: '#F7EFE3',
+    gray: 'BBBCBF',
     primary: {
       main: '#003149',
       light: '#A2D7DD',

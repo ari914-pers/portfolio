@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import {
   ICompanyFields,
-  IFutureGoalFields,
+  IFutureGoal,
 } from '../../../../@types/generated/contentful';
 import BaseCard from '@/components/molecules/surfaces/BaseCard';
 import { useTranslation } from 'next-i18next';
@@ -20,13 +20,14 @@ import CompanyEntry from './entry/CompanyEntry';
 import { Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import FutureGoalField from './entry/future_goal/FutureGoalField';
+import { sortBy } from 'lodash';
 
 type CompanyViewProps = {
   entries: ICompanyFields[];
-  futureGoal: IFutureGoalFields;
+  futureGoals: IFutureGoal[];
 };
 
-const CompanyView: FC<CompanyViewProps> = ({ entries, futureGoal }) => {
+const CompanyView: FC<CompanyViewProps> = ({ entries, futureGoals }) => {
   const { t } = useTranslation(['home']);
 
   return (
@@ -45,6 +46,7 @@ const CompanyView: FC<CompanyViewProps> = ({ entries, futureGoal }) => {
           collection={entries}
           isRenderedWithCard={false}
           EntryRenderer={CompanyEntry}
+          processFunc={(entries) => sortBy(entries, (entry) => entry.joined_at)}
         />
         <TimelineItem>
           <TimelineOppositeContent>
@@ -61,7 +63,7 @@ const CompanyView: FC<CompanyViewProps> = ({ entries, futureGoal }) => {
             />
           </TimelineSeparator>
           <TimelineContent>
-            <FutureGoalField entry={futureGoal} />
+            <FutureGoalField entries={futureGoals} />
           </TimelineContent>
         </TimelineItem>
       </Timeline>

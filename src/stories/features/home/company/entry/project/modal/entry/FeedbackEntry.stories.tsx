@@ -1,24 +1,23 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Box } from '@mui/material';
-import { IFutureGoal } from '../../../../../../../@types/generated/contentful';
-import FutureGoalField from '@/features/home/company/entry/future_goal/FutureGoalField';
-import { Document } from '@contentful/rich-text-types';
+import { IFeedback } from '../../../../../../../../../@types/generated/contentful';
+import FeedbackEntry from '@/features/home/company/entry/project/modal/entry/FeedbackEntry';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/Company/entry/FutureGoal/FutureGoalField',
-  component: FutureGoalField,
+  title: 'Features/Home/Company/entry/Project/Modal/Entry/FeedbackEntry',
+  component: FeedbackEntry,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   // variant: { control: 'select', options: ['text', 'outlined', 'contained'] },
   // },
-} as ComponentMeta<typeof FutureGoalField>;
+} as ComponentMeta<typeof FeedbackEntry>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof FutureGoalField> = (args) => (
+const Template: ComponentStory<typeof FeedbackEntry> = (args) => (
   <Box width={600}>
-    <FutureGoalField {...args} />
+    <FeedbackEntry {...args} />
   </Box>
 );
 
@@ -71,42 +70,50 @@ const dummyDoc = {
 export const Normal = Template.bind({});
 
 Normal.args = {
-  entries: [
-    {
-      fields: {
-        description: dummyDoc as Document,
-        occupation: {
-          fields: 'フロントエンド',
-        },
-        priority: 1,
-        title: '頑張ります',
-        span_goal: {
-          fields: {
-            title: '夏まで',
-          },
-        },
-      },
-    } as IFutureGoal,
-    {
-      fields: {
-        description: dummyDoc as Document,
-        occupation: {
-          fields: 'フロントエンド',
-        },
-        priority: 5,
-        title: '頑張ります2',
-        span_goal: {
-          fields: {
-            title: '夏まで',
-          },
-        },
-      },
-    } as IFutureGoal,
-  ] as IFutureGoal[],
+  entry: {
+    fields: {
+      title: 'テストテスト',
+      description: dummyDoc,
+      category: '取り組み',
+    },
+  } as IFeedback,
+};
+
+export const withoutTitle = Template.bind({});
+
+withoutTitle.args = {
+  entry: {
+    fields: {
+      description: dummyDoc,
+      category: '取り組み',
+    },
+  } as IFeedback,
 };
 
 export const withoutDescription = Template.bind({});
 
 withoutDescription.args = {
-  entries: [] as IFutureGoal[],
+  entry: {
+    fields: {
+      title: 'テストテストテスト',
+      category: '取り組み',
+    },
+  } as IFeedback,
+};
+
+export const withoutCategory = Template.bind({});
+
+withoutCategory.args = {
+  entry: {
+    fields: {
+      title: 'テストテストテスト',
+      description: dummyDoc,
+    },
+  } as IFeedback,
+};
+
+export const withUndefined = Template.bind({});
+
+withUndefined.args = {
+  entry: undefined,
 };

@@ -3,9 +3,9 @@ import React, { FC, useContext } from 'react';
 import { Grid, Theme, useMediaQuery } from '@mui/material';
 import { PersonalDevelopmentEntryContext } from '../../entry/PersonalDevelopmentEntry';
 import { genOneSideSpacingCssProperty } from '@/utils/style.util';
-import DevDurationEntry from '../entry/DevDurationEntry';
-import DevEnvEntry from '../entry/DevEnvEntry';
-import DocumentEntry from '../entry/DocumentEntry';
+import DevDurationEntry from '../../../common/entry/DurationEntry';
+import DevEnvEntry from '../../../common/entry/DevEnvEntry';
+import DocumentEntry from '../../../common/entry/DocumentEntry';
 
 const RightColumnPersonalDevelopmentModal: FC = () => {
   const { t } = useTranslation(['home']);
@@ -32,6 +32,7 @@ const RightColumnPersonalDevelopmentModal: FC = () => {
           <DevDurationEntry
             from={new Date(started_at)}
             to={new Date(finished_at)}
+            fieldName={t('home.personal_development.modal.dev_duration')}
           />
         )}
       </Grid>

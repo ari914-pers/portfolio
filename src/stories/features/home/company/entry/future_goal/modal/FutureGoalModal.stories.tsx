@@ -1,26 +1,32 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Box } from '@mui/material';
-import { IFutureGoal } from '../../../../../../../@types/generated/contentful';
-import FutureGoalField from '@/features/home/company/entry/future_goal/FutureGoalField';
-import { Document } from '@contentful/rich-text-types';
+import { Button } from '@mui/material';
+import { IFutureGoal } from '../../../../../../../../@types/generated/contentful';
+import FutureGoalModal from '@/features/home/company/entry/future_goal/modal/FutureGoalModal';
+import useModalControl from '@/hooks/useModalControl';
+import { set } from 'lodash';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/Company/entry/FutureGoal/FutureGoalField',
-  component: FutureGoalField,
+  title: 'Features/Home/Company/entry/FutureGoal/Modal/FutureGoalModal',
+  component: FutureGoalModal,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   // variant: { control: 'select', options: ['text', 'outlined', 'contained'] },
   // },
-} as ComponentMeta<typeof FutureGoalField>;
+} as ComponentMeta<typeof FutureGoalModal>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof FutureGoalField> = (args) => (
-  <Box width={600}>
-    <FutureGoalField {...args} />
-  </Box>
-);
+const Template: ComponentStory<typeof FutureGoalModal> = (args) => {
+  const { isOpen, handleClose, handleOpen } = useModalControl();
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Click</Button>
+      <FutureGoalModal {...args} isOpen={isOpen} handleClose={handleClose} />
+    </>
+  );
+};
 
 const dummyDoc = {
   nodeType: 'document',
@@ -68,45 +74,61 @@ const dummyDoc = {
   ],
 };
 
+const dummyEntry = {
+  fields: {
+    title: 'テストテストテストテストテスト',
+    description: dummyDoc,
+    priority: 12,
+    occupation: {
+      fields: {
+        title: 'フロントエンド',
+      },
+    },
+    span_goal: {
+      fields: {
+        title: '来年の夏まで',
+      },
+    },
+  },
+} as IFutureGoal;
+
+const dummy2: IFutureGoal = {
+  ...dummyEntry,
+  fields: { priority: 1, title: 'test2' },
+};
+
+const dummy3 = set<IFutureGoal>({ ...dummyEntry }, ['fields', 'priority'], 2);
+
 export const Normal = Template.bind({});
 
 Normal.args = {
   entries: [
-    {
-      fields: {
-        description: dummyDoc as Document,
-        occupation: {
-          fields: 'フロントエンド',
-        },
-        priority: 1,
-        title: '頑張ります',
-        span_goal: {
-          fields: {
-            title: '夏まで',
-          },
-        },
-      },
-    } as IFutureGoal,
-    {
-      fields: {
-        description: dummyDoc as Document,
-        occupation: {
-          fields: 'フロントエンド',
-        },
-        priority: 5,
-        title: '頑張ります2',
-        span_goal: {
-          fields: {
-            title: '夏まで',
-          },
-        },
-      },
-    } as IFutureGoal,
+    dummyEntry,
+    dummy2,
+    dummyEntry,
+    dummyEntry,
+    dummy3,
   ] as IFutureGoal[],
 };
 
-export const withoutDescription = Template.bind({});
-
-withoutDescription.args = {
-  entries: [] as IFutureGoal[],
-};
+// export const withoutDescription = Template.bind({});
+//
+// const dummy2: IFutureGoal = {
+// ...dummyEntry,
+// fields: { description: {} as Document },
+// };
+//
+// withoutDescription.args = {
+// entry: dummy2 as IFutureGoal,
+// };
+//
+// export const withStyledPriority = Template.bind({});
+//
+// const dummy3: IFutureGoal = {
+// ...dummyEntry,
+// fields: { priority: 1 },
+// };
+//
+// withoutDescription.args = {
+// entry: dummy3 as IFutureGoal,
+// };

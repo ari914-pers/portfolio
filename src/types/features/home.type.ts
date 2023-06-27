@@ -1,16 +1,20 @@
 import { FC, PropsWithChildren } from 'react';
 import {
+  ICareer,
   IDevelopEnvFields,
+  IEntry,
   ILanguageAbility,
   IQualification,
+  IResponsiblePhaseFields,
 } from '../../../@types/generated/contentful';
 import { EntityORFieldOrUndefined } from '../cms.type';
 
 export type ProfileChildEntry = IQualification | ILanguageAbility | undefined;
 
 export type ProfileChildEntriesCompProps = {
-  entry: ProfileChildEntry;
-  content_name: PROFILE_CONTENT_WITH_CHILDREN;
+  collection: Exclude<IEntry, ICareer>;
+  content_name_rendered: string;
+  content_order_keys: string[];
 };
 
 export type ProfileChildEntriesComp = FC<
