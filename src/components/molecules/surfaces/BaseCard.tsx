@@ -23,7 +23,7 @@ const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
         bgcolor: (theme) => theme.palette.background.paper,
         boxShadow: BoxShadows.default,
         maxWidth: '550px',
-        p: genTwoSidesSpacingCssProperty('md-lg'),
+        p: genTwoSidesSpacingCssProperty('sm-md'),
       }}
     >
       <CardHeader
