@@ -58,7 +58,11 @@ const HomeView: FC<HomeViewProps> = ({
           xs={12}
           md={6}
         >
-          <CompanyView entries={companies} futureGoals={futureGoals} />
+          <CompanyView
+            entries={companies}
+            futureGoals={futureGoals}
+            isUsedOnHome
+          />
         </Grid>
       )}
       {!isNull(faqs) && (
