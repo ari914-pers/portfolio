@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import {
   IWorkProjects,
   ICompanyFields,
-  IFutureGoal,
+  IFutureGoalFields,
 } from '../../../../../@types/generated/contentful';
 import CompanyView from '@/features/home/company/CompanyView';
 
@@ -21,7 +21,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof CompanyView> = (args) => (
   <Box width={600}>
-    <CompanyView {...args} />
+    <CompanyView {...args} isUsedOnHome />
   </Box>
 );
 
@@ -85,10 +85,9 @@ const dummyDoc = {
 };
 
 const dummyFutureGoal = {
-  fields: {
-    description: dummyDoc,
-  },
-} as IFutureGoal;
+  description: dummyDoc,
+  title: 'testteset',
+} as IFutureGoalFields;
 
 export const Normal = Template.bind({});
 
