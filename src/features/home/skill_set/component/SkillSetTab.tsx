@@ -3,7 +3,7 @@ import {
   ICategorySkillFields,
   ISkillsetFields,
 } from '../../../../../@types/generated/contentful';
-import { Tab, Theme, useMediaQuery } from '@mui/material';
+import { Tab } from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import { TabList, TabPanel } from '@mui/lab';
 import BaseRendererForCollectionContents from '@/features/home/common/BaseRendererForCollectionContents';
@@ -13,15 +13,14 @@ import useTabsControl from '@/hooks/useTabsControl';
 import { categoriesSkillSet } from '@/consts/features/home.const';
 import { renderCollection } from '@/utils/component';
 import { SkillSetContext } from '../SkillSetView';
+import Renderer from '@/components/atoms/display/Renderer';
 
-const SkillSetTab: FC = () => {
+type SkillSetTabProps = { isUsedOnHome: boolean };
+
+const SkillSetTab: FC<SkillSetTabProps> = ({ isUsedOnHome = true }) => {
   const { entries } = useContext(SkillSetContext);
   const [currentTab, handleChangeTab] =
     useTabsControl<Exclude<ICategorySkillFields['title'], undefined>>('言語');
-
-  const matchWithSmartphoneWidth = useMediaQuery<Theme>((theme) =>
-    theme.breakpoints.down('sm')
-  );
 
   return (
     <TabContext value={currentTab}>
@@ -44,16 +43,30 @@ const SkillSetTab: FC = () => {
           key={toString(index)}
           sx={{ bgcolor: (theme) => theme.palette.common.white }}
         >
-          <BaseRendererForCollectionContents
-            collection={filter(
-              entries,
-              (entry: ISkillsetFields) =>
-                entry.category?.fields.title === category
-            )}
-            isRenderedWithCard={false}
-            EntryRenderer={SkillSetEntry}
-            itemSpacing='md'
-          />
+          {isUsedOnHome ? (
+            <BaseRendererForCollectionContents
+              collection={filter(
+                entries,
+                (entry: ISkillsetFields) =>
+                  entry.category?.fields.title === category
+              )}
+              isRenderedWithCard={false}
+              EntryRenderer={SkillSetEntry}
+              itemSpacing='md'
+            />
+          ) : (
+            <Renderer
+              entries={entries}
+              iteratee={(entry) => <SkillSetEntry entry={entry} />}
+              processEntries={(entries) =>
+                filter(
+                  entries,
+                  (entry: ISkillsetFields) =>
+                    entry.category?.fields.title === category
+                )
+              }
+            />
+          )}
         </TabPanel>
       ))}
     </TabContext>

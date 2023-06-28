@@ -1,8 +1,7 @@
-import { FC, createContext } from 'react';
+import { FC, PropsWithChildren, createContext } from 'react';
 import { ISkillsetFields } from '../../../../@types/generated/contentful';
 import BaseCard from '@/components/molecules/surfaces/BaseCard';
 import { useTranslation } from 'next-i18next';
-import SkillSetTab from './component/SkillSetTab';
 
 type SkillSetViewProps = { entries: ISkillsetFields[] };
 
@@ -10,7 +9,10 @@ export const SkillSetContext = createContext<{ entries: ISkillsetFields[] }>({
   entries: [],
 });
 
-const SkillSetView: FC<SkillSetViewProps> = ({ entries }) => {
+const SkillSetView: FC<PropsWithChildren<SkillSetViewProps>> = ({
+  entries,
+  children,
+}) => {
   const { t } = useTranslation(['home']);
 
   return (
@@ -19,7 +21,7 @@ const SkillSetView: FC<SkillSetViewProps> = ({ entries }) => {
         title={t('home.skill_set.title')}
         description={t('home.skill_set.title')}
       >
-        <SkillSetTab />
+        {children}
       </BaseCard>
     </SkillSetContext.Provider>
   );
