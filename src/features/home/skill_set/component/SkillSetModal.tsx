@@ -21,7 +21,10 @@ const SkillSetModal: FC<SkillSetModalProps> = ({
 }) => {
   const { t } = useTranslation('home');
 
-  const fields = toOrderGuaranteed<string>(skillSetModalFields, entry);
+  const fields = toOrderGuaranteed<string, ISkillsetFields>(
+    skillSetModalFields,
+    entry
+  );
 
   return (
     <BaseModal

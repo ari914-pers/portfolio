@@ -12,6 +12,7 @@ import {
 import { Divider } from '@mui/material';
 import { genTwoSidesSpacingCssProperty } from '@/utils/style.util';
 import { Primitive } from '@/types/common.type';
+import { EntryField } from '@/types/cms.type';
 
 const CollectionEntryRenderer: ProfileChildEntriesComp = ({
   collection,
@@ -22,7 +23,7 @@ const CollectionEntryRenderer: ProfileChildEntriesComp = ({
 
   if (isUndefined(collection)) return null;
 
-  const contentFields = toOrderGuaranteed<Primitive>(
+  const contentFields = toOrderGuaranteed<Primitive, EntryField>(
     content_order_keys,
     collection.fields
   );

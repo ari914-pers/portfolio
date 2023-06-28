@@ -32,7 +32,7 @@ const DevEnvEntry: FC<DevEnvEntryProps> = ({ fieldName, entry }) => {
   const { t } = useTranslation(['home']);
 
   const entriesOrdered = entry
-    ? toOrderGuaranteed<ISkillset[]>(
+    ? toOrderGuaranteed<ISkillset[], IDevelopEnvFields>(
         personalDevelopmentModalDevEnvEntries,
         entry
       )
