@@ -3,7 +3,7 @@ import {
   ICategorySkillFields,
   ISkillsetFields,
 } from '../../../../../@types/generated/contentful';
-import { Tab } from '@mui/material';
+import { Tab, Theme, useMediaQuery } from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import { TabList, TabPanel } from '@mui/lab';
 import BaseRendererForCollectionContents from '@/features/home/common/BaseRendererForCollectionContents';
@@ -19,6 +19,10 @@ const SkillSetTab: FC = () => {
   const [currentTab, handleChangeTab] =
     useTabsControl<Exclude<ICategorySkillFields['title'], undefined>>('言語');
 
+  const matchWithSmartphoneWidth = useMediaQuery<Theme>((theme) =>
+    theme.breakpoints.down('sm')
+  );
+
   return (
     <TabContext value={currentTab}>
       <TabList
@@ -26,6 +30,9 @@ const SkillSetTab: FC = () => {
         centered
         sx={{ bgcolor: (theme) => theme.palette.primary.light }}
         indicatorColor='secondary'
+        variant='scrollable'
+        scrollButtons
+        allowScrollButtonsMobile
       >
         {renderCollection(categoriesSkillSet, (category, index) => (
           <Tab value={category} label={category} key={toString(index)} />

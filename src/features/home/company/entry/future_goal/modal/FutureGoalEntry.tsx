@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IFutureGoal } from '../../../../../../../@types/generated/contentful';
+import { IFutureGoalFields } from '../../../../../../../@types/generated/contentful';
 import StringEntry from '@/features/home/common/entry/StringEntry';
 import { useTranslation } from 'react-i18next';
 import { isEmpty, isUndefined } from 'lodash';
@@ -8,7 +8,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Grid, Typography } from '@mui/material';
 import { genOneSideSpacingCssProperty } from '@/utils/style.util';
 
-type FutureGoalEntryProps = { entry: IFutureGoal; rank?: number };
+type FutureGoalEntryProps = { entry: IFutureGoalFields; rank?: number };
 
 const FutureGoalEntry: FC<FutureGoalEntryProps> = ({ entry, rank }) => {
   const { t } = useTranslation('home');
@@ -39,7 +39,7 @@ const FutureGoalEntry: FC<FutureGoalEntryProps> = ({ entry, rank }) => {
     case undefined:
       rendererPriority = (
         <Typography variant='h3' color={(theme) => theme.palette.error.main}>
-          {entry.fields.priority ?? '-'}
+          {entry.priority ?? '-'}
         </Typography>
       );
       break;
@@ -61,33 +61,30 @@ const FutureGoalEntry: FC<FutureGoalEntryProps> = ({ entry, rank }) => {
         alignItems='center'
         gap={genOneSideSpacingCssProperty('sm')}
       >
-        {!isUndefined(entry.fields.description) &&
-        !isEmpty(entry.fields.description) ? (
+        {!isUndefined(entry.description) && !isEmpty(entry.description) ? (
           <AccordionWrapper
             fieldName={
-              <Typography variant='spanHeading'>
-                {entry.fields.title}
-              </Typography>
+              <Typography variant='spanHeading'>{entry.title}</Typography>
             }
           >
-            {documentToReactComponents(entry.fields.description)}
+            {documentToReactComponents(entry.description)}
           </AccordionWrapper>
         ) : (
           <StringEntry
             fieldName={t('home.future_goal.title')}
-            fieldVal={entry.fields.title}
+            fieldVal={entry.title}
           />
         )}
-        {!isEmpty(entry.fields.occupation) && (
+        {!isEmpty(entry.occupation) && (
           <StringEntry
             fieldName={t('home.future_goal.occupation')}
-            fieldVal={entry.fields.occupation?.fields.title}
+            fieldVal={entry.occupation?.fields.title}
           />
         )}
-        {!isEmpty(entry.fields.span_goal) && (
+        {!isEmpty(entry.span_goal) && (
           <StringEntry
             fieldName={t('home.future_goal.span_goal')}
-            fieldVal={entry.fields.span_goal.fields.title}
+            fieldVal={entry.span_goal.fields.title}
           />
         )}
       </Grid>

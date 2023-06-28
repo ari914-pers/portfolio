@@ -1,6 +1,6 @@
 import cmsClient from '@/config/cms/cmsClient';
 import { Asset, Entry } from 'contentful';
-import { isUndefined, map } from 'lodash';
+import { flow, identity, isUndefined, map } from 'lodash';
 import {
   EntryField,
   ICmsError,
@@ -34,31 +34,28 @@ export const getEntry = async <T extends EntryField, U = unknown>(
 
 export const getEntries = async <
   T extends EntryField,
-  U extends Record<string | symbol, string | number>,
-  V = unknown
->(
-  contentType: CONTENT_TYPE,
+  U extends Record<string | symbol, string | number> = Record<string, never>>(
+  content_type: CONTENT_TYPE,
   query?: U,
-  processFunc?: processFunc<T, V>,
-  processFuncArgs?: processFuncArgs<V>
+  processFunc?: (entry: T, args?: unknown[]) => T,
+  processFuncArgs?: unknown[]
 ) => {
   const results = await cmsClient
     .getEntries<T>({
-      contentType,
+      content_type,
       ...query,
     })
     .then((entries) => {
-      return map(entries, (entry: Entry<T>) => {
+      return map(entries.items, (entry) => {
         return processFunc
-          ? processFuncArgs
-            ? processFunc(entry?.fields, ...processFuncArgs)
-            : processFunc(entry?.fields)
-          : entry?.fields;
+          ? processFunc(entry.fields, processFuncArgs)
+          : entry.fields;
       });
     })
     .catch((e: ICmsError) => {
       // TODO 例外処理を書く・error boundary
       console.error(e);
+      return null;
     });
 
   return results;

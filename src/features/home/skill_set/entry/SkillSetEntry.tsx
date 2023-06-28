@@ -1,4 +1,11 @@
-import { Grid, LinearProgress, Tooltip, Typography } from '@mui/material';
+import {
+  Grid,
+  LinearProgress,
+  Theme,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import { FC } from 'react';
 import { ISkillsetFields } from '../../../../../@types/generated/contentful';
 import IconBox from '@/components/atoms/wrappers/IconBox';
@@ -19,16 +26,21 @@ const SkillSetEntry: FC<SkillSetEntryProps> = ({ entry }) => {
   const { t } = useTranslation('home');
 
   const { isOpen, handleOpen, handleClose } = useModalControl();
+  const matchWithSmartphoneWidth = useMediaQuery<Theme>((theme) =>
+    theme.breakpoints.down('sm')
+  );
 
   const btnMoreInfo = (
     <Button onClick={handleOpen} variant='outlined'>
       <>
-        <Typography
-          variant='spanRegular'
-          sx={{ marginRight: genOneSideSpacingCssProperty('xs') }}
-        >
-          {entry.period_work_experience}
-        </Typography>
+        {!matchWithSmartphoneWidth && (
+          <Typography
+            variant='spanRegular'
+            sx={{ marginRight: genOneSideSpacingCssProperty('xs') }}
+          >
+            {entry.period_work_experience}
+          </Typography>
+        )}
         <HelpOutline />
       </>
     </Button>
@@ -64,8 +76,7 @@ const SkillSetEntry: FC<SkillSetEntryProps> = ({ entry }) => {
         </Grid>
         <Grid item xs={6}>
           <Tooltip
-            title={`${t('home.skill_set.proficiency_percentage')}: ${
-              entry.proficiency_percentage
+            title={`${t('home.skill_set.proficiency_percentage')}: ${entry.proficiency_percentage
             }`}
           >
             <LinearProgress

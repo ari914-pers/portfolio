@@ -90,6 +90,7 @@ const ProfileView: FC<ProfileViewProps> = ({ fields }) => {
                 fieldVal={val}
                 content_name={key as PROFILE_CONTENT_WITH_CHILDREN}
                 FieldRenderer={CollectionEntryRenderer}
+                content_order_key={profileContentsWithChildren}
               />
             )}
           />

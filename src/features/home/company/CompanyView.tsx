@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import {
   ICompanyFields,
-  IFutureGoal,
+  IFutureGoalFields,
 } from '../../../../@types/generated/contentful';
 import BaseCard from '@/components/molecules/surfaces/BaseCard';
 import { useTranslation } from 'next-i18next';
@@ -24,7 +24,7 @@ import { sortBy } from 'lodash';
 
 type CompanyViewProps = {
   entries: ICompanyFields[];
-  futureGoals: IFutureGoal[];
+  futureGoals: IFutureGoalFields[];
 };
 
 const CompanyView: FC<CompanyViewProps> = ({ entries, futureGoals }) => {
