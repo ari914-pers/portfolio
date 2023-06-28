@@ -7,7 +7,7 @@ import SkillSetView from './skill_set/SkillSetView';
 import { genOneSideSpacingCssProperty } from '@/utils/style.util';
 import { Grid } from '@mui/material';
 import { isNull } from 'lodash';
-import { IFutureGoal } from '../../../@types/generated/contentful';
+import SkillSetTab from './skill_set/component/SkillSetTab';
 
 export type HomeViewProps = {
   profile: ComponentProps<typeof ProfileView>['fields'] | null;
@@ -16,7 +16,7 @@ export type HomeViewProps = {
   faqs: ComponentProps<typeof FaqView>['faqs'] | null;
   personalDevelopments: // eslint-disable-next-line prettier/prettier
   | ComponentProps<typeof PersonalDevelopmentView>['personalDevelopment']
-    // eslint-disable-next-line prettier/prettier
+  // eslint-disable-next-line prettier/prettier
   | null;
   skillSets: ComponentProps<typeof SkillSetView>['entries'] | null;
 };
@@ -29,13 +29,6 @@ const HomeView: FC<HomeViewProps> = ({
   personalDevelopments,
   skillSets,
 }) => {
-  console.log('PROFILE', profile);
-  console.log('COMPANY', companies);
-  console.log('FUTURE GOAL', futureGoals);
-  console.log('FAQ', faqs);
-  console.log('PERSONAL DEV', personalDevelopments);
-  console.log('SKILL SET', skillSets);
-
   return (
     <Grid
       container
@@ -65,10 +58,7 @@ const HomeView: FC<HomeViewProps> = ({
           xs={12}
           md={6}
         >
-          <CompanyView
-            entries={companies}
-            futureGoals={futureGoals as IFutureGoal[]}
-          />
+          <CompanyView entries={companies} futureGoals={futureGoals} />
         </Grid>
       )}
       {!isNull(faqs) && (
@@ -80,7 +70,7 @@ const HomeView: FC<HomeViewProps> = ({
           xs={12}
           md={6}
         >
-          <FaqView faqs={faqs} />
+          <FaqView faqs={faqs} isUsedOnHome />
         </Grid>
       )}
       {!isNull(personalDevelopments) && (
@@ -104,7 +94,9 @@ const HomeView: FC<HomeViewProps> = ({
           xs={12}
           md={6}
         >
-          <SkillSetView entries={skillSets} />
+          <SkillSetView entries={skillSets}>
+            <SkillSetTab isUsedOnHome />
+          </SkillSetView>
         </Grid>
       )}
     </Grid>

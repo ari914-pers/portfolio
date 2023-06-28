@@ -235,14 +235,12 @@ const dummyFaqs = [
   {
     title_question: 'あなたは誰ですか？',
     title_answer: '私は一般市民です。',
-    answer_description:
-      'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+    answer_description: dummyDoc,
   },
   {
     title_question: 'あなたは誰ですか？',
     title_answer: '私は一般市民です。',
-    answer_description:
-      'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+    answer_description: dummyDoc,
   },
 ];
 
