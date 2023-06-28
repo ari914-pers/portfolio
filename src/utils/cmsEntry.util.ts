@@ -40,12 +40,15 @@ export const isFeedbackFields = (
 };
 
 // othere utilities
-export const toOrderGuaranteed = <T>(keys: string[], content: EntryField) => {
+export const toOrderGuaranteed = <T, U extends EntryField>(
+  keys: string[],
+  content: U
+) => {
   const ArrForMapConstructor = map(
     keys,
-    (elm) => [elm, content[elm as keyof EntryField]] as [string, T | undefined]
+    (elm) => [elm, content[elm as keyof U]] as [keyof U, T | undefined]
   );
-  const profileTextFieldMap = new Map<string, T | undefined>(
+  const profileTextFieldMap = new Map<keyof U, T | undefined>(
     ArrForMapConstructor
   );
 
