@@ -28,6 +28,8 @@ Normal.args = {
   fields: {
     heading_content: 'プロフィール',
     full_name: '野村啓司',
+    mail_address: 'ons14september@gmail.com',
+    born_at: '2023-06-14T08:28:19.934Z',
     avatar_image: {
       fields: {
         file: {

@@ -46,6 +46,14 @@ withEmptyString.args = {
   fieldVal: '',
 };
 
+export const withLink = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+withLink.args = {
+  fieldName: 'あがががあああああああああ',
+  fieldVal: 'ons14september@gmail.com',
+  withLink: 'mailto:ons14september@gmail.com',
+};
+
 export const withUndefined = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 withUndefined.args = {
