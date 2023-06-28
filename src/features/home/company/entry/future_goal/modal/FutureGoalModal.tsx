@@ -3,7 +3,7 @@ import useModalControl from '@/hooks/useModalControl';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Stack from '@/components/atoms/wrappers/Stack';
-import { IFutureGoal } from '../../../../../../../@types/generated/contentful';
+import { IFutureGoalFields } from '../../../../../../../@types/generated/contentful';
 import Renderer from '@/components/atoms/display/Renderer';
 import FutureGoalEntry from './FutureGoalEntry';
 import { isNumber, sortBy, toString } from 'lodash';
@@ -12,7 +12,7 @@ import { Divider } from '@mui/material';
 type FutureGoalModalProps = Pick<
   ReturnType<typeof useModalControl>,
   'isOpen' | 'handleClose'
-> & { entries: IFutureGoal[] };
+> & { entries: IFutureGoalFields[] };
 
 const FutureGoalModal: FC<FutureGoalModalProps> = ({
   isOpen,
@@ -35,13 +35,13 @@ const FutureGoalModal: FC<FutureGoalModalProps> = ({
               <FutureGoalEntry
                 entry={entry}
                 rank={isNumber(index) ? index + 1 : undefined}
-                key={toString(entry.fields.title)}
+                key={toString(entry.title)}
               />
               <Divider />
             </>
           )}
           processEntries={(entries) =>
-            sortBy(entries, (entry1) => entry1.fields.priority)
+            sortBy(entries, (entry1) => entry1.priority)
           }
           key={toString(Math.floor(Math.random() * 100))}
         />

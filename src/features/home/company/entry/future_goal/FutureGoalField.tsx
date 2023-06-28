@@ -1,16 +1,16 @@
 import { ComponentProps, FC } from 'react';
-import { IFutureGoal } from '../../../../../../@types/generated/contentful';
+import { IFutureGoalFields } from '../../../../../../@types/generated/contentful';
 import Stack from '@/components/atoms/wrappers/Stack';
 import { Box, Divider, Typography, useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import LabeledButton from '@/components/atoms/inputs/buttons/LabeledButton';
-import { isEmpty, sortBy } from 'lodash';
+import { isEmpty, isUndefined, sortBy } from 'lodash';
 import { genSizingPropertyVal } from '@/utils/style.util';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import FutureGoalModal from './modal/FutureGoalModal';
 import useModalControl from '@/hooks/useModalControl';
 
-type FutureGoalFieldProps = { entries: IFutureGoal[] };
+type FutureGoalFieldProps = { entries: IFutureGoalFields[] };
 
 const FutureGoalField: FC<FutureGoalFieldProps> = ({ entries }) => {
   const { t } = useTranslation(['home', 'common']);
@@ -18,7 +18,7 @@ const FutureGoalField: FC<FutureGoalFieldProps> = ({ entries }) => {
 
   const { isOpen, handleOpen, handleClose } = useModalControl();
 
-  const entryPrioritized = sortBy(entries, (entry) => entry.fields.priority)[0];
+  const entryPrioritized = sortBy(entries, (entry) => entry.priority)[0];
 
   const btnProps: ComponentProps<typeof LabeledButton> = {
     buttonProps: {
@@ -33,7 +33,8 @@ const FutureGoalField: FC<FutureGoalFieldProps> = ({ entries }) => {
     },
   };
 
-  return !isEmpty(entryPrioritized.fields.description) ? (
+  return !isUndefined(entryPrioritized) &&
+    !isEmpty(entryPrioritized.description) ? (
     <>
       <Stack designProps={{ twoSidesSpacing: { p: ['md-0'] } }} spacing='md'>
         <Typography variant='h5'>{t('home.future_goal.heading')}</Typography>
@@ -53,7 +54,7 @@ const FutureGoalField: FC<FutureGoalFieldProps> = ({ entries }) => {
                   height: genSizingPropertyVal(4, 'rem'),
                 }}
               >
-                {documentToReactComponents(entryPrioritized.fields.description)}
+                {documentToReactComponents(entryPrioritized.description)}
               </Box>
               <Stack designProps={{}} justifyContent='flex-end'>
                 <span>...</span>
