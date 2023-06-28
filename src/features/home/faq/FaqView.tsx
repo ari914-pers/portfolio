@@ -4,15 +4,20 @@ import { useTranslation } from 'next-i18next';
 import FaqEntry from './entry/FaqEntry';
 import { identity } from 'lodash';
 import BaseRendererForCollectionContents from '../common/BaseRendererForCollectionContents';
+import Renderer from '@/components/atoms/display/Renderer';
 
 type FaqViewProps = {
   faqs: IFaqFields[];
+  isUsedOnHome: boolean;
 };
 
-const FaqView: FC<PropsWithChildren<FaqViewProps>> = ({ faqs }) => {
+const FaqView: FC<PropsWithChildren<FaqViewProps>> = ({
+  faqs,
+  isUsedOnHome = true,
+}) => {
   const { t } = useTranslation(['home', 'common']);
 
-  return (
+  return isUsedOnHome ? (
     <BaseRendererForCollectionContents
       collection={faqs}
       isRenderedWithCard
@@ -21,6 +26,8 @@ const FaqView: FC<PropsWithChildren<FaqViewProps>> = ({ faqs }) => {
       cardBtnActionClickHandler={identity}
       EntryRenderer={FaqEntry}
     />
+  ) : (
+    <Renderer entries={faqs} iteratee={(entry) => <FaqEntry entry={entry} />} />
   );
 };
 

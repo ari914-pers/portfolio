@@ -1,27 +1,30 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import SkillSetTab from '@/features/home/skill_set/component/SkillSetTab';
+import SkillSetPV from '@/features/skill_set/SkillSetPageView';
+import LayoutRegular from '@/components/layout/LayoutRegular';
 import {
   ISkillsetFields,
   ICategorySkill,
-} from '../../../../../@types/generated/contentful';
-import SkillSetView from '@/features/home/skill_set/SkillSetView';
-import SkillSetTab from '@/features/home/skill_set/component/SkillSetTab';
+} from '../../../../@types/generated/contentful';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/SkillSet/SkillSetView',
-  component: SkillSetView,
+  title: 'Features/SkillSet/SkillSetPV',
+  component: SkillSetPV,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   // variant: { control: 'select', options: ['text', 'outlined', 'contained'] },
   // },
-} as ComponentMeta<typeof SkillSetView>;
+} as ComponentMeta<typeof SkillSetPV>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof SkillSetView> = (args) => (
-  <SkillSetView {...args}>
-    <SkillSetTab isUsedOnHome />
-  </SkillSetView>
+const Template: ComponentStory<typeof SkillSetPV> = (args) => (
+  <LayoutRegular>
+    <SkillSetPV {...args}>
+      <SkillSetTab isUsedOnHome={false} />
+    </SkillSetPV>
+  </LayoutRegular>
 );
 
 const dummyEntryLang = {
@@ -55,7 +58,7 @@ const dummyEntryLib: ISkillsetFields = {
 export const Normal = Template.bind({});
 
 Normal.args = {
-  entries: [
+  skillSets: [
     dummyEntryLang,
     dummyEntryLang,
     dummyEntryLib,
@@ -67,7 +70,7 @@ Normal.args = {
 export const withMoreThan3Entries = Template.bind({});
 
 withMoreThan3Entries.args = {
-  entries: [
+  skillSets: [
     dummyEntryLang,
     dummyEntryLang,
     dummyEntryLib,
