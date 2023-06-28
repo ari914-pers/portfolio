@@ -82,3 +82,5 @@ export const projectModalResponsiblePhaseFields: (keyof IResponsiblePhaseFields)
 
 export const projectModalBusinessContentFields: (keyof IBusiessContentFields)[] =
   ['title', 'note'];
+
+export const PREFIX_ANCHOR_MAIL_ADDRESS = 'mailto:';
