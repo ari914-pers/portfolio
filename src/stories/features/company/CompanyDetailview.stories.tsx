@@ -1,28 +1,26 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Box } from '@mui/material';
-import {
-  IWorkProjects,
-  ICompanyFields,
-  IFutureGoalFields,
-} from '../../../../../@types/generated/contentful';
-import CompanyView from '@/features/home/company/CompanyView';
+import FaqListView from '@/features/faq/FaqListView';
+import LayoutRegular from '@/components/layout/LayoutRegular';
+import { Document } from '@contentful/rich-text-types';
+import CompanyDetailview from '@/features/company/CompanyDetailview';
+import { IWorkProjects, ICompanyFields, IFutureGoalFields } from '../../../../@types/generated/contentful';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Features/Home/Company/CompanyView',
-  component: CompanyView,
+  title: 'Features/Company/CompanyDetailview',
+  component: CompanyDetailview,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   // variant: { control: 'select', options: ['text', 'outlined', 'contained'] },
   // },
-} as ComponentMeta<typeof CompanyView>;
+} as ComponentMeta<typeof CompanyDetailview>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof CompanyView> = (args) => (
-  <Box width={600}>
-    <CompanyView {...args} isUsedOnHome />
-  </Box>
+const Template: ComponentStory<typeof CompanyDetailview> = (args) => (
+  <LayoutRegular>
+    <CompanyDetailview {...args} />
+  </LayoutRegular>
 );
 
 const dummyEntry = {
@@ -35,7 +33,7 @@ const dummyEntry = {
 const dummyCompany = {
   description: 'ソフトハウス的な会社',
   joined_at: '2021-06-14T08:28:19.934Z',
-  work_projects: [dummyEntry, dummyEntry],
+  work_projects: [dummyEntry, dummyEntry, dummyEntry, dummyEntry],
 } as ICompanyFields;
 
 const dummyDoc = {
@@ -86,22 +84,13 @@ const dummyDoc = {
 
 const dummyFutureGoal = {
   description: dummyDoc,
-  title: 'testteset',
+  title: 'testtesttest',
 } as IFutureGoalFields;
 
 export const Normal = Template.bind({});
 
 Normal.args = {
   entries: [dummyCompany, dummyCompany, dummyCompany],
-  futureGoals: [dummyFutureGoal, dummyFutureGoal],
-};
-
-export const withOrdering = Template.bind({});
-
-const dummy2 = { ...dummyCompany, joined_at: '1997-06-14T08:28:19.934Z' };
-
-withOrdering.args = {
-  entries: [dummyCompany, dummyCompany, dummy2],
   futureGoals: [dummyFutureGoal, dummyFutureGoal],
 };
 

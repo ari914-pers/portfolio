@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, createContext } from 'react';
 import {
   ICompanyFields,
   IFutureGoalFields,
@@ -21,53 +21,72 @@ import { Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import FutureGoalField from './entry/future_goal/FutureGoalField';
 import { sortBy } from 'lodash';
+import Renderer from '@/components/atoms/display/Renderer';
 
 type CompanyViewProps = {
   entries: ICompanyFields[];
   futureGoals: IFutureGoalFields[];
+  isUsedOnHome: boolean;
 };
 
-const CompanyView: FC<CompanyViewProps> = ({ entries, futureGoals }) => {
+export const CompanyContext = createContext({ isUsedOnHome: false })
+
+const CompanyView: FC<CompanyViewProps> = ({
+  entries,
+  futureGoals,
+  isUsedOnHome,
+}) => {
   const { t } = useTranslation(['home']);
 
   return (
-    <BaseCard
-      title={t('home.company.title')}
-      description={t('home.company.card_description')}
-    >
-      <Timeline
-        sx={{
-          [`& .${timelineOppositeContentClasses.root}`]: {
-            flex: 0.2,
-          },
-        }}
+    <CompanyContext.Provider value={{ isUsedOnHome }}>
+      <BaseCard
+        title={t('home.company.title')}
+        description={t('home.company.card_description')}
       >
-        <BaseRendererForCollectionContents
-          collection={entries}
-          isRenderedWithCard={false}
-          EntryRenderer={CompanyEntry}
-          processFunc={(entries) => sortBy(entries, (entry) => entry.joined_at)}
-        />
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant='spanRegular'>
-              {dayjs(new Date()).format('YYYY年MM月')}
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot
-              sx={{ bgcolor: (theme) => theme.palette.primary.light }}
+        <Timeline
+          sx={{
+            [`& .${timelineOppositeContentClasses.root}`]: {
+              flex: 0.2,
+            },
+          }}
+        >
+          {isUsedOnHome ? (
+            <BaseRendererForCollectionContents
+              collection={entries}
+              isRenderedWithCard={false}
+              EntryRenderer={CompanyEntry}
+              processFunc={(entries) =>
+                sortBy(entries, (entry) => entry.joined_at)
+              }
             />
-            <TimelineConnector
-              sx={{ bgcolor: (theme) => theme.palette.primary.light }}
+          ) : (
+            <Renderer
+              entries={entries}
+              iteratee={(entry) => <CompanyEntry entry={entry} />}
             />
-          </TimelineSeparator>
-          <TimelineContent>
-            <FutureGoalField entries={futureGoals} />
-          </TimelineContent>
-        </TimelineItem>
-      </Timeline>
-    </BaseCard>
+          )}
+          <TimelineItem>
+            <TimelineOppositeContent>
+              <Typography variant='spanRegular'>
+                {dayjs(new Date()).format('YYYY年MM月')}
+              </Typography>
+            </TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineDot
+                sx={{ bgcolor: (theme) => theme.palette.primary.light }}
+              />
+              <TimelineConnector
+                sx={{ bgcolor: (theme) => theme.palette.primary.light }}
+              />
+            </TimelineSeparator>
+            <TimelineContent>
+              <FutureGoalField entries={futureGoals} />
+            </TimelineContent>
+          </TimelineItem>
+        </Timeline>
+      </BaseCard>
+    </CompanyContext.Provider>
   );
 };
 
