@@ -2,26 +2,21 @@ import * as React from 'react';
 import { RenderPageResult } from 'next/dist/shared/lib/utils';
 import Document, {
   Html,
-  Head,
   Main,
   NextScript,
   DocumentInitialProps,
+  Head,
 } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '@/config/styles/createEmotionCache';
-import theme from '@/config/styles/theme';
+import NextHead from '@/config/app/NextHead';
 
 export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang='ja'>
         <Head>
-          {/* PWA primary color */}
-          <meta name='theme-color' content={theme.palette.primary.main} />
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
-          />
+          <NextHead />
         </Head>
         <body>
           <Main />
