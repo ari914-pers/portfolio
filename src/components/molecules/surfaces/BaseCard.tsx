@@ -6,6 +6,7 @@ import {
   genTwoSidesSpacingCssProperty,
 } from '@/utils/style.util';
 import { BaseCardProps } from '@/types/components/common.type';
+import { usePathname } from 'next/navigation';
 
 // item spacing: LG
 // padding
@@ -18,6 +19,7 @@ const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
   btnAction,
   id,
 }) => {
+  const path = usePathname();
   return (
     <Card
       sx={{
@@ -41,7 +43,9 @@ const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
         }}
       />
       <CardContent>{children}</CardContent>
-      <CardActions sx={{ justifyContent: 'center' }}>{btnAction}</CardActions>
+      {path === '/' ? (
+        <CardActions sx={{ justifyContent: 'center' }}>{btnAction}</CardActions>
+      ) : null}
     </Card>
   );
 };
