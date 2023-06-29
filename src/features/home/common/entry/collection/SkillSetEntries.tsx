@@ -47,6 +47,7 @@ const SkillSetEntries: FC<DevEnvEntryProps> = ({ fieldName, entries }) => {
                       />
                     ) : null
                   }
+                  key={entry.fields.img_icon?.fields.file.url}
                 />
               ) : null
             }

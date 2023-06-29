@@ -20,7 +20,7 @@ import CompanyEntry from './entry/CompanyEntry';
 import { Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import FutureGoalField from './entry/future_goal/FutureGoalField';
-import { sortBy } from 'lodash';
+import { random, sortBy } from 'lodash';
 import Renderer from '@/components/atoms/display/Renderer';
 import LabeledButton from '@/components/atoms/inputs/buttons/LabeledButton';
 import usePageTransition from '@/hooks/usePageTransition';
@@ -72,7 +72,12 @@ const CompanyView: FC<CompanyViewProps> = ({
           ) : (
             <Renderer
               entries={entries}
-              iteratee={(entry) => <CompanyEntry entry={entry} />}
+              iteratee={(entry) => (
+                <CompanyEntry
+                  entry={entry}
+                  key={Math.floor(random(true) * 100)}
+                />
+              )}
             />
           )}
           <TimelineItem>

@@ -45,7 +45,7 @@ const Menu: FC = () => {
           entries={APP_NAV}
           iteratee={(entry) =>
             path === '/' ? (
-              <Scroll to={entry.id} offset={-200}>
+              <Scroll to={entry.id} offset={-200} key={entry.id}>
                 <MenuItem
                   sx={{ p: genTwoSidesSpacingCssProperty('sm-md') }}
                   onClick={handleClose}
@@ -54,7 +54,7 @@ const Menu: FC = () => {
                 </MenuItem>
               </Scroll>
             ) : (
-              <Link href={entry.path}>
+              <Link href={entry.path} key={entry.id}>
                 <MenuItem
                   sx={{ p: genTwoSidesSpacingCssProperty('sm-md') }}
                   onClick={handleClose}

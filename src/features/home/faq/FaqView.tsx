@@ -5,6 +5,7 @@ import FaqEntry from './entry/FaqEntry';
 import BaseRendererForCollectionContents from '../common/BaseRendererForCollectionContents';
 import Renderer from '@/components/atoms/display/Renderer';
 import usePageTransition from '@/hooks/usePageTransition';
+import { random } from 'lodash';
 
 type FaqViewProps = {
   faqs: IFaqFields[];
@@ -29,7 +30,12 @@ const FaqView: FC<PropsWithChildren<FaqViewProps>> = ({
       id='#faq'
     />
   ) : (
-    <Renderer entries={faqs} iteratee={(entry) => <FaqEntry entry={entry} />} />
+    <Renderer
+      entries={faqs}
+      iteratee={(entry) => (
+        <FaqEntry entry={entry} key={Math.floor(random(true) * 100)} />
+      )}
+    />
   );
 };
 

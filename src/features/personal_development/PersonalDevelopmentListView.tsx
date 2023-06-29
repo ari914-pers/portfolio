@@ -10,6 +10,7 @@ import {
 import BaseCard from '@/components/molecules/surfaces/BaseCard';
 import Stack from '@/components/atoms/wrappers/Stack';
 import { useTranslation } from 'react-i18next';
+import { floor, random } from 'lodash';
 
 type PersonalDevelopmentListView = {
   entries: IPersonalDevelopmentFields[];
@@ -40,6 +41,7 @@ const PersonalDevelopmentListView: FC<PersonalDevelopmentListView> = ({
               md={6}
               justifyContent='center'
               alignContent='center'
+              key={floor(random(), 3)}
             >
               <BaseCard>
                 <PersonalDevelopmentEntry entry={entry} />

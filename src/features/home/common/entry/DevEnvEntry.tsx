@@ -51,6 +51,7 @@ const DevEnvEntry: FC<DevEnvEntryProps> = ({ fieldName, entry }) => {
               <SkillSetEntries
                 fieldName={t(`home.development_environment.${entryName}`)}
                 entries={val}
+                key={entryName}
               />
             )}
           />
