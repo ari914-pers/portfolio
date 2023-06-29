@@ -5,6 +5,7 @@ import Link from '@/components/atoms/navs/links/Link';
 import IconBox from '@/components/atoms/wrappers/IconBox';
 import { IExternalServiceLink } from '../../../../../@types/generated/contentful';
 import Renderer from '@/components/atoms/display/Renderer';
+import { processStrIntoURLFormat } from '@/utils/common.util';
 
 type ServiceLinkEntryProp = {
   fieldVal: IExternalServiceLink[] | undefined;
@@ -21,7 +22,13 @@ const ServiceLinkEntry: FC<PropsWithChildren<ServiceLinkEntryProp>> = ({
           return (
             <Link href={link.fields.url_link} key={link.fields.url_link}>
               <IconBox
-                srcURL={new URL(link.fields.image_logo.fields.file.url)}
+                srcURL={
+                  new URL(
+                    processStrIntoURLFormat(
+                      link.fields.image_logo.fields.file.url
+                    )
+                  )
+                }
                 size='lg'
               />
             </Link>
