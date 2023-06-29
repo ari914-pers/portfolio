@@ -28,6 +28,7 @@ const Header: FC = () => {
               alt='HEADER_HEADING'
               width={600}
               height={80}
+              priority
             />
           </Link>
         </Toolbar>

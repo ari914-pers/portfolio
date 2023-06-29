@@ -19,7 +19,7 @@ const ServiceLinkEntry: FC<PropsWithChildren<ServiceLinkEntryProp>> = ({
         entries={fieldVal}
         iteratee={(link) => {
           return (
-            <Link href={link.fields.url_link}>
+            <Link href={link.fields.url_link} key={link.fields.url_link}>
               <IconBox
                 srcURL={new URL(link.fields.image_logo.fields.file.url)}
                 size='lg'

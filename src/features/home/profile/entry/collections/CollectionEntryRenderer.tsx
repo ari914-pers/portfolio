@@ -1,5 +1,5 @@
 import React from 'react';
-import { isEmpty, isUndefined, some } from 'lodash';
+import { isEmpty, isUndefined, some, toString } from 'lodash';
 import Container from '@/components/atoms/wrappers/Container';
 import StringEntry from '../../../common/entry/StringEntry';
 import { toOrderGuaranteed } from '@/utils/cmsEntry.util';
@@ -39,6 +39,7 @@ const CollectionEntryRenderer: ProfileChildEntriesComp = ({
           <StringEntry
             fieldName={t(`${content_name_rendered}.${key}`)}
             fieldVal={val}
+            key={toString(val)}
           />
         )}
       />

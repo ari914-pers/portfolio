@@ -6,8 +6,8 @@ import Stack from '@/components/atoms/wrappers/Stack';
 import { IFutureGoalFields } from '../../../../../../../@types/generated/contentful';
 import Renderer from '@/components/atoms/display/Renderer';
 import FutureGoalEntry from './FutureGoalEntry';
-import { isNumber, sortBy, toString } from 'lodash';
-import { Divider } from '@mui/material';
+import { isNumber, random, sortBy, toString } from 'lodash';
+import { Box, Divider } from '@mui/material';
 
 type FutureGoalModalProps = Pick<
   ReturnType<typeof useModalControl>,
@@ -31,14 +31,14 @@ const FutureGoalModal: FC<FutureGoalModalProps> = ({
         <Renderer
           entries={entries}
           iteratee={(entry, index) => (
-            <>
+            <Box key={Math.floor(random(true) * 100)}>
               <FutureGoalEntry
                 entry={entry}
                 rank={isNumber(index) ? index + 1 : undefined}
                 key={toString(entry.title)}
               />
               <Divider />
-            </>
+            </Box>
           )}
           processEntries={(entries) =>
             sortBy(entries, (entry1) => entry1.priority)

@@ -26,7 +26,6 @@ const SkillSetTab: FC<SkillSetTabProps> = ({ isUsedOnHome = true }) => {
     <TabContext value={currentTab}>
       <TabList
         onChange={handleChangeTab}
-        centered
         sx={{ bgcolor: (theme) => theme.palette.primary.light }}
         indicatorColor='secondary'
         variant='scrollable'

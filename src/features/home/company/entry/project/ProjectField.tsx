@@ -5,7 +5,7 @@ import { IWorkProjects } from '../../../../../../@types/generated/contentful';
 import { useTranslation } from 'react-i18next';
 import BaseRendererForCollectionContents from '@/features/home/common/BaseRendererForCollectionContents';
 import ProjectEntry from './ProjectEntry';
-import { isUndefined } from 'lodash';
+import { isUndefined, random } from 'lodash';
 import { CompanyContext } from '../../CompanyView';
 import Renderer from '@/components/atoms/display/Renderer';
 
@@ -33,7 +33,9 @@ const ProjectField: FC<ProjectFieldProps> = ({ projects }) => {
       ) : (
         <Renderer
           entries={projects}
-          iteratee={(entry) => <ProjectEntry entry={entry} />}
+          iteratee={(entry) => (
+            <ProjectEntry entry={entry} key={Math.floor(random(true) * 100)} />
+          )}
         />
       )}
     </Stack>

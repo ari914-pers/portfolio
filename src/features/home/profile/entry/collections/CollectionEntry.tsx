@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { isArray, isEmpty } from 'lodash';
+import { isArray, isEmpty, toString } from 'lodash';
 import { DefaultTFuncReturn } from 'i18next';
 import {
   Accordion,
@@ -52,6 +52,7 @@ const CollectionEntry: FC<PropsWithChildren<CollectionEnStryProp>> = ({
                   collection={entry}
                   content_name_rendered={content_name}
                   content_order_keys={content_order_key}
+                  key={toString(fieldName)}
                 />
               ) : null
             }

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Stack from '@/components/atoms/wrappers/Stack';
 import StringEntry from '@/features/home/common/entry/StringEntry';
 import DurationEntry from '@/features/home/common/entry/DurationEntry';
-import { isEmpty, isUndefined } from 'lodash';
+import { isEmpty, isUndefined, random } from 'lodash';
 import DocumentEntry from '@/features/home/common/entry/DocumentEntry';
 import DevEnvEntry from '@/features/home/common/entry/DevEnvEntry';
 import AccordionWrapper from '@/components/atoms/wrappers/AccordionWrapper';
@@ -70,7 +70,9 @@ const ProjectModal: FC<ProjectModalProps> = ({
             >
               <Renderer
                 entries={entry.responsible_phases}
-                iteratee={(entry) => <CollectionEntry entry={entry} />}
+                iteratee={(entry) => (
+                  <CollectionEntry entry={entry} key={entry.fields.title} />
+                )}
               />
             </AccordionWrapper>
           )}
@@ -88,7 +90,12 @@ const ProjectModal: FC<ProjectModalProps> = ({
             >
               <Renderer
                 entries={entry.business_contents}
-                iteratee={(entry) => <CollectionEntry entry={entry} />}
+                iteratee={(entry) => (
+                  <CollectionEntry
+                    entry={entry}
+                    key={Math.floor(random(true) * 100)}
+                  />
+                )}
               />
             </AccordionWrapper>
           )}
@@ -105,7 +112,12 @@ const ProjectModal: FC<ProjectModalProps> = ({
           >
             <Renderer
               entries={entry.feedbacks}
-              iteratee={(entry) => <FeedbackEntry entry={entry} />}
+              iteratee={(entry) => (
+                <FeedbackEntry
+                  entry={entry}
+                  key={Math.floor(random(true) * 100)}
+                />
+              )}
             />
           </AccordionWrapper>
         )}
