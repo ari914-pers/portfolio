@@ -29,7 +29,7 @@ type CompanyViewProps = {
   isUsedOnHome: boolean;
 };
 
-export const CompanyContext = createContext({ isUsedOnHome: false })
+export const CompanyContext = createContext({ isUsedOnHome: false });
 
 const CompanyView: FC<CompanyViewProps> = ({
   entries,
@@ -43,6 +43,7 @@ const CompanyView: FC<CompanyViewProps> = ({
       <BaseCard
         title={t('home.company.title')}
         description={t('home.company.card_description')}
+        id='#career'
       >
         <Timeline
           sx={{

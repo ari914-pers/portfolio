@@ -1,17 +1,9 @@
-import {
-  AppBar,
-  // Box,
-  IconButton,
-  Slide,
-  Toolbar,
-  useScrollTrigger,
-} from '@mui/material';
+import { AppBar, Slide, Toolbar, useScrollTrigger } from '@mui/material';
 import { FC, PropsWithChildren, ReactElement } from 'react';
 import Image from 'next/image';
 import { DIR_PATH_TO_ASSET_IMAGE } from '@/consts/app.const';
 import Link from '@/components/atoms/navs/links/Link';
-import MenuIcon from '@mui/icons-material/Menu';
-import { genOneSideSpacingCssProperty } from '@/utils/style.util';
+import Menu from '../nav/Menu';
 
 const HideOnScroll: FC<PropsWithChildren> = ({ children }) => {
   const trigger = useScrollTrigger();
@@ -29,15 +21,7 @@ const Header: FC = () => {
     <HideOnScroll>
       <AppBar sx={{ flexGrow: 1 }} position='sticky'>
         <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: genOneSideSpacingCssProperty('md') }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Menu />
           <Link href='/' MUILinkProps={{ sx: { flexGrow: 1 } }}>
             <Image
               src={`${DIR_PATH_TO_ASSET_IMAGE}/logo_header.svg`}

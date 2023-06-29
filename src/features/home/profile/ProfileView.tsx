@@ -45,6 +45,7 @@ const ProfileView: FC<ProfileViewProps> = ({ fields }) => {
           {t('common.label.btnDetail')}
         </LabeledButton>
       }
+      id='#profile'
     >
       <Stack
         designProps={{ twoSidesSpacing: { p: ['md-0'] } }}
