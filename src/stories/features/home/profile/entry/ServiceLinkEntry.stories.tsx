@@ -1,6 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ServiceLinkEntry from '@/features/home/profile/entry/ServiceLinkEntry';
+import { Asset } from 'contentful';
+import { IExternalServiceLink } from '../../../../../../@types/generated/contentful';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -30,10 +32,10 @@ Normal.args = {
               url: 'https://images.ctfassets.net/3uttjuewzfml/3J8strFHPG3gZpadhR2MDT/5efbb38037acd4116b10fd1a81258c19/logo-only.svg',
             },
           },
-        },
+        } as Asset,
         name: 'Zenn.dev',
       },
-    },
+    } as IExternalServiceLink,
     {
       fields: {
         url_link: 'https://zenn.dev/ari914_pers',
@@ -46,7 +48,7 @@ Normal.args = {
         },
         name: 'Zenn.dev',
       },
-    },
+    } as IExternalServiceLink,
     {
       fields: {
         url_link: 'https://zenn.dev/ari914_pers',
@@ -59,7 +61,7 @@ Normal.args = {
         },
         name: 'Zenn.dev',
       },
-    },
+    } as IExternalServiceLink,
   ],
 };
 

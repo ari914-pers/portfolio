@@ -28,8 +28,8 @@ type BaseCardForCollectionContentsProps<
   isRenderedWithCard: isRenderedWithCard;
   cardTitle?: isRenderedWithCard extends true ? BaseCardProps['title'] : null;
   cardDescription?: isRenderedWithCard extends true
-  ? BaseCardProps['description']
-  : null;
+    ? BaseCardProps['description']
+    : null;
   cardBtnActionClickHandler?: MouseEventHandler<HTMLButtonElement>;
   EntryRenderer: EntryRendererComp<T>;
   itemSpacing?: DimensionKey;

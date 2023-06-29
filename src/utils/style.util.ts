@@ -9,9 +9,10 @@ import {
 } from '@/types/style.type';
 
 export const genSizingPropertyVal = (
-  val: number,
+  val: number | 'auto',
   unit: DimensionUnit = 'px'
 ) => {
+  if (val === 'auto') return 'auto';
   return (unit === 'px' || unit === 'rem') && val < 0
     ? `${-val}${unit}`
     : `${val}${unit}`;

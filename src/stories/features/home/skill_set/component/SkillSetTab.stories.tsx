@@ -66,16 +66,4 @@ export const Normal = Template.bind({});
 
 export const withMoreThan3Entries = Template.bind({});
 
-withMoreThan3Entries.args = {
-  entries: [
-    dummyEntryLang,
-    dummyEntryLang,
-    dummyEntryLib,
-    dummyEntryLang,
-    dummyEntryLib,
-    dummyEntryLang,
-    dummyEntryLang,
-    dummyEntryLang,
-    dummyEntryLang,
-  ] as ISkillsetFields[],
-};
+withMoreThan3Entries.args = {};

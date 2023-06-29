@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
   ILanguageAbility,
-  IQualificationFields,
+  IQualification,
 } from '../../../../../../../@types/generated/contentful';
 import CollectionEntry from '@/features/home/profile/entry/collections/CollectionEntry';
 import CollectionEntryRenderer from '@/features/home/profile/entry/collections/CollectionEntryRenderer';
@@ -74,15 +74,6 @@ WithQualifications.args = {
         description:
           'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
       },
-    } as IQualificationFields,
-    {
-      fields: {
-        name: 'TOEIC',
-        score: 855,
-        obtained_at: '2017年12月',
-        description:
-          'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
-      },
     },
     {
       fields: {
@@ -102,7 +93,16 @@ WithQualifications.args = {
           'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
       },
     },
-  ] as IQualificationFields[],
+    {
+      fields: {
+        name: 'TOEIC',
+        score: 855,
+        obtained_at: '2017年12月',
+        description:
+          'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      },
+    },
+  ] as unknown as IQualification[],
   FieldRenderer: CollectionEntryRenderer,
   content_name: 'home.profile.qualifications',
   content_order_key: QualificationContents,

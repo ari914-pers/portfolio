@@ -1,7 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '@mui/material';
-import { IFutureGoal } from '../../../../../../../../@types/generated/contentful';
+import {
+  IFutureGoal,
+  IFutureGoalFields,
+} from '../../../../../../../../@types/generated/contentful';
 import FutureGoalModal from '@/features/home/company/entry/future_goal/modal/FutureGoalModal';
 import useModalControl from '@/hooks/useModalControl';
 import { set } from 'lodash';
@@ -75,26 +78,25 @@ const dummyDoc = {
 };
 
 const dummyEntry = {
-  fields: {
-    title: 'テストテストテストテストテスト',
-    description: dummyDoc,
-    priority: 12,
-    occupation: {
-      fields: {
-        title: 'フロントエンド',
-      },
-    },
-    span_goal: {
-      fields: {
-        title: '来年の夏まで',
-      },
+  title: 'テストテストテストテストテスト',
+  description: dummyDoc,
+  priority: 12,
+  occupation: {
+    fields: {
+      title: 'フロントエンド',
     },
   },
-} as IFutureGoal;
+  span_goal: {
+    fields: {
+      title: '来年の夏まで',
+    },
+  },
+} as IFutureGoalFields;
 
-const dummy2: IFutureGoal = {
+const dummy2: IFutureGoalFields = {
   ...dummyEntry,
-  fields: { priority: 1, title: 'test2' },
+  priority: 1,
+  title: 'test2',
 };
 
 const dummy3 = set<IFutureGoal>({ ...dummyEntry }, ['fields', 'priority'], 2);
@@ -108,7 +110,7 @@ Normal.args = {
     dummyEntry,
     dummyEntry,
     dummy3,
-  ] as IFutureGoal[],
+  ] as IFutureGoalFields[],
 };
 
 // export const withoutDescription = Template.bind({});

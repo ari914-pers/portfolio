@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Box } from '@mui/material';
-import { IFutureGoal } from '../../../../../../../@types/generated/contentful';
+import { IFutureGoalFields } from '../../../../../../../@types/generated/contentful';
 import FutureGoalField from '@/features/home/company/entry/future_goal/FutureGoalField';
 import { Document } from '@contentful/rich-text-types';
 
@@ -73,40 +73,36 @@ export const Normal = Template.bind({});
 Normal.args = {
   entries: [
     {
-      fields: {
-        description: dummyDoc as Document,
-        occupation: {
-          fields: 'フロントエンド',
-        },
-        priority: 1,
-        title: '頑張ります',
-        span_goal: {
-          fields: {
-            title: '夏まで',
-          },
+      description: dummyDoc as Document,
+      occupation: {
+        fields: 'フロントエンド',
+      },
+      priority: 1,
+      title: '頑張ります',
+      span_goal: {
+        fields: {
+          title: '夏まで',
         },
       },
-    } as IFutureGoal,
+    } as unknown as IFutureGoalFields,
     {
-      fields: {
-        description: dummyDoc as Document,
-        occupation: {
-          fields: 'フロントエンド',
-        },
-        priority: 5,
-        title: '頑張ります2',
-        span_goal: {
-          fields: {
-            title: '夏まで',
-          },
+      description: dummyDoc as Document,
+      occupation: {
+        fields: 'フロントエンド',
+      },
+      priority: 5,
+      title: '頑張ります2',
+      span_goal: {
+        fields: {
+          title: '夏まで',
         },
       },
-    } as IFutureGoal,
-  ] as IFutureGoal[],
+    } as unknown as IFutureGoalFields,
+  ] as IFutureGoalFields[],
 };
 
 export const withoutDescription = Template.bind({});
 
 withoutDescription.args = {
-  entries: [] as IFutureGoal[],
+  entries: [] as IFutureGoalFields[],
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Box } from '@mui/material';
-import { IFutureGoal } from '../../../../../../../../@types/generated/contentful';
+import { IFutureGoalFields } from '../../../../../../../../@types/generated/contentful';
 import FutureGoalEntry from '@/features/home/company/entry/future_goal/modal/FutureGoalEntry';
 import { Document } from '@contentful/rich-text-types';
 
@@ -69,19 +69,17 @@ const dummyDoc = {
 };
 
 const dummyEntry = {
-  fields: {
-    title: 'テストテストテストテストテスト',
-    description: dummyDoc,
-    priority: 12,
-    occupation: {
-      fields: {
-        title: 'フロントエンド',
-      },
+  title: 'テストテストテストテストテスト',
+  description: dummyDoc,
+  priority: 12,
+  occupation: {
+    fields: {
+      title: 'フロントエンド',
     },
-    span_goal: {
-      fields: {
-        title: '来年の夏まで',
-      },
+  },
+  span_goal: {
+    fields: {
+      title: '来年の夏まで',
     },
   },
 };
@@ -89,27 +87,27 @@ const dummyEntry = {
 export const Normal = Template.bind({});
 
 Normal.args = {
-  entry: dummyEntry as IFutureGoal,
+  entry: dummyEntry as IFutureGoalFields,
 };
 
 export const withoutDescription = Template.bind({});
 
-const dummy2: IFutureGoal = {
+const dummy2 = {
   ...dummyEntry,
-  fields: { description: {} as Document },
+  description: {} as Document,
 };
 
 withoutDescription.args = {
-  entry: dummy2 as IFutureGoal,
+  entry: dummy2 as IFutureGoalFields,
 };
 
 export const withStyledPriority = Template.bind({});
 
-const dummy3: IFutureGoal = {
+const dummy3 = {
   ...dummyEntry,
-  fields: { priority: 1 },
+  priority: 1,
 };
 
 withoutDescription.args = {
-  entry: dummy3 as IFutureGoal,
+  entry: dummy3 as IFutureGoalFields,
 };

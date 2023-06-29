@@ -3,14 +3,17 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import HomeView from '@/features/home/HomeView';
 import LayoutRegular from '@/components/layout/LayoutRegular';
 import {
+  ICompanyFields,
   IDevelopEnv,
-  IFutureGoal,
+  IFutureGoalFields,
   ILanguageAbility,
   IPersonalDevelopmentFields,
+  IProfileFields,
   IQualification,
   ISkillsetFields,
 } from '../../../../@types/generated/contentful';
 import { Asset } from 'contentful';
+import { Document } from '@contentful/rich-text-types';
 
 const dummyDoc = {
   nodeType: 'document',
@@ -56,7 +59,7 @@ const dummyDoc = {
       ],
     },
   ],
-};
+} as Document;
 
 const dummyProfile = {
   heading_content: 'プロフィール',
@@ -185,10 +188,8 @@ const dummyCompany = {
 };
 
 const dummyFutureGoal = {
-  fields: {
-    description: dummyDoc,
-  },
-} as IFutureGoal;
+  description: dummyDoc,
+} as IFutureGoalFields;
 
 const dummyIcon = {
   fields: {
@@ -269,14 +270,12 @@ Normal.args = {
     {
       title_question: 'あなたは誰ですか？',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
     {
       title_question: 'あなたは誰ですか？',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
   ],
 };
@@ -288,38 +287,32 @@ withMoreThan3Faqs.args = {
     {
       title_question: 'あなたは誰ですか？ 1',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
     {
       title_question: 'あなたは誰ですか？ 2',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
     {
       title_question: 'あなたは誰ですか？ 3',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
     {
       title_question: 'あなたは誰ですか？ 4',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
     {
       title_question: 'あなたは誰ですか？ 5',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
     {
       title_question: 'あなたは誰ですか？ 6',
       title_answer: '私は一般市民です。',
-      answer_description:
-        'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
+      answer_description: dummyDoc,
     },
   ],
 };
@@ -348,8 +341,8 @@ const dummySkillSet = {
 export const SoTiring = Template.bind({});
 
 SoTiring.args = {
-  profile: dummyProfile,
-  companies: [dummyCompany, dummyCompany],
+  profile: dummyProfile as IProfileFields,
+  companies: [dummyCompany, dummyCompany] as ICompanyFields[],
   futureGoals: [
     dummyFutureGoal,
     dummyFutureGoal,

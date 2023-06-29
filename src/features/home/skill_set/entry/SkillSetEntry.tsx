@@ -76,7 +76,8 @@ const SkillSetEntry: FC<SkillSetEntryProps> = ({ entry }) => {
         </Grid>
         <Grid item xs={6}>
           <Tooltip
-            title={`${t('home.skill_set.proficiency_percentage')}: ${entry.proficiency_percentage
+            title={`${t('home.skill_set.proficiency_percentage')}: ${
+              entry.proficiency_percentage
             }`}
           >
             <LinearProgress

@@ -5,7 +5,6 @@ import {
   IEntry,
   ILanguageAbility,
   IQualification,
-  IResponsiblePhaseFields,
 } from '../../../@types/generated/contentful';
 import { EntityORFieldOrUndefined } from '../cms.type';
 

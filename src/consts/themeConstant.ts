@@ -95,6 +95,7 @@ export const Dimensions: Record<DimensionKey, Dimension> = {
   lg: 32,
   xl: 64,
   zero: 0,
+  auto: 'auto',
 };
 
 export const Spacings: Record<SpacingKey, [Dimension, Dimension]> = {
@@ -114,6 +115,7 @@ export const Spacings: Record<SpacingKey, [Dimension, Dimension]> = {
   'lg-xl': [Dimensions.lg, Dimensions.xl],
   'xl-xl': [Dimensions.xl, Dimensions.xl],
   'md-0': [Dimensions.md, Dimensions.zero],
+  '0-auto': [Dimensions.zero, Dimensions.auto],
 };
 
 export const BorderRadiuses: Record<BorderRadiusKey, BorderRadius> = {

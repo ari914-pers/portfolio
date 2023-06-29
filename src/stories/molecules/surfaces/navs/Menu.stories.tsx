@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Box, IconButton } from '@mui/material';
+import { Box } from '@mui/material';
 import Menu from '@/components/molecules/nav/Menu';
-import useMenuControl from '@/hooks/useMenuControl';
-import { MenuBook } from '@mui/icons-material';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -17,11 +15,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Menu> = (args) => {
-  const menuProps = useMenuControl();
-
   return (
     <Box width='100vw' height='100vh'>
-      <Menu {...args} {...menuProps} />
+      <Menu {...args} />
     </Box>
   );
 };

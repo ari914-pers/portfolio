@@ -9,17 +9,8 @@ import {
 } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import List from '@/components/atoms/display/List';
-import {
-  PROFILE_CONTENT_WITH_CHILDREN,
-  ProfileChildEntriesComp,
-  ProfileChildEntry,
-} from '@/types/features/home.type';
-import {
-  ICareer,
-  IEntry,
-  ILanguageAbility,
-  IQualification,
-} from '../../../../../../@types/generated/contentful';
+import { ProfileChildEntriesComp } from '@/types/features/home.type';
+import { ICareer, IEntry } from '../../../../../../@types/generated/contentful';
 import { genSizingPropertyVal } from '@/utils/style.util';
 
 type CollectionEnStryProp = {

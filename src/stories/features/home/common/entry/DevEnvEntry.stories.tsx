@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import DevEnvEntry from '@/features/home/common/entry/DevEnvEntry';
-import { IDevelopEnvFields } from '../../../../../../../@types/generated/contentful';
+import { IDevelopEnvFields } from '../../../../../../@types/generated/contentful';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -51,7 +51,7 @@ WithEmptyEntries.args = {
   entry: {
     languages: [dummyFields, dummyFields, dummyFields],
     tools: [],
-  } as IDevelopEnvFields,
+  } as unknown as IDevelopEnvFields,
 };
 
 // export const WithUndefined = Template.bind({});
