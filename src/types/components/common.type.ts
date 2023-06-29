@@ -14,6 +14,7 @@ import {
 import { SxProps } from '@mui/material';
 import { CSSProperties, ReactNode } from 'react';
 import { DefaultTFuncReturn } from 'i18next';
+import { APP_TRANSITION_ITEM } from '../app.type';
 
 export type SizingCssProperty = Partial<
   Record<SizingCssPropertyKey, Parameters<typeof genSizingPropertyVal>>
@@ -50,4 +51,5 @@ export type BaseCardProps = {
   title?: DefaultTFuncReturn;
   description?: ReactNode;
   btnAction?: ReactNode;
+  id?: APP_TRANSITION_ITEM['id'];
 };
