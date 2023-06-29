@@ -1,25 +1,27 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import FaqListView from '@/features/faq/FaqListView';
 import LayoutRegular from '@/components/layout/LayoutRegular';
-import { Document } from '@contentful/rich-text-types';
-import CompanyDetailview from '@/features/company/CompanyDetailview';
-import { IWorkProjects, ICompanyFields, IFutureGoalFields } from '../../../../@types/generated/contentful';
+import {
+  IWorkProjects,
+  ICompanyFields,
+  IFutureGoalFields,
+} from '../../../../@types/generated/contentful';
+import CompanyDetailView from '@/features/company/CompanyDetailview';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Features/Company/CompanyDetailview',
-  component: CompanyDetailview,
+  component: CompanyDetailView,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   // variant: { control: 'select', options: ['text', 'outlined', 'contained'] },
   // },
-} as ComponentMeta<typeof CompanyDetailview>;
+} as ComponentMeta<typeof CompanyDetailView>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof CompanyDetailview> = (args) => (
+const Template: ComponentStory<typeof CompanyDetailView> = (args) => (
   <LayoutRegular>
-    <CompanyDetailview {...args} />
+    <CompanyDetailView {...args} />
   </LayoutRegular>
 );
 
