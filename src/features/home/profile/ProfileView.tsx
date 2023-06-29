@@ -2,7 +2,6 @@ import LabeledButton from '@/components/atoms/inputs/buttons/LabeledButton';
 import Stack from '@/components/atoms/wrappers/Stack';
 import BaseCard from '@/components/molecules/surfaces/BaseCard';
 import { Avatar } from '@mui/material';
-import { identity } from 'lodash';
 import { useTranslation } from 'next-i18next';
 import React, { FC } from 'react';
 import { IProfileFields } from '../../../../@types/generated/contentful';
@@ -21,6 +20,7 @@ import CollectionEntry from './entry/collections/CollectionEntry';
 import CollectionEntryRenderer from './entry/collections/CollectionEntryRenderer';
 import Container from '@/components/atoms/wrappers/Container';
 import dayjs from 'dayjs';
+import usePageTransition from '@/hooks/usePageTransition';
 
 type ProfileViewProps = {
   fields: IProfileFields;
@@ -28,6 +28,7 @@ type ProfileViewProps = {
 
 const ProfileView: FC<ProfileViewProps> = ({ fields }) => {
   const { t } = useTranslation(['common', 'home']);
+  const [handleClick] = usePageTransition('/profile');
 
   const profileTextFields = toOrderGuaranteed<string, IProfileFields>(
     ProfileTextContents,
@@ -41,7 +42,7 @@ const ProfileView: FC<ProfileViewProps> = ({ fields }) => {
         fields?.desc_content && documentToReactComponents(fields?.desc_content)
       }
       btnAction={
-        <LabeledButton buttonProps={{ onClick: () => identity() }}>
+        <LabeledButton buttonProps={{ onClick: handleClick }}>
           {t('common.label.btnDetail')}
         </LabeledButton>
       }
@@ -75,6 +76,7 @@ const ProfileView: FC<ProfileViewProps> = ({ fields }) => {
                     ? `${PREFIX_ANCHOR_MAIL_ADDRESS}${fields.mail_address}`
                     : undefined
                 }
+                key={key}
               />
             )}
           />

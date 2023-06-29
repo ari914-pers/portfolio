@@ -2,9 +2,9 @@ import React, { FC, PropsWithChildren } from 'react';
 import { IFaqFields } from '../../../../@types/generated/contentful';
 import { useTranslation } from 'next-i18next';
 import FaqEntry from './entry/FaqEntry';
-import { identity } from 'lodash';
 import BaseRendererForCollectionContents from '../common/BaseRendererForCollectionContents';
 import Renderer from '@/components/atoms/display/Renderer';
+import usePageTransition from '@/hooks/usePageTransition';
 
 type FaqViewProps = {
   faqs: IFaqFields[];
@@ -16,6 +16,7 @@ const FaqView: FC<PropsWithChildren<FaqViewProps>> = ({
   isUsedOnHome = true,
 }) => {
   const { t } = useTranslation(['home', 'common']);
+  const [handleClick] = usePageTransition('/faq');
 
   return isUsedOnHome ? (
     <BaseRendererForCollectionContents
@@ -23,7 +24,7 @@ const FaqView: FC<PropsWithChildren<FaqViewProps>> = ({
       isRenderedWithCard
       cardTitle={t('home.faq.title')}
       cardDescription={t('home.faq.description')}
-      cardBtnActionClickHandler={identity}
+      cardBtnActionClickHandler={handleClick}
       EntryRenderer={FaqEntry}
       id='#faq'
     />

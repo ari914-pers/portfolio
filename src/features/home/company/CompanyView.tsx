@@ -22,6 +22,8 @@ import dayjs from 'dayjs';
 import FutureGoalField from './entry/future_goal/FutureGoalField';
 import { sortBy } from 'lodash';
 import Renderer from '@/components/atoms/display/Renderer';
+import LabeledButton from '@/components/atoms/inputs/buttons/LabeledButton';
+import usePageTransition from '@/hooks/usePageTransition';
 
 type CompanyViewProps = {
   entries: ICompanyFields[];
@@ -36,7 +38,8 @@ const CompanyView: FC<CompanyViewProps> = ({
   futureGoals,
   isUsedOnHome,
 }) => {
-  const { t } = useTranslation(['home']);
+  const { t } = useTranslation(['home', 'common']);
+  const [handleClick] = usePageTransition('/career');
 
   return (
     <CompanyContext.Provider value={{ isUsedOnHome }}>
@@ -44,6 +47,11 @@ const CompanyView: FC<CompanyViewProps> = ({
         title={t('home.company.title')}
         description={t('home.company.card_description')}
         id='#career'
+        btnAction={
+          <LabeledButton buttonProps={{ onClick: handleClick }}>
+            {t('common.label.btnDetail', { ns: 'common' })}
+          </LabeledButton>
+        }
       >
         <Timeline
           sx={{
