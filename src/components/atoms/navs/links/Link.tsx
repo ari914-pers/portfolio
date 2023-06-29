@@ -4,6 +4,8 @@ import { genBorderPropertyVal, genSizingPropertyVal } from '@/utils/style.util';
 import {
   Link as MUILink,
   LinkProps as MUILinkProps,
+  SxProps,
+  Theme,
   useTheme,
 } from '@mui/material';
 import NextLink, { LinkProps } from 'next/link';
@@ -55,10 +57,10 @@ const Link: FC<PropsWithChildren<LinkCompProps>> = ({
       {...MUILinkProps}
       sx={
         variant
-          ? {
+          ? ({
               ...getSxPropsByVariants(linkVariants, variant),
               ...MUILinkProps?.sx,
-            }
+            } as SxProps<Theme>)
           : { ...MUILinkProps?.sx }
       }
       component='span'

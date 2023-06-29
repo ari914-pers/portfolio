@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 import {
-  BorderRadiuses,
   LineHeights,
   Opacities,
   fontFamilies,
@@ -11,6 +10,39 @@ import {
   textTransforms,
   themeValues,
 } from '../../consts/themeConstant';
+
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    poster: React.CSSProperties;
+    linkBody: React.CSSProperties;
+    linkHeading: React.CSSProperties;
+    spanRegular: React.CSSProperties;
+    spanHeading: React.CSSProperties;
+    linkHeadingBroken: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    poster?: React.CSSProperties;
+    linkBody?: React.CSSProperties;
+    linkHeading?: React.CSSProperties;
+    spanRegular?: React.CSSProperties;
+    spanHeading?: React.CSSProperties;
+    linkHeadingBroken?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    poster: true;
+    linkBody: true;
+    linkHeading: true;
+    spanRegular: true;
+    spanHeading: true;
+    linkHeadingBroken: true;
+  }
+}
 
 // Create a theme instance.
 const theme = createTheme({
@@ -57,9 +89,6 @@ const theme = createTheme({
     divider: themeValues.palette.primary.light,
   },
   spacing: themeValues.spacing,
-  shape: {
-    // borderRadius: BorderRadiuses.xl,
-  },
   typography: {
     fontFamily: `${fontFamilies['Sawarabi Gothic']} ${fontFamilies['sans-serif']}`,
     h1: {

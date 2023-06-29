@@ -2,9 +2,11 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ProfileView from '@/features/home/profile/ProfileView';
 import {
+  IExternalServiceLink,
   ILanguageAbility,
   IQualification,
 } from '../../../../../@types/generated/contentful';
+import { Asset } from 'contentful';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -36,7 +38,7 @@ Normal.args = {
           url: 'https://images.ctfassets.net/3uttjuewzfml/2ceQLRiZnMHkzEM09y2fPh/ae9c2c783ae47408a83116bde7227366/Avatar-Maker.png?h=250',
         },
       },
-    },
+    } as Asset,
     external_service_links: [
       {
         fields: {
@@ -49,7 +51,7 @@ Normal.args = {
             },
           },
         },
-      },
+      } as IExternalServiceLink,
       {
         fields: {
           url_link: 'https://zenn.dev/ari914_pers',
@@ -61,7 +63,7 @@ Normal.args = {
             },
           },
         },
-      },
+      } as IExternalServiceLink,
       {
         fields: {
           url_link: 'https://zenn.dev/ari914_pers',
@@ -73,7 +75,7 @@ Normal.args = {
             },
           },
         },
-      },
+      } as IExternalServiceLink,
     ],
     handle_name: 'ハンドルネームテスト',
     residence: '東京都',

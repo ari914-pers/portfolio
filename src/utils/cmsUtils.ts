@@ -1,6 +1,6 @@
 import cmsClient from '@/config/cms/cmsClient';
-import { Asset, Entry } from 'contentful';
-import { flow, identity, isUndefined, map } from 'lodash';
+import { Asset } from 'contentful';
+import { isUndefined, map } from 'lodash';
 import {
   EntryField,
   ICmsError,
@@ -8,7 +8,6 @@ import {
   processFuncArgs,
 } from '@/types/cms.type';
 import { CONTENT_TYPE } from '../../@types/generated/contentful';
-import { AssetKeys } from '@/consts/cms';
 
 export const getEntry = async <T extends EntryField, U = unknown>(
   entryID: string,
@@ -34,7 +33,8 @@ export const getEntry = async <T extends EntryField, U = unknown>(
 
 export const getEntries = async <
   T extends EntryField,
-  U extends Record<string | symbol, string | number> = Record<string, never>>(
+  U extends Record<string | symbol, string | number> = Record<string, never>
+>(
   content_type: CONTENT_TYPE,
   query?: U,
   processFunc?: (entry: T, args?: unknown[]) => T,

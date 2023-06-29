@@ -5,7 +5,10 @@ import {
   ILanguageAbility,
   IQualification,
 } from '../../../../../../../@types/generated/contentful';
-import { LanguageAbilityContents, QualificationContents } from '@/consts/features/home.const';
+import {
+  LanguageAbilityContents,
+  QualificationContents,
+} from '@/consts/features/home.const';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -48,7 +51,7 @@ WithQualifications.args = {
       description:
         'テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト',
     },
-  } as IQualification,
+  } as unknown as IQualification,
   content_name_rendered: 'home.profile.qualifications',
   content_order_keys: QualificationContents,
 };

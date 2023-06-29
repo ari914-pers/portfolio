@@ -8,8 +8,8 @@ import PersonalDevelopmentListView from '@/features/personal_development/Persona
 
 type PersonalDevelopmentPageP = {
   personalDevelopments:
-  | ComponentProps<typeof PersonalDevelopmentListView>['entries']
-  | null;
+    | ComponentProps<typeof PersonalDevelopmentListView>['entries']
+    | null;
 };
 
 const PersonalDevelopmentPage: NextPage<PersonalDevelopmentPageP> = ({

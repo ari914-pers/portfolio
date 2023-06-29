@@ -43,9 +43,9 @@ export type TextTransform = 'uppercase' | 'none';
 
 export type TextDecoration = 'underline' | 'none';
 
-export type Dimension = 4 | 8 | 16 | 32 | 64 | 0;
+export type Dimension = 4 | 8 | 16 | 32 | 64 | 0 | 'auto';
 
-export type DimensionKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
+export type DimensionKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero' | 'auto';
 
 export type SpacingKey =
   | 'xs-xs'

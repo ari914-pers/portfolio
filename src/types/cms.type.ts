@@ -1,5 +1,6 @@
 import {
   IBusiessContentFields,
+  ICareer,
   ICategoryCharacteristicFields,
   ICategoryGoalFields,
   ICategoryOccupationFields,
@@ -85,4 +86,7 @@ export type EntryFieldSignature = {
   [field: string | symbol]: unknown;
 };
 
-export type EntityORFieldOrUndefined = EntryField | IEntry | undefined;
+export type EntityORFieldOrUndefined =
+  | EntryField
+  | Exclude<IEntry, ICareer>
+  | undefined;

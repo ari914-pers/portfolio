@@ -78,7 +78,7 @@ export const skillSetModalFields: Exclude<
 ];
 
 export const projectModalResponsiblePhaseFields: (keyof IResponsiblePhaseFields)[] =
-  ['title', 'description'];
+  ['title', 'note'];
 
 export const projectModalBusinessContentFields: (keyof IBusiessContentFields)[] =
   ['title', 'note'];

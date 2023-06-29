@@ -24,7 +24,7 @@ Normal.args = {
   buttonProps: {
     onClick: () => alert('Clicked!'),
   },
-  label: 'Labeled Button',
+  children: 'Labeled Button',
 };
 
 export const WithPrependedIcon = Template.bind({});
@@ -36,7 +36,7 @@ WithPrependedIcon.args = {
       startIcon: <AccessAlarm />,
     },
   },
-  label: 'ボタンのラベル',
+  children: 'ボタンのラベル',
 };
 
 export const WithAppendedIcon = Template.bind({});
@@ -48,7 +48,7 @@ WithAppendedIcon.args = {
       endIcon: <AccessAlarm />,
     },
   },
-  label: 'ボタンのラベル',
+  children: 'ボタンのラベル',
 };
 
 // export const Outlined = Template.bind({});

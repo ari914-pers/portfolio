@@ -24,10 +24,12 @@ export const getStaticProps: GetStaticProps = async (
   const profile = await getEntries<IProfileFields>('profile');
 
   return {
-    props: { profile: profile ? profile[0] : null },
-    ...(await serverSideTranslations(context.locale ?? 'ja', [
-      'common',
-      'home',
-    ])),
+    props: {
+      profile: profile ? profile[0] : null,
+      ...(await serverSideTranslations(context.locale ?? 'ja', [
+        'common',
+        'home',
+      ])),
+    },
   };
 };

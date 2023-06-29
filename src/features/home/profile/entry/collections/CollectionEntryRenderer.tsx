@@ -37,7 +37,7 @@ const CollectionEntryRenderer: ProfileChildEntriesComp = ({
         entries={contentFields}
         iteratee={([key, val]) => (
           <StringEntry
-            fieldName={t(`${content_name_rendered}.${key}`)}
+            fieldName={t(`${content_name_rendered as string}.${key as string}`)}
             fieldVal={val}
             key={toString(val)}
           />

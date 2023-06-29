@@ -4,7 +4,6 @@ import {
   ICategorySkill,
   ISkillsetFields,
 } from '../../../../../../@types/generated/contentful';
-import { SkillSetContext } from '@/features/home/skill_set/SkillSetView';
 import SkillSetModal from '@/features/home/skill_set/component/SkillSetModal';
 import useModalControl from '@/hooks/useModalControl';
 import { Button } from '@mui/material';
@@ -39,13 +38,6 @@ const dummyEntryLang = {
     },
   },
 } as ISkillsetFields;
-
-const dummyEntryLib: ISkillsetFields = {
-  ...dummyEntryLang,
-  category: {
-    fields: { title: 'ライブラリ・フレームワーク' },
-  } as ICategorySkill,
-};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof SkillSetModal> = (args) => {
