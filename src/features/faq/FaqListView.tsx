@@ -12,6 +12,7 @@ const FaqListView: FC<FaqListViewProps> = ({ faqs }) => {
     <BaseCard
       title={t('home.faq.title')}
       description={t('home.faq.description')}
+      id='#faq'
     >
       <FaqView faqs={faqs} isUsedOnHome={false} />
     </BaseCard>

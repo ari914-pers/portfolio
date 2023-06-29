@@ -24,6 +24,7 @@ const PersonalDevelopmentView: FC<
       EntryRenderer={PersonalDevelopmentEntry}
       itemSpacing='md'
       processFunc={(entries) => sortBy(entries, (entry) => entry.started_at)}
+      id='#PD'
     />
   );
 };

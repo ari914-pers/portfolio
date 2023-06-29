@@ -20,6 +20,7 @@ const SkillSetView: FC<PropsWithChildren<SkillSetViewProps>> = ({
       <BaseCard
         title={t('home.skill_set.title')}
         description={t('home.skill_set.title')}
+        id='#skillSet'
       >
         {children}
       </BaseCard>

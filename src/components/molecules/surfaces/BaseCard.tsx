@@ -16,6 +16,7 @@ const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
   description,
   children,
   btnAction,
+  id,
 }) => {
   return (
     <Card
@@ -25,6 +26,7 @@ const BaseCard: FC<PropsWithChildren<BaseCardProps>> = ({
         maxWidth: '550px',
         p: genTwoSidesSpacingCssProperty('sm-md'),
       }}
+      id={id}
     >
       <CardHeader
         title={title}

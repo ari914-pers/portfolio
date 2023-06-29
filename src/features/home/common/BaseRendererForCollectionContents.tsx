@@ -18,6 +18,7 @@ import { DimensionKey } from '@/types/style.type';
 import { genSizingPropertyVal } from '@/utils/style.util';
 import Image from 'next/image';
 import { DIR_PATH_TO_ASSET_IMAGE } from '@/consts/app.const';
+import { APP_TRANSITION_ITEM } from '@/types/app.type';
 
 type BaseCardForCollectionContentsProps<
   T extends EntityORFieldOrUndefined,
@@ -33,6 +34,7 @@ type BaseCardForCollectionContentsProps<
   EntryRenderer: EntryRendererComp<T>;
   itemSpacing?: DimensionKey;
   processFunc?: (entries: T[]) => T[];
+  id?: APP_TRANSITION_ITEM['id'];
 };
 
 const BaseRendererForCollectionContents = <
@@ -47,6 +49,7 @@ const BaseRendererForCollectionContents = <
   EntryRenderer,
   itemSpacing,
   processFunc,
+  id,
 }: BaseCardForCollectionContentsProps<U, isRenderedWithCard>) => {
   const { t } = useTranslation(['common']);
   const collectionSize = size(collection);
@@ -76,6 +79,7 @@ const BaseRendererForCollectionContents = <
           </LabeledButton>
         ) : null
       }
+      id={id}
     >
       <Stack designProps={{}} direction='column' spacing={itemSpacing}>
         <Renderer

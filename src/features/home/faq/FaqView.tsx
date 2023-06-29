@@ -25,6 +25,7 @@ const FaqView: FC<PropsWithChildren<FaqViewProps>> = ({
       cardDescription={t('home.faq.description')}
       cardBtnActionClickHandler={identity}
       EntryRenderer={FaqEntry}
+      id='#faq'
     />
   ) : (
     <Renderer entries={faqs} iteratee={(entry) => <FaqEntry entry={entry} />} />
