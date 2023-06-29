@@ -24,10 +24,12 @@ export const getStaticProps: GetStaticProps = async (
   const skillSets = await getEntries<ISkillsetFields>('skillset');
 
   return {
-    props: { skillSets },
-    ...(await serverSideTranslations(context.locale ?? 'ja', [
-      'common',
-      'home',
-    ])),
+    props: {
+      skillSets,
+      ...(await serverSideTranslations(context.locale ?? 'ja', [
+        'home',
+        'common',
+      ])),
+    },
   };
 };

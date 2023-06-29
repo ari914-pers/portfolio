@@ -36,8 +36,8 @@ export const getStaticProps: GetStaticProps = async (
       companies,
       futureGoals,
       ...(await serverSideTranslations(context.locale ?? 'ja', [
-        'common',
         'home',
+        'common',
       ])),
     },
   };
