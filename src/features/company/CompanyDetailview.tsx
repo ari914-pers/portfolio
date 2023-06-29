@@ -1,12 +1,12 @@
 import { ComponentProps, FC } from 'react';
 import CompanyView from '../home/company/CompanyView';
 
-type CompanyDetailviewProps = Pick<
+type CompanyDetailViewProps = Pick<
   ComponentProps<typeof CompanyView>,
   'entries' | 'futureGoals'
 >;
 
-const CompanyDetailview: FC<CompanyDetailviewProps> = ({
+const CompanyDetailView: FC<CompanyDetailViewProps> = ({
   entries,
   futureGoals,
 }) => {
@@ -19,4 +19,4 @@ const CompanyDetailview: FC<CompanyDetailviewProps> = ({
   );
 };
 
-export default CompanyDetailview;
+export default CompanyDetailView;

@@ -7,11 +7,11 @@ import { GetStaticProps, NextPage, GetStaticPropsResult } from 'next';
 import { getEntries } from '@/utils/cmsUtils';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { isNull } from 'lodash';
-import CompanyDetailview from '@/features/company/CompanyDetailview';
+import CompanyDetailView from '@/features/company/CompanyDetailview';
 
 type CareerPageP = {
-  companies: ComponentProps<typeof CompanyDetailview>['entries'] | null;
-  futureGoals: ComponentProps<typeof CompanyDetailview>['futureGoals'] | null;
+  companies: ComponentProps<typeof CompanyDetailView>['entries'] | null;
+  futureGoals: ComponentProps<typeof CompanyDetailView>['futureGoals'] | null;
 };
 
 const CareerPage: NextPage<CareerPageP> = ({
@@ -19,7 +19,7 @@ const CareerPage: NextPage<CareerPageP> = ({
   futureGoals,
 }: CareerPageP) => {
   return !isNull(companies) && !isNull(futureGoals) ? (
-    <CompanyDetailview entries={companies} futureGoals={futureGoals} />
+    <CompanyDetailView entries={companies} futureGoals={futureGoals} />
   ) : null;
 };
 
