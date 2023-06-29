@@ -17,6 +17,7 @@ import { genOneSideSpacingCssProperty } from '@/utils/style.util';
 import Stack from '@/components/atoms/wrappers/Stack';
 import useModalControl from '@/hooks/useModalControl';
 import SkillSetModal from '../component/SkillSetModal';
+import { processStrIntoURLFormat } from '@/utils/common.util';
 
 type SkillSetEntryProps = {
   entry: ISkillsetFields;
@@ -67,7 +68,9 @@ const SkillSetEntry: FC<SkillSetEntryProps> = ({ entry }) => {
             size='lg'
             srcURL={
               entry.img_icon?.fields.file.url
-                ? new URL(entry.img_icon?.fields.file.url)
+                ? new URL(
+                    processStrIntoURLFormat(entry.img_icon?.fields.file.url)
+                  )
                 : `${DIR_PATH_TO_ASSET_IMAGE}/no_image.png`
             }
             label={entry.name}

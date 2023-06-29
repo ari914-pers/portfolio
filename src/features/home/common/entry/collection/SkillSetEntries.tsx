@@ -18,6 +18,7 @@ import Renderer from '@/components/atoms/display/Renderer';
 import IconBox from '@/components/atoms/wrappers/IconBox';
 import { NO_SIZE_CONTENT_COLLECTION } from '@/consts/features/home.const';
 import SkillSetEntriesTooltip from './SkillSetEntriesTooltip';
+import { processStrIntoURLFormat } from '@/utils/common.util';
 
 type DevEnvEntryProps = {
   fieldName: DefaultTFuncReturn;
@@ -38,7 +39,13 @@ const SkillSetEntries: FC<DevEnvEntryProps> = ({ fieldName, entries }) => {
               entry.fields.img_icon?.fields.file.url ? (
                 <IconBox
                   size='lg'
-                  srcURL={new URL(entry.fields.img_icon?.fields.file.url)}
+                  srcURL={
+                    new URL(
+                      processStrIntoURLFormat(
+                        entry.fields.img_icon?.fields.file.url
+                      )
+                    )
+                  }
                   tooltipTitle={
                     entry.fields.name || entry.fields.memo ? (
                       <SkillSetEntriesTooltip
