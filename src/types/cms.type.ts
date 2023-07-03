@@ -90,3 +90,5 @@ export type EntityORFieldOrUndefined =
   | EntryField
   | Exclude<IEntry, ICareer>
   | undefined;
+
+export type ContentGetQueryParam = { include?: number };

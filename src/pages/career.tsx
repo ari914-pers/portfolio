@@ -8,6 +8,8 @@ import { getEntries } from '@/utils/cmsUtils';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { isNull } from 'lodash';
 import CompanyDetailView from '@/features/company/CompanyDetailview';
+import { DEPTH_REF_BY_COMPANY } from '@/consts/cms';
+import { ContentGetQueryParam } from '@/types/cms.type';
 
 type CareerPageP = {
   companies: ComponentProps<typeof CompanyDetailView>['entries'] | null;
@@ -28,7 +30,10 @@ export default CareerPage;
 export const getStaticProps: GetStaticProps = async (
   context
 ): Promise<GetStaticPropsResult<CareerPageP>> => {
-  const companies = await getEntries<ICompanyFields>('faq');
+  const companies = await getEntries<ICompanyFields, ContentGetQueryParam>(
+    'company',
+    { include: DEPTH_REF_BY_COMPANY }
+  );
   const futureGoals = await getEntries<IFutureGoalFields>('future_goal');
 
   return {
