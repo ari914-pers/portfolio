@@ -1,0 +1,118 @@
+{
+    "home": {
+        "common": {
+            "name": "名前"
+        },
+        "profile": {
+            "common": {
+                "name": "名前"
+            },
+            "description": "テキストテキストテキストテキスト",
+            "handle_name": "ハンドルネーム",
+            "full_name": "氏名",
+            "mail_address": "メールアドレス",
+            "born_at": "生年月日",
+            "gender": "性別",
+            "residence": "住まい",
+            "birthplace": "出身地",
+            "qualifications": {
+                "title": "資格",
+                "name": "資格名",
+                "score": "級・点数",
+                "obtained_at": "取得年・月",
+                "description": "メモ"
+            },
+            "language_abilities": {
+                "title": "言語",
+                "name": "言語名",
+                "level": "レベル",
+                "comment": "コメント"
+            }
+        },
+        "faq": {
+            "title": "よく聞かれる質問\n(FAQ)",
+            "description": "テキストテキストテキストテキスト"
+        },
+        "personal_development": {
+            "title": "個人開発",
+            "description": "概要",
+            "modal": {
+                "title": "作成物",
+                "description": "概要",
+                "dev_duration": "開発期間",
+                "thought": "感想",
+                "tooltip_title": {
+                    "github": "Githubリポジトリへ移動",
+                    "zenn": "Zennの記事\n(開発の行程)\nへ移動",
+                    "cite": "サイトへ移動"
+                }
+            }
+        },
+        "development_environment": {
+            "title": "開発環境",
+            "languages": "言語",
+            "frameworks": "フレームワーク・ライブラリ",
+            "tools": "ツール",
+            "os": "アーキテクチャ"
+        },
+        "skill_set": {
+            "title": "スキルセット",
+            "description": "テキストテキストテキストテキスト",
+            "name": "スキル名",
+            "memo": "メモ",
+            "period_work_experience": "実務経験",
+            "period_develop_experience": "開発経験",
+            "degree_interest": "興味の度合い",
+            "proficiency_percentage": "習熟度",
+            "category": {
+                "language": "言語",
+                "framework": "フレームワーク",
+                "library": "ライブラリ",
+                "tool": "その他ツール"
+            }
+        },
+        "company": {
+            "title": "履歴・職務経歴",
+            "card_description": "テキストテキストテキストテキストテキストテキスト",
+            "description": "会社の概要",
+            "tenure": "在職期間",
+            "business_content": "事業内容",
+            "number_employees": "従業員数",
+            "listing": {
+                "title": "上場",
+                "true": "上場企業",
+                "false": "未上場企業"
+            },
+            "occupation": "職種",
+            "modal": {
+                "title": "会社"
+            }
+        },
+        "work_projects": {
+            "title": "参加した案件",
+            "label_btn": "案件の概要",
+            "modal": {
+                "title": " 案件",
+                "summary": "概要",
+                "appointment_period": "着任期間",
+                "responsible_phases": {
+                    "title": "担当フェーズ",
+                    "description": "説明"
+
+                },
+                "business_contents": {
+                    "title": "業務内容",
+                    "note": "メモ"
+                },
+                "feedback": "振り返り",
+                "develop_env": "開発環境"
+            }
+        },
+        "future_goal": {
+            "heading": "将来の目標",
+            "title": "目標",
+            "occupation": "職種・分野",
+            "span_goal": "いつまで？"
+        }
+    }
+}

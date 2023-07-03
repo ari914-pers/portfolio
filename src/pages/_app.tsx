@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '@/config/theme';
-import createEmotionCache from '@/config/createEmotionCache';
+import createEmotionCache from '@/config/styles/createEmotionCache';
+import CustomThemeProvider from '@/config/styles/CustomThemeProvider';
+import GlobalStyleProvider from '@/config/styles/GlobalStyleProvider';
+import { appWithTranslation } from 'next-i18next';
+import LayoutRegular from '@/components/layout/LayoutRegular';
+import NextHead from '@/config/app/NextHead';
+import Head from 'next/head';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -14,15 +17,21 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-export default function MyApp(props: MyAppProps) {
+function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
     <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <CustomThemeProvider>
+        {GlobalStyleProvider}
+        <Head>
+          <NextHead />
+        </Head>
+        <LayoutRegular>
+          <Component {...pageProps} />
+        </LayoutRegular>
+      </CustomThemeProvider>
     </CacheProvider>
   );
 }
+
+export default appWithTranslation(MyApp);
