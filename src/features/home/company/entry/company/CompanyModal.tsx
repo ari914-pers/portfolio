@@ -1,13 +1,13 @@
 import BaseModal from '@/components/molecules/surfaces/modal/BaseModal';
 import useModalControl from '@/hooks/useModalControl';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ICompanyFields } from '../../../../../../@types/generated/contentful';
 import Stack from '@/components/atoms/wrappers/Stack';
 import StringEntry from '@/features/home/common/entry/StringEntry';
 import DurationEntry from '@/features/home/common/entry/DurationEntry';
 import { isEmpty } from 'lodash';
 import DocumentEntry from '@/features/home/common/entry/DocumentEntry';
+import { useTranslation } from 'next-i18next';
 
 type CompanyModalProps = Pick<
   ReturnType<typeof useModalControl>,

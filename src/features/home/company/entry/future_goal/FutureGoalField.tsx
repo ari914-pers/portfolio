@@ -2,13 +2,13 @@ import { ComponentProps, FC } from 'react';
 import { IFutureGoalFields } from '../../../../../../@types/generated/contentful';
 import Stack from '@/components/atoms/wrappers/Stack';
 import { Box, Divider, Typography, useTheme } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import LabeledButton from '@/components/atoms/inputs/buttons/LabeledButton';
 import { isEmpty, isUndefined, sortBy } from 'lodash';
 import { genSizingPropertyVal } from '@/utils/style.util';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import FutureGoalModal from './modal/FutureGoalModal';
 import useModalControl from '@/hooks/useModalControl';
+import { useTranslation } from 'next-i18next';
 
 type FutureGoalFieldProps = { entries: IFutureGoalFields[] };
 

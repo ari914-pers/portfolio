@@ -3,10 +3,10 @@ import { Divider, Typography } from '@mui/material';
 import { ComponentProps, FC } from 'react';
 import { ICompanyFields } from '../../../../../../@types/generated/contentful';
 import LabeledButton from '@/components/atoms/inputs/buttons/LabeledButton';
-import { useTranslation } from 'react-i18next';
 import { genSizingPropertyVal } from '@/utils/style.util';
 import CompanyModal from './CompanyModal';
 import useModalControl from '@/hooks/useModalControl';
+import { useTranslation } from 'next-i18next';
 
 type CompanyFieldProps = {
   company: ICompanyFields;

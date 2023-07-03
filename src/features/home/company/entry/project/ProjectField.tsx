@@ -2,12 +2,12 @@ import Stack from '@/components/atoms/wrappers/Stack';
 import { Typography } from '@mui/material';
 import { FC, useContext } from 'react';
 import { IWorkProjects } from '../../../../../../@types/generated/contentful';
-import { useTranslation } from 'react-i18next';
 import BaseRendererForCollectionContents from '@/features/home/common/BaseRendererForCollectionContents';
 import ProjectEntry from './ProjectEntry';
 import { isUndefined, random } from 'lodash';
 import { CompanyContext } from '../../CompanyView';
 import Renderer from '@/components/atoms/display/Renderer';
+import { useTranslation } from 'next-i18next';
 
 type ProjectFieldProps = {
   projects?: IWorkProjects[];

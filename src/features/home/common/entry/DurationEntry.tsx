@@ -3,8 +3,8 @@ import { calcDateTimeDiff, convertMonthsToYearMonth } from '@/utils/datetime';
 import dayjs from 'dayjs';
 import { DefaultTFuncReturn } from 'i18next';
 import { isUndefined } from 'lodash';
+import { useTranslation } from 'next-i18next';
 import React, { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 type DevDurationEntryProps = {
   from?: Date;

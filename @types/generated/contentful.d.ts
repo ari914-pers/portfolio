@@ -553,8 +553,8 @@ export interface IQualificationFields {
   /** 取得の年と月 */
   obtained_at?: string | undefined;
 
-  /** 説明 */
-  description?: Document | undefined;
+  /** 説明＿更新後 */
+  description?: string | undefined;
 }
 
 export interface IQualification extends Entry<IQualificationFields> {
@@ -748,9 +748,6 @@ export interface ISkillset extends Entry<ISkillsetFields> {
 }
 
 export interface IWorkProjectsFields {
-  /** 会社 */
-  company?: ICompany | undefined;
-
   /** タイトル */
   title?: string | undefined;
 

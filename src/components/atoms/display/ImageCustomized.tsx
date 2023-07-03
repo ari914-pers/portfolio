@@ -4,6 +4,7 @@ import { Asset } from 'contentful';
 import Image from 'next/image';
 import { DimensionUnit } from '@/types/style.type';
 import { DIR_PATH_TO_ASSET_IMAGE } from '@/consts/app.const';
+import { processStrIntoURLFormat } from '@/utils/common.util';
 // import noImgNormal from '/images/no_image.png'
 
 type ImageCustomizedProps = {
@@ -34,7 +35,7 @@ const ImageCustomized: FC<PropsWithChildren<ImageCustomizedProps>> = ({
     >
       {imgAsset?.fields.file.url ? (
         <Image
-          src={imgAsset?.fields.file.url}
+          src={processStrIntoURLFormat(imgAsset?.fields.file.url)}
           alt={imgAsset?.fields.title ?? ''}
           style={{
             objectFit: 'contain',

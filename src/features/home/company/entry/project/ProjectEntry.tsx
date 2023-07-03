@@ -5,9 +5,9 @@ import dayjs from 'dayjs';
 import { IWorkProjects } from '../../../../../../@types/generated/contentful';
 import Stack from '@/components/atoms/wrappers/Stack';
 import { ComponentProps, FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import ProjectModal from './modal/ProjectModal';
 import useModalControl from '@/hooks/useModalControl';
+import { useTranslation } from 'next-i18next';
 
 type ProjectEntryProps = {
   entry: IWorkProjects;

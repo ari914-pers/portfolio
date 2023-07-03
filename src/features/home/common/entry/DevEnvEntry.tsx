@@ -19,9 +19,9 @@ import { DefaultTFuncReturn } from 'i18next';
 import { toOrderGuaranteed } from '@/utils/cmsEntry.util';
 import { personalDevelopmentModalDevEnvEntries } from '@/consts/features/home.const';
 import Renderer from '@/components/atoms/display/Renderer';
-import { useTranslation } from 'react-i18next';
 import DocumentEntry from './DocumentEntry';
 import SkillSetEntries from './collection/SkillSetEntries';
+import { useTranslation } from 'next-i18next';
 
 type DevEnvEntryProps = {
   fieldName: DefaultTFuncReturn;

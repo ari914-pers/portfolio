@@ -1,7 +1,7 @@
 import BaseCard from '@/components/molecules/surfaces/BaseCard';
 import { ComponentProps, FC } from 'react';
 import FaqView from '../home/faq/FaqView';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 type FaqListViewProps = { faqs: ComponentProps<typeof FaqView>['faqs'] | null };
 

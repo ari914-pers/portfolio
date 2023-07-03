@@ -18,8 +18,8 @@ import {
 } from '@mui/material';
 import { DefaultTFuncReturn } from 'i18next';
 import React, { FC, PropsWithChildren, forwardRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import BtnClose from './BtnClose';
+import { useTranslation } from 'next-i18next';
 
 type BaseModalProps = Pick<
   ReturnType<typeof useModalControl>,

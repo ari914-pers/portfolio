@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { IFutureGoalFields } from '../../../../../../../@types/generated/contentful';
 import StringEntry from '@/features/home/common/entry/StringEntry';
-import { useTranslation } from 'react-i18next';
 import { isEmpty, isUndefined } from 'lodash';
 import AccordionWrapper from '@/components/atoms/wrappers/AccordionWrapper';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Grid, Typography } from '@mui/material';
 import { genOneSideSpacingCssProperty } from '@/utils/style.util';
+import { useTranslation } from 'next-i18next';
 
 type FutureGoalEntryProps = { entry: IFutureGoalFields; rank?: number };
 
