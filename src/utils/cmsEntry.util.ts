@@ -1,4 +1,4 @@
-import { isUndefined, map } from 'lodash';
+import { isArray, isNull, isUndefined, map, size } from 'lodash';
 import {
   IBusiessContentFields,
   IExternalServiceLink,
@@ -8,6 +8,7 @@ import {
   IResponsiblePhaseFields,
 } from '../../@types/generated/contentful';
 import { EntryField } from '@/types/cms.type';
+import { NO_SIZE_CONTENT_COLLECTION } from '@/consts/features/home.const';
 
 // type guards
 export const isExternalServiceLinks = (
@@ -53,4 +54,13 @@ export const toOrderGuaranteed = <T, U extends EntryField>(
   );
 
   return Array.from(profileTextFieldMap);
+};
+
+export const checkEntriesToBeShown = (
+  entries: EntryField | EntryField[] | null
+): entries is Exclude<typeof entries, null> => {
+  return (
+    !isNull(entries) &&
+    (isArray(entries) ? size(entries) > NO_SIZE_CONTENT_COLLECTION : true)
+  );
 };
