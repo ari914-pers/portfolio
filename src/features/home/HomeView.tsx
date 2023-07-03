@@ -6,8 +6,9 @@ import ProfileView from './profile/ProfileView';
 import SkillSetView from './skill_set/SkillSetView';
 import { genOneSideSpacingCssProperty } from '@/utils/style.util';
 import { Grid } from '@mui/material';
-import { isNull, size } from 'lodash';
 import SkillSetTab from './skill_set/component/SkillSetTab';
+import ItemGridContainer from './ItemGridContainer';
+import { checkEntriesToBeShown } from '@/utils/cmsEntry.util';
 
 export type HomeViewProps = {
   profile: ComponentProps<typeof ProfileView>['fields'] | null;
@@ -16,7 +17,7 @@ export type HomeViewProps = {
   faqs: ComponentProps<typeof FaqView>['faqs'] | null;
   personalDevelopments: // eslint-disable-next-line prettier/prettier
   | ComponentProps<typeof PersonalDevelopmentView>['personalDevelopment']
-    // eslint-disable-next-line prettier/prettier
+  // eslint-disable-next-line prettier/prettier
   | null;
   skillSets: ComponentProps<typeof SkillSetView>['entries'] | null;
 };
@@ -37,75 +38,37 @@ const HomeView: FC<HomeViewProps> = ({
         md: genOneSideSpacingCssProperty('lg'),
       }}
     >
-      {!isNull(profile) && (
-        <Grid
-          item
-          container
-          alignItems='center'
-          justifyContent='center'
-          xs={12}
-          md={6}
-        >
+      {checkEntriesToBeShown(profile) ? (
+        <ItemGridContainer>
           <ProfileView fields={profile} />
-        </Grid>
-      )}
-      {!isNull(companies) &&
-        !isNull(futureGoals) &&
-        size(companies) > 0 &&
-        size(futureGoals) > 0 && (
-          <Grid
-            item
-            container
-            alignItems='center'
-            justifyContent='center'
-            xs={12}
-            md={6}
-          >
-            <CompanyView
-              entries={companies}
-              futureGoals={futureGoals}
-              isUsedOnHome
-            />
-          </Grid>
-        )}
-      {!isNull(faqs) && size(faqs) > 0 && (
-        <Grid
-          item
-          container
-          alignItems='center'
-          justifyContent='center'
-          xs={12}
-          md={6}
-        >
+        </ItemGridContainer>
+      ) : null}
+      {checkEntriesToBeShown(companies) && checkEntriesToBeShown(futureGoals) ? (
+        <ItemGridContainer>
+          <CompanyView
+            entries={companies}
+            futureGoals={futureGoals}
+            isUsedOnHome
+          />
+        </ItemGridContainer>
+      ) : null}
+      {checkEntriesToBeShown(faqs) ? (
+        <ItemGridContainer>
           <FaqView faqs={faqs} isUsedOnHome />
-        </Grid>
-      )}
-      {!isNull(personalDevelopments) && size(personalDevelopments) > 0 && (
-        <Grid
-          item
-          container
-          alignItems='center'
-          justifyContent='center'
-          xs={12}
-          md={6}
-        >
+        </ItemGridContainer>
+      ) : null}
+      {checkEntriesToBeShown(personalDevelopments) ? (
+        <ItemGridContainer>
           <PersonalDevelopmentView personalDevelopment={personalDevelopments} />
-        </Grid>
-      )}
-      {!isNull(skillSets) && size(skillSets) > 0 && (
-        <Grid
-          item
-          container
-          alignItems='center'
-          justifyContent='center'
-          xs={12}
-          md={6}
-        >
+        </ItemGridContainer>
+      ) : null}
+      {checkEntriesToBeShown(skillSets) ? (
+        <ItemGridContainer>
           <SkillSetView entries={skillSets}>
             <SkillSetTab isUsedOnHome />
           </SkillSetView>
-        </Grid>
-      )}
+        </ItemGridContainer>
+      ) : null}
     </Grid>
   );
 };
