@@ -2,7 +2,6 @@ import useModalControl from '@/hooks/useModalControl';
 import { FC } from 'react';
 import { IWorkProjectsFields } from '../../../../../../../@types/generated/contentful';
 import BaseModal from '@/components/molecules/surfaces/modal/BaseModal';
-import { useTranslation } from 'react-i18next';
 import Stack from '@/components/atoms/wrappers/Stack';
 import StringEntry from '@/features/home/common/entry/StringEntry';
 import DurationEntry from '@/features/home/common/entry/DurationEntry';
@@ -15,6 +14,7 @@ import Renderer from '@/components/atoms/display/Renderer';
 import useAccordionExpansionControl from '@/hooks/useAccordionExpansionControl';
 import FeedbackEntry from './entry/FeedbackEntry';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
 
 type ProjectModalProps = Pick<
   ReturnType<typeof useModalControl>,
@@ -71,7 +71,7 @@ const ProjectModal: FC<ProjectModalProps> = ({
               <Renderer
                 entries={entry.responsible_phases}
                 iteratee={(entry) => (
-                  <CollectionEntry entry={entry} key={entry.fields.title} />
+                  <CollectionEntry entry={entry} key={entry.fields?.title} />
                 )}
               />
             </AccordionWrapper>

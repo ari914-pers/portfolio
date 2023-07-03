@@ -9,16 +9,14 @@ type CollectionEntryProps = {
   entry: IResponsiblePhase | IBusiessContent;
 };
 
-const CollectionEntry: FC<CollectionEntryProps> = ({
-  entry: {
-    fields: { title, note },
-  },
-}) => {
-  return title ? (
+const CollectionEntry: FC<CollectionEntryProps> = ({ entry }) => {
+  return entry?.fields?.title ? (
     <>
-      <Typography variant='spanHeading'>{title}</Typography>
-      {note && (
-        <Typography variant='body2'>&mdash;&mdash;&mdash;{note}</Typography>
+      <Typography variant='spanHeading'>{entry?.fields?.title}</Typography>
+      {entry?.fields?.title && (
+        <Typography variant='body2'>
+          &mdash;&mdash;&mdash;{entry?.fields?.title}
+        </Typography>
       )}
     </>
   ) : null;

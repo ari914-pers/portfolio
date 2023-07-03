@@ -5,7 +5,6 @@ import { Avatar } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import React, { FC } from 'react';
 import { IProfileFields } from '../../../../@types/generated/contentful';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import {
   LanguageAbilityContents,
   PREFIX_ANCHOR_MAIL_ADDRESS,
@@ -38,9 +37,7 @@ const ProfileView: FC<ProfileViewProps> = ({ fields }) => {
   return (
     <BaseCard
       title={fields?.heading_content}
-      description={
-        fields?.desc_content && documentToReactComponents(fields?.desc_content)
-      }
+      description={t('home.profile.description', { ns: 'home' })}
       btnAction={
         <LabeledButton buttonProps={{ onClick: handleClick }}>
           {t('common.label.btnDetail')}

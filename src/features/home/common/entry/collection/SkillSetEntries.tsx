@@ -36,7 +36,7 @@ const SkillSetEntries: FC<DevEnvEntryProps> = ({ fieldName, entries }) => {
           <Renderer
             entries={entries}
             iteratee={(entry) =>
-              entry.fields.img_icon?.fields.file.url ? (
+              entry.fields?.img_icon?.fields.file.url ? (
                 <IconBox
                   size='lg'
                   srcURL={

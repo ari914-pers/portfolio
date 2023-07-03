@@ -6,7 +6,7 @@ import ProfileView from './profile/ProfileView';
 import SkillSetView from './skill_set/SkillSetView';
 import { genOneSideSpacingCssProperty } from '@/utils/style.util';
 import { Grid } from '@mui/material';
-import { isNull } from 'lodash';
+import { isNull, size } from 'lodash';
 import SkillSetTab from './skill_set/component/SkillSetTab';
 
 export type HomeViewProps = {
@@ -49,23 +49,26 @@ const HomeView: FC<HomeViewProps> = ({
           <ProfileView fields={profile} />
         </Grid>
       )}
-      {!isNull(companies) && !isNull(futureGoals) && (
-        <Grid
-          item
-          container
-          alignItems='center'
-          justifyContent='center'
-          xs={12}
-          md={6}
-        >
-          <CompanyView
-            entries={companies}
-            futureGoals={futureGoals}
-            isUsedOnHome
-          />
-        </Grid>
-      )}
-      {!isNull(faqs) && (
+      {!isNull(companies) &&
+        !isNull(futureGoals) &&
+        size(companies) > 0 &&
+        size(futureGoals) > 0 && (
+          <Grid
+            item
+            container
+            alignItems='center'
+            justifyContent='center'
+            xs={12}
+            md={6}
+          >
+            <CompanyView
+              entries={companies}
+              futureGoals={futureGoals}
+              isUsedOnHome
+            />
+          </Grid>
+        )}
+      {!isNull(faqs) && size(faqs) > 0 && (
         <Grid
           item
           container
@@ -77,7 +80,7 @@ const HomeView: FC<HomeViewProps> = ({
           <FaqView faqs={faqs} isUsedOnHome />
         </Grid>
       )}
-      {!isNull(personalDevelopments) && (
+      {!isNull(personalDevelopments) && size(personalDevelopments) > 0 && (
         <Grid
           item
           container
@@ -89,7 +92,7 @@ const HomeView: FC<HomeViewProps> = ({
           <PersonalDevelopmentView personalDevelopment={personalDevelopments} />
         </Grid>
       )}
-      {!isNull(skillSets) && (
+      {!isNull(skillSets) && size(skillSets) > 0 && (
         <Grid
           item
           container

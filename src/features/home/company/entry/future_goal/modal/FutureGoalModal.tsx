@@ -1,13 +1,13 @@
 import BaseModal from '@/components/molecules/surfaces/modal/BaseModal';
 import useModalControl from '@/hooks/useModalControl';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import Stack from '@/components/atoms/wrappers/Stack';
 import { IFutureGoalFields } from '../../../../../../../@types/generated/contentful';
 import Renderer from '@/components/atoms/display/Renderer';
 import FutureGoalEntry from './FutureGoalEntry';
 import { isNumber, random, sortBy, toString } from 'lodash';
 import { Box, Divider } from '@mui/material';
+import { useTranslation } from 'next-i18next';
 
 type FutureGoalModalProps = Pick<
   ReturnType<typeof useModalControl>,

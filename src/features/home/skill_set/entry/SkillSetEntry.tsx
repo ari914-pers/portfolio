@@ -12,12 +12,12 @@ import IconBox from '@/components/atoms/wrappers/IconBox';
 import { DIR_PATH_TO_ASSET_IMAGE } from '@/consts/app.const';
 import Button from '@/components/atoms/inputs/buttons';
 import { HelpOutline } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
 import { genOneSideSpacingCssProperty } from '@/utils/style.util';
 import Stack from '@/components/atoms/wrappers/Stack';
 import useModalControl from '@/hooks/useModalControl';
 import SkillSetModal from '../component/SkillSetModal';
 import { processStrIntoURLFormat } from '@/utils/common.util';
+import { useTranslation } from 'next-i18next';
 
 type SkillSetEntryProps = {
   entry: ISkillsetFields;

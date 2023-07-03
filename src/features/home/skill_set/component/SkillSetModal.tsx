@@ -1,12 +1,12 @@
 import BaseModal from '@/components/molecules/surfaces/modal/BaseModal';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ISkillsetFields } from '../../../../../@types/generated/contentful';
 import { toOrderGuaranteed } from '@/utils/cmsEntry.util';
 import { skillSetModalFields } from '@/consts/features/home.const';
 import Renderer from '@/components/atoms/display/Renderer';
 import StringEntry from '../../common/entry/StringEntry';
 import Stack from '@/components/atoms/wrappers/Stack';
+import { useTranslation } from 'next-i18next';
 
 type SkillSetModalProps = {
   entry: ISkillsetFields;
