@@ -11,6 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { FC } from 'react';
 import { usePathname } from 'next/navigation';
 import { Link as Scroll } from 'react-scroll';
+import { themeValues } from '@/consts/themeConstant';
 
 const Menu: FC = () => {
   const [open, anchorEl, handleClick, handleClose] = useMenuControl();
@@ -47,7 +48,20 @@ const Menu: FC = () => {
             path === '/' ? (
               <Scroll to={entry.id} offset={-200} key={entry.id}>
                 <MenuItem
-                  sx={{ p: genTwoSidesSpacingCssProperty('sm-md') }}
+                  sx={{
+                    p: genTwoSidesSpacingCssProperty('sm-md'),
+                    bgcolor:
+                      entry.path === path
+                        ? themeValues.palette.semantics.link
+                        : 'inherit',
+                    color:
+                      entry.path === path
+                        ? (theme) => theme.palette.common.white
+                        : themeValues.palette.semantics.link,
+                    '&:hover': {
+                      color: themeValues.palette.semantics.link,
+                    },
+                  }}
                   onClick={handleClose}
                 >
                   {entry.label}
@@ -56,7 +70,20 @@ const Menu: FC = () => {
             ) : (
               <Link href={entry.path} key={entry.id}>
                 <MenuItem
-                  sx={{ p: genTwoSidesSpacingCssProperty('sm-md') }}
+                  sx={{
+                    p: genTwoSidesSpacingCssProperty('sm-md'),
+                    bgcolor:
+                      entry.path === path
+                        ? themeValues.palette.semantics.link
+                        : 'inherit',
+                    color:
+                      entry.path === path
+                        ? (theme) => theme.palette.common.white
+                        : 'inherit',
+                    '&:hover': {
+                      color: themeValues.palette.semantics.link,
+                    },
+                  }}
                   onClick={handleClose}
                 >
                   {entry.label}
