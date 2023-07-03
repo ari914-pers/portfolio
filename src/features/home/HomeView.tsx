@@ -17,7 +17,6 @@ export type HomeViewProps = {
   faqs: ComponentProps<typeof FaqView>['faqs'] | null;
   personalDevelopments: // eslint-disable-next-line prettier/prettier
   | ComponentProps<typeof PersonalDevelopmentView>['personalDevelopment']
-  // eslint-disable-next-line prettier/prettier
   | null;
   skillSets: ComponentProps<typeof SkillSetView>['entries'] | null;
 };
@@ -43,7 +42,8 @@ const HomeView: FC<HomeViewProps> = ({
           <ProfileView fields={profile} />
         </ItemGridContainer>
       ) : null}
-      {checkEntriesToBeShown(companies) && checkEntriesToBeShown(futureGoals) ? (
+      {checkEntriesToBeShown(companies) &&
+      checkEntriesToBeShown(futureGoals) ? (
         <ItemGridContainer>
           <CompanyView
             entries={companies}
